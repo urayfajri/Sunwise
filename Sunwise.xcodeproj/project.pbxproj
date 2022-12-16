@@ -1,0 +1,624 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		202048DD294C1809007A9BC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202048DC294C1809007A9BC1 /* AppDelegate.swift */; };
+		202048DF294C1809007A9BC1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202048DE294C1809007A9BC1 /* SceneDelegate.swift */; };
+		202048E1294C1809007A9BC1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202048E0294C1809007A9BC1 /* ViewController.swift */; };
+		202048E4294C1809007A9BC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 202048E2294C1809007A9BC1 /* Main.storyboard */; };
+		202048E7294C1809007A9BC1 /* Sunwise.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 202048E5294C1809007A9BC1 /* Sunwise.xcdatamodeld */; };
+		202048E9294C180B007A9BC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 202048E8294C180B007A9BC1 /* Assets.xcassets */; };
+		202048EC294C180B007A9BC1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 202048EA294C180B007A9BC1 /* LaunchScreen.storyboard */; };
+		202048F7294C180B007A9BC1 /* SunwiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202048F6294C180B007A9BC1 /* SunwiseTests.swift */; };
+		20204901294C180B007A9BC1 /* SunwiseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20204900294C180B007A9BC1 /* SunwiseUITests.swift */; };
+		20204903294C180B007A9BC1 /* SunwiseUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20204902294C180B007A9BC1 /* SunwiseUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		202048F3294C180B007A9BC1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 202048D1294C1809007A9BC1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 202048D8294C1809007A9BC1;
+			remoteInfo = Sunwise;
+		};
+		202048FD294C180B007A9BC1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 202048D1294C1809007A9BC1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 202048D8294C1809007A9BC1;
+			remoteInfo = Sunwise;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		202048D9294C1809007A9BC1 /* Sunwise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sunwise.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		202048DC294C1809007A9BC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		202048DE294C1809007A9BC1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		202048E0294C1809007A9BC1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		202048E3294C1809007A9BC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		202048E6294C1809007A9BC1 /* Sunwise.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Sunwise.xcdatamodel; sourceTree = "<group>"; };
+		202048E8294C180B007A9BC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		202048EB294C180B007A9BC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		202048ED294C180B007A9BC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		202048F2294C180B007A9BC1 /* SunwiseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SunwiseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		202048F6294C180B007A9BC1 /* SunwiseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunwiseTests.swift; sourceTree = "<group>"; };
+		202048FC294C180B007A9BC1 /* SunwiseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SunwiseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		20204900294C180B007A9BC1 /* SunwiseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunwiseUITests.swift; sourceTree = "<group>"; };
+		20204902294C180B007A9BC1 /* SunwiseUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunwiseUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		202048D6294C1809007A9BC1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		202048EF294C180B007A9BC1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		202048F9294C180B007A9BC1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		202048D0294C1809007A9BC1 = {
+			isa = PBXGroup;
+			children = (
+				202048DB294C1809007A9BC1 /* Sunwise */,
+				202048F5294C180B007A9BC1 /* SunwiseTests */,
+				202048FF294C180B007A9BC1 /* SunwiseUITests */,
+				202048DA294C1809007A9BC1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		202048DA294C1809007A9BC1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				202048D9294C1809007A9BC1 /* Sunwise.app */,
+				202048F2294C180B007A9BC1 /* SunwiseTests.xctest */,
+				202048FC294C180B007A9BC1 /* SunwiseUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		202048DB294C1809007A9BC1 /* Sunwise */ = {
+			isa = PBXGroup;
+			children = (
+				202048DC294C1809007A9BC1 /* AppDelegate.swift */,
+				202048DE294C1809007A9BC1 /* SceneDelegate.swift */,
+				202048E0294C1809007A9BC1 /* ViewController.swift */,
+				202048E2294C1809007A9BC1 /* Main.storyboard */,
+				202048E8294C180B007A9BC1 /* Assets.xcassets */,
+				202048EA294C180B007A9BC1 /* LaunchScreen.storyboard */,
+				202048ED294C180B007A9BC1 /* Info.plist */,
+				202048E5294C1809007A9BC1 /* Sunwise.xcdatamodeld */,
+			);
+			path = Sunwise;
+			sourceTree = "<group>";
+		};
+		202048F5294C180B007A9BC1 /* SunwiseTests */ = {
+			isa = PBXGroup;
+			children = (
+				202048F6294C180B007A9BC1 /* SunwiseTests.swift */,
+			);
+			path = SunwiseTests;
+			sourceTree = "<group>";
+		};
+		202048FF294C180B007A9BC1 /* SunwiseUITests */ = {
+			isa = PBXGroup;
+			children = (
+				20204900294C180B007A9BC1 /* SunwiseUITests.swift */,
+				20204902294C180B007A9BC1 /* SunwiseUITestsLaunchTests.swift */,
+			);
+			path = SunwiseUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		202048D8294C1809007A9BC1 /* Sunwise */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 20204906294C180B007A9BC1 /* Build configuration list for PBXNativeTarget "Sunwise" */;
+			buildPhases = (
+				202048D5294C1809007A9BC1 /* Sources */,
+				202048D6294C1809007A9BC1 /* Frameworks */,
+				202048D7294C1809007A9BC1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Sunwise;
+			productName = Sunwise;
+			productReference = 202048D9294C1809007A9BC1 /* Sunwise.app */;
+			productType = "com.apple.product-type.application";
+		};
+		202048F1294C180B007A9BC1 /* SunwiseTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 20204909294C180B007A9BC1 /* Build configuration list for PBXNativeTarget "SunwiseTests" */;
+			buildPhases = (
+				202048EE294C180B007A9BC1 /* Sources */,
+				202048EF294C180B007A9BC1 /* Frameworks */,
+				202048F0294C180B007A9BC1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				202048F4294C180B007A9BC1 /* PBXTargetDependency */,
+			);
+			name = SunwiseTests;
+			productName = SunwiseTests;
+			productReference = 202048F2294C180B007A9BC1 /* SunwiseTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		202048FB294C180B007A9BC1 /* SunwiseUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2020490C294C180B007A9BC1 /* Build configuration list for PBXNativeTarget "SunwiseUITests" */;
+			buildPhases = (
+				202048F8294C180B007A9BC1 /* Sources */,
+				202048F9294C180B007A9BC1 /* Frameworks */,
+				202048FA294C180B007A9BC1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				202048FE294C180B007A9BC1 /* PBXTargetDependency */,
+			);
+			name = SunwiseUITests;
+			productName = SunwiseUITests;
+			productReference = 202048FC294C180B007A9BC1 /* SunwiseUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		202048D1294C1809007A9BC1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1410;
+				LastUpgradeCheck = 1410;
+				TargetAttributes = {
+					202048D8294C1809007A9BC1 = {
+						CreatedOnToolsVersion = 14.1;
+					};
+					202048F1294C180B007A9BC1 = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = 202048D8294C1809007A9BC1;
+					};
+					202048FB294C180B007A9BC1 = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = 202048D8294C1809007A9BC1;
+					};
+				};
+			};
+			buildConfigurationList = 202048D4294C1809007A9BC1 /* Build configuration list for PBXProject "Sunwise" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 202048D0294C1809007A9BC1;
+			productRefGroup = 202048DA294C1809007A9BC1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				202048D8294C1809007A9BC1 /* Sunwise */,
+				202048F1294C180B007A9BC1 /* SunwiseTests */,
+				202048FB294C180B007A9BC1 /* SunwiseUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		202048D7294C1809007A9BC1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				202048EC294C180B007A9BC1 /* LaunchScreen.storyboard in Resources */,
+				202048E9294C180B007A9BC1 /* Assets.xcassets in Resources */,
+				202048E4294C1809007A9BC1 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		202048F0294C180B007A9BC1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		202048FA294C180B007A9BC1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		202048D5294C1809007A9BC1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				202048E1294C1809007A9BC1 /* ViewController.swift in Sources */,
+				202048DD294C1809007A9BC1 /* AppDelegate.swift in Sources */,
+				202048E7294C1809007A9BC1 /* Sunwise.xcdatamodeld in Sources */,
+				202048DF294C1809007A9BC1 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		202048EE294C180B007A9BC1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				202048F7294C180B007A9BC1 /* SunwiseTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		202048F8294C180B007A9BC1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20204901294C180B007A9BC1 /* SunwiseUITests.swift in Sources */,
+				20204903294C180B007A9BC1 /* SunwiseUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		202048F4294C180B007A9BC1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 202048D8294C1809007A9BC1 /* Sunwise */;
+			targetProxy = 202048F3294C180B007A9BC1 /* PBXContainerItemProxy */;
+		};
+		202048FE294C180B007A9BC1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 202048D8294C1809007A9BC1 /* Sunwise */;
+			targetProxy = 202048FD294C180B007A9BC1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		202048E2294C1809007A9BC1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				202048E3294C1809007A9BC1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		202048EA294C180B007A9BC1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				202048EB294C180B007A9BC1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		20204904294C180B007A9BC1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		20204905294C180B007A9BC1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		20204907294C180B007A9BC1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 874S576UUN;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Sunwise/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = UrayWidiansyah.Sunwise;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		20204908294C180B007A9BC1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 874S576UUN;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Sunwise/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = UrayWidiansyah.Sunwise;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		2020490A294C180B007A9BC1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 874S576UUN;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = UrayWidiansyah.SunwiseTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sunwise.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Sunwise";
+			};
+			name = Debug;
+		};
+		2020490B294C180B007A9BC1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 874S576UUN;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = UrayWidiansyah.SunwiseTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sunwise.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Sunwise";
+			};
+			name = Release;
+		};
+		2020490D294C180B007A9BC1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 874S576UUN;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = UrayWidiansyah.SunwiseUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Sunwise;
+			};
+			name = Debug;
+		};
+		2020490E294C180B007A9BC1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 874S576UUN;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = UrayWidiansyah.SunwiseUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Sunwise;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		202048D4294C1809007A9BC1 /* Build configuration list for PBXProject "Sunwise" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				20204904294C180B007A9BC1 /* Debug */,
+				20204905294C180B007A9BC1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		20204906294C180B007A9BC1 /* Build configuration list for PBXNativeTarget "Sunwise" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				20204907294C180B007A9BC1 /* Debug */,
+				20204908294C180B007A9BC1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		20204909294C180B007A9BC1 /* Build configuration list for PBXNativeTarget "SunwiseTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2020490A294C180B007A9BC1 /* Debug */,
+				2020490B294C180B007A9BC1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2020490C294C180B007A9BC1 /* Build configuration list for PBXNativeTarget "SunwiseUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2020490D294C180B007A9BC1 /* Debug */,
+				2020490E294C180B007A9BC1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		202048E5294C1809007A9BC1 /* Sunwise.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				202048E6294C1809007A9BC1 /* Sunwise.xcdatamodel */,
+			);
+			currentVersion = 202048E6294C1809007A9BC1 /* Sunwise.xcdatamodel */;
+			path = Sunwise.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 202048D1294C1809007A9BC1 /* Project object */;
+}

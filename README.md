@@ -85,7 +85,8 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/urayfajri"><img src="https://avatars.githubusercontent.com/u/77041388?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Uray Muhamad Noor Fajri Widiansyah</b></sub></a><br /><a href="https://github.com/raadyaa/CEPU-MC2/commits?author=urayfajri" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/urayfajri"><img src="https://avatars.githubusercontent.com/u/77041388?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Uray Muhamad Noor Fajri Widiansyah</b></sub></a><br /><a href="https://github.com/urayfajri/Sunwise?commits?author=urayfajri" title="Code">💻</a></td>
+     <td align="center"><a href="https://github.com/urayfajri"><img src="https://avatars.githubusercontent.com/u/77041388?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ariel Waraney Manueke</b></sub></a><br /><a href="https://github.com/urayfajri/Sunwise?commits?author=urayfajri" title="Code">💻</a></td>
  </tr>
 </table>
 

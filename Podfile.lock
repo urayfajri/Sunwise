@@ -1,0 +1,20 @@
+PODS:
+  - FSCalendar (2.8.4)
+  - IQKeyboardManagerSwift (6.5.10)
+
+DEPENDENCIES:
+  - FSCalendar
+  - IQKeyboardManagerSwift
+
+SPEC REPOS:
+  trunk:
+    - FSCalendar
+    - IQKeyboardManagerSwift
+
+SPEC CHECKSUMS:
+  FSCalendar: 2d1d0d9398f12d439f55c1fe0f01525b151b8260
+  IQKeyboardManagerSwift: 52962c76ab33532f15ad9f3ff4e5715eda5335bb
+
+PODFILE CHECKSUM: d09dfeba5365166d8da4d483b3d3782947007d82
+
+COCOAPODS: 1.11.3

@@ -1,0 +1,6 @@
+framework module Pods_Sunwise_SunwiseUITests {
+  umbrella header "Pods-Sunwise-SunwiseUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -18,6 +18,12 @@
 		202048F7294C180B007A9BC1 /* SunwiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202048F6294C180B007A9BC1 /* SunwiseTests.swift */; };
 		20204901294C180B007A9BC1 /* SunwiseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20204900294C180B007A9BC1 /* SunwiseUITests.swift */; };
 		20204903294C180B007A9BC1 /* SunwiseUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20204902294C180B007A9BC1 /* SunwiseUITestsLaunchTests.swift */; };
+		2023BF98294FC33000972E36 /* Sunbathe.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2023BF97294FC33000972E36 /* Sunbathe.storyboard */; };
+		2023BF9A294FC34900972E36 /* Weather.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2023BF99294FC34900972E36 /* Weather.storyboard */; };
+		2023BF9C294FC35500972E36 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2023BF9B294FC35500972E36 /* Setting.storyboard */; };
+		2023BF9E294FFE3D00972E36 /* SunbatheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2023BF9D294FFE3D00972E36 /* SunbatheViewController.swift */; };
+		2023BFA0294FFE4E00972E36 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2023BF9F294FFE4E00972E36 /* WeatherViewController.swift */; };
+		2023BFA2294FFE5C00972E36 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2023BFA1294FFE5C00972E36 /* SettingViewController.swift */; };
 		212800E20BB4E384C45882A9 /* Pods_Sunwise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEB400C7EBC470224748A827 /* Pods_Sunwise.framework */; };
 		3E31DB78147B430ED5655D1F /* Pods_SunwiseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77DDD99D7F47414FF15B1F7A /* Pods_SunwiseTests.framework */; };
 /* End PBXBuildFile section */
@@ -54,6 +60,12 @@
 		202048FC294C180B007A9BC1 /* SunwiseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SunwiseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		20204900294C180B007A9BC1 /* SunwiseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunwiseUITests.swift; sourceTree = "<group>"; };
 		20204902294C180B007A9BC1 /* SunwiseUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunwiseUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		2023BF97294FC33000972E36 /* Sunbathe.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sunbathe.storyboard; sourceTree = "<group>"; };
+		2023BF99294FC34900972E36 /* Weather.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Weather.storyboard; sourceTree = "<group>"; };
+		2023BF9B294FC35500972E36 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
+		2023BF9D294FFE3D00972E36 /* SunbatheViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunbatheViewController.swift; sourceTree = "<group>"; };
+		2023BF9F294FFE4E00972E36 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		2023BFA1294FFE5C00972E36 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		46AEBA3662E47A0CAD8A45BA /* Pods-SunwiseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SunwiseTests.release.xcconfig"; path = "Target Support Files/Pods-SunwiseTests/Pods-SunwiseTests.release.xcconfig"; sourceTree = "<group>"; };
 		478AD51CE9A81CA237584FB1 /* Pods-Sunwise.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sunwise.release.xcconfig"; path = "Target Support Files/Pods-Sunwise/Pods-Sunwise.release.xcconfig"; sourceTree = "<group>"; };
 		67A66DA3957D2C1DA05E621B /* Pods-Sunwise-SunwiseUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sunwise-SunwiseUITests.release.xcconfig"; path = "Target Support Files/Pods-Sunwise-SunwiseUITests/Pods-Sunwise-SunwiseUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -212,6 +224,7 @@
 		2023BF91294FC0B200972E36 /* Sunbathe */ = {
 			isa = PBXGroup;
 			children = (
+				2023BF9D294FFE3D00972E36 /* SunbatheViewController.swift */,
 			);
 			path = Sunbathe;
 			sourceTree = "<group>";
@@ -219,6 +232,7 @@
 		2023BF92294FC0BB00972E36 /* Weather */ = {
 			isa = PBXGroup;
 			children = (
+				2023BF9F294FFE4E00972E36 /* WeatherViewController.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -226,6 +240,7 @@
 		2023BF93294FC0C500972E36 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				2023BFA1294FFE5C00972E36 /* SettingViewController.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -233,6 +248,7 @@
 		2023BF94294FC0F000972E36 /* Sunbathe */ = {
 			isa = PBXGroup;
 			children = (
+				2023BF97294FC33000972E36 /* Sunbathe.storyboard */,
 			);
 			path = Sunbathe;
 			sourceTree = "<group>";
@@ -240,6 +256,7 @@
 		2023BF95294FC0FA00972E36 /* Weather */ = {
 			isa = PBXGroup;
 			children = (
+				2023BF99294FC34900972E36 /* Weather.storyboard */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -247,6 +264,7 @@
 		2023BF96294FC10200972E36 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				2023BF9B294FC35500972E36 /* Setting.storyboard */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -383,9 +401,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2023BF98294FC33000972E36 /* Sunbathe.storyboard in Resources */,
+				2023BF9A294FC34900972E36 /* Weather.storyboard in Resources */,
 				202048EC294C180B007A9BC1 /* LaunchScreen.storyboard in Resources */,
 				202048E9294C180B007A9BC1 /* Assets.xcassets in Resources */,
 				202048E4294C1809007A9BC1 /* Main.storyboard in Resources */,
+				2023BF9C294FC35500972E36 /* Setting.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -513,9 +534,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2023BF9E294FFE3D00972E36 /* SunbatheViewController.swift in Sources */,
+				2023BFA0294FFE4E00972E36 /* WeatherViewController.swift in Sources */,
 				202048E1294C1809007A9BC1 /* ViewController.swift in Sources */,
 				202048DD294C1809007A9BC1 /* AppDelegate.swift in Sources */,
 				202048E7294C1809007A9BC1 /* Sunwise.xcdatamodeld in Sources */,
+				2023BFA2294FFE5C00972E36 /* SettingViewController.swift in Sources */,
 				202048DF294C1809007A9BC1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -700,8 +724,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -709,9 +733,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = UrayWidiansyah.Sunwise;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -729,8 +756,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -738,9 +765,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = UrayWidiansyah.Sunwise;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -10,8 +10,11 @@ import UIKit
 class OnboardingViewController: UIViewController {
 
     
+    @IBOutlet weak var onBoardingImage: UIImageView!
+    @IBOutlet weak var welcomeTitleLabel: UILabel!
+    @IBOutlet weak var subtitleTextView: UITextView!
     @IBOutlet weak var setSkinProfileButton: UIButton!
-    
+    @IBOutlet weak var titleDescriptionTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +24,15 @@ class OnboardingViewController: UIViewController {
     
     
     @IBAction func setSkinProfileButtonTapped(_ sender: Any) {
+        hideElementPageOne()
     }
     
-
+    func hideElementPageOne() {
+        onBoardingImage.isHidden = true
+        welcomeTitleLabel.isHidden = true
+        titleDescriptionTextView.isHidden = true
+        subtitleTextView.isHidden = true
+        // setSkinProfileButton.isHidden = true
+    }
+    
 }

@@ -84,7 +84,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="onBoardingImage" destination="hk5-64-7rl" id="vPh-5W-SsI"/>
                         <outlet property="setSkinProfileButton" destination="QsP-HP-ZAG" id="e4R-tu-26z"/>
+                        <outlet property="subtitleTextView" destination="uH0-9V-DAp" id="hQz-Z5-b7j"/>
+                        <outlet property="titleDescriptionTextView" destination="h41-va-dIN" id="o8s-0l-fbT"/>
+                        <outlet property="welcomeTitleLabel" destination="3d3-no-cN2" id="Cyg-pz-RzR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Onboarding View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="mainStoryboard" id="BYZ-38-t0r" customClass="OnboardingViewController" customModule="Sunwise" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hk5-64-7rl">
+                                <rect key="frame" x="40" y="99" width="313" height="315"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="315" id="hiP-us-sdB"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3d3-no-cN2">
+                                <rect key="frame" x="40" y="464" width="313" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="Njo-zo-TCK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Sunwise will help you to achieve your ideal sun exposure target everyday, in between your routines" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="h41-va-dIN">
+                                <rect key="frame" x="40" y="499" width="255" height="72"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="255" id="E5h-J8-TUm"/>
+                                    <constraint firstAttribute="height" constant="72" id="gOf-QJ-vcK"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Before starting, let's quickly check your skin type for ideal sun exposure recommendation." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uH0-9V-DAp">
+                                <rect key="frame" x="40" y="697" width="313" height="42"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="pcS-Qn-jqX"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QsP-HP-ZAG">
+                                <rect key="frame" x="126.66666666666669" y="759" width="140" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="Nc9-I7-hvt"/>
+                                    <constraint firstAttribute="width" constant="140" id="nm7-sg-jdr"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Set Skin Profile"/>
+                                <connections>
+                                    <action selector="setSkinProfileButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8JU-No-X1A"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="QsP-HP-ZAG" firstAttribute="centerX" secondItem="3d3-no-cN2" secondAttribute="centerX" id="2hF-md-gI7"/>
+                            <constraint firstItem="h41-va-dIN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="4Jo-1V-pIb"/>
+                            <constraint firstItem="hk5-64-7rl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="8Tn-h7-MLe"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3d3-no-cN2" secondAttribute="trailing" constant="40" id="HNQ-zW-0Ar"/>
+                            <constraint firstItem="3d3-no-cN2" firstAttribute="top" secondItem="hk5-64-7rl" secondAttribute="bottom" constant="50" id="SSk-Qn-M4d"/>
+                            <constraint firstItem="QsP-HP-ZAG" firstAttribute="top" secondItem="uH0-9V-DAp" secondAttribute="bottom" constant="20" id="TY5-6n-R6D"/>
+                            <constraint firstItem="uH0-9V-DAp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="amG-6C-olx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="QsP-HP-ZAG" secondAttribute="bottom" constant="24" id="dZY-br-goa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hk5-64-7rl" secondAttribute="trailing" constant="40" id="jHa-Z9-hnb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uH0-9V-DAp" secondAttribute="trailing" constant="40" id="jzh-lw-pA5"/>
+                            <constraint firstItem="hk5-64-7rl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="kj1-VN-u6o"/>
+                            <constraint firstItem="h41-va-dIN" firstAttribute="top" secondItem="hk5-64-7rl" secondAttribute="bottom" constant="85" id="tll-mw-lvt"/>
+                            <constraint firstItem="3d3-no-cN2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="wcu-u1-Rai"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="setSkinProfileButton" destination="QsP-HP-ZAG" id="e4R-tu-26z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="301.52671755725191" y="-270.42253521126764"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="LBb-U2-BEu">
+            <objects>
+                <tabBarController storyboardIdentifier="tabBarController" id="UML-z5-2Z8" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gmR-WH-ucG">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="ZFJ-uJ-YiX" kind="relationship" relationship="viewControllers" id="UIs-er-KbC"/>
+                        <segue destination="Ucc-bZ-XfW" kind="relationship" relationship="viewControllers" id="fFI-ay-PUz"/>
+                        <segue destination="Gh2-Gs-Wvp" kind="relationship" relationship="viewControllers" id="oBx-YF-UbS"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oZ0-wH-nSL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="302" y="531"/>
+        </scene>
+        <!--Sunbathe-->
+        <scene sceneID="RMJ-OD-2qH">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Sunbathe" id="Ucc-bZ-XfW" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Fqx-Xy-Lzb"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GfP-Mk-yY3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1360" y="386"/>
+        </scene>
+        <!--Weather-->
+        <scene sceneID="IT5-Zj-ehU">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Weather" id="ZFJ-uJ-YiX" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="wVK-nK-SjU"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="02c-fL-xA8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1364" y="531"/>
+        </scene>
+        <!--Setting-->
+        <scene sceneID="kDg-qL-Hpu">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Setting" id="Gh2-Gs-Wvp" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="srE-cc-q1r"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QaX-BB-Aaq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1350" y="690"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

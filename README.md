@@ -12,6 +12,9 @@
 
 ## Key Features
 
+will be added soon
+
+Example
 - Scan your contact to detect fraud
 - Search contact with phone number
 - Search contact with social media information

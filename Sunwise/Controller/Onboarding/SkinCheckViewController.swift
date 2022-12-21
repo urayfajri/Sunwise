@@ -15,6 +15,7 @@ class SkinCheckViewController: UIViewController, AVCaptureVideoDataOutputSampleB
     var previewLayer: CALayer!
     var captureDevice: AVCaptureDevice!
     
+    @IBOutlet weak var SkinTypeCollectionView: UICollectionView!
     @IBOutlet weak var SetSkinTypeButton: UIButton!
     
     override func viewDidLoad() {

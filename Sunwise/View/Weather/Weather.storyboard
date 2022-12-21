@@ -202,6 +202,7 @@
                                                                                 <buttonConfiguration key="configuration" style="plain" title="See More &gt;&gt;"/>
                                                                                 <connections>
                                                                                     <action selector="seeMoreButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ByS-8b-FOC"/>
+                                                                                    <segue destination="FEe-I1-2m3" kind="presentation" id="IJD-cV-1nO"/>
                                                                                 </connections>
                                                                             </button>
                                                                         </subviews>
@@ -348,6 +349,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5.343511450381679" y="-2.1126760563380285"/>
+        </scene>
+        <!--SunProtectionDetail-->
+        <scene sceneID="TgW-0p-8bW">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SunProtectionDetail" id="FEe-I1-2m3" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZDr-Ri-u6B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1019" y="-23"/>
         </scene>
     </scenes>
     <resources>

@@ -9,7 +9,7 @@ import UIKit
 
 class OnboardingViewController: UIViewController {
 
-    
+    //MARK: Elements
     @IBOutlet weak var onBoardingImage: UIImageView!
     @IBOutlet weak var welcomeTitleLabel: UILabel!
     @IBOutlet weak var subtitleTextView: UITextView!
@@ -18,21 +18,14 @@ class OnboardingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     
-    
+    //MARK: Go to onboarding page two
     @IBAction func setSkinProfileButtonTapped(_ sender: Any) {
-        hideElementPageOne()
+        let controller = storyboard?.instantiateViewController(identifier: "skinCheckStoryboard") as! UIViewController
+        controller.modalTransitionStyle = .crossDissolve
+        controller.modalPresentationStyle = .fullScreen
+        present(controller, animated: true)
     }
-    
-    func hideElementPageOne() {
-        onBoardingImage.isHidden = true
-        welcomeTitleLabel.isHidden = true
-        titleDescriptionTextView.isHidden = true
-        subtitleTextView.isHidden = true
-        // setSkinProfileButton.isHidden = true
-    }
-    
 }

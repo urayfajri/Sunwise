@@ -26,6 +26,7 @@
 		2023BFA2294FFE5C00972E36 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2023BFA1294FFE5C00972E36 /* SettingViewController.swift */; };
 		208483FF29517CF70044F23A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208483FE29517CF70044F23A /* OnboardingViewController.swift */; };
 		2084840229517FE90044F23A /* UserDefaultExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2084840129517FE90044F23A /* UserDefaultExtension.swift */; };
+		20F279552952C7E1005D504D /* SkinCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F279542952C7E1005D504D /* SkinCheckViewController.swift */; };
 		212800E20BB4E384C45882A9 /* Pods_Sunwise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEB400C7EBC470224748A827 /* Pods_Sunwise.framework */; };
 		3E31DB78147B430ED5655D1F /* Pods_SunwiseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77DDD99D7F47414FF15B1F7A /* Pods_SunwiseTests.framework */; };
 /* End PBXBuildFile section */
@@ -70,6 +71,7 @@
 		2023BFA1294FFE5C00972E36 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		208483FE29517CF70044F23A /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		2084840129517FE90044F23A /* UserDefaultExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultExtension.swift; sourceTree = "<group>"; };
+		20F279542952C7E1005D504D /* SkinCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinCheckViewController.swift; sourceTree = "<group>"; };
 		46AEBA3662E47A0CAD8A45BA /* Pods-SunwiseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SunwiseTests.release.xcconfig"; path = "Target Support Files/Pods-SunwiseTests/Pods-SunwiseTests.release.xcconfig"; sourceTree = "<group>"; };
 		478AD51CE9A81CA237584FB1 /* Pods-Sunwise.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sunwise.release.xcconfig"; path = "Target Support Files/Pods-Sunwise/Pods-Sunwise.release.xcconfig"; sourceTree = "<group>"; };
 		67A66DA3957D2C1DA05E621B /* Pods-Sunwise-SunwiseUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sunwise-SunwiseUITests.release.xcconfig"; path = "Target Support Files/Pods-Sunwise-SunwiseUITests/Pods-Sunwise-SunwiseUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 			children = (
 				202048E0294C1809007A9BC1 /* ViewController.swift */,
 				208483FE29517CF70044F23A /* OnboardingViewController.swift */,
+				20F279542952C7E1005D504D /* SkinCheckViewController.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -552,6 +555,7 @@
 				2023BFA0294FFE4E00972E36 /* WeatherViewController.swift in Sources */,
 				202048E1294C1809007A9BC1 /* ViewController.swift in Sources */,
 				202048DD294C1809007A9BC1 /* AppDelegate.swift in Sources */,
+				20F279552952C7E1005D504D /* SkinCheckViewController.swift in Sources */,
 				202048E7294C1809007A9BC1 /* Sunwise.xcdatamodeld in Sources */,
 				2084840229517FE90044F23A /* UserDefaultExtension.swift in Sources */,
 				2023BFA2294FFE5C00972E36 /* SettingViewController.swift in Sources */,

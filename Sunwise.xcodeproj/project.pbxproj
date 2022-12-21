@@ -27,8 +27,6 @@
 		208483FF29517CF70044F23A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208483FE29517CF70044F23A /* OnboardingViewController.swift */; };
 		2084840229517FE90044F23A /* UserDefaultExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2084840129517FE90044F23A /* UserDefaultExtension.swift */; };
 		20F279552952C7E1005D504D /* SkinCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F279542952C7E1005D504D /* SkinCheckViewController.swift */; };
-		20F2795929530B07005D504D /* SkinTypeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F2795729530B07005D504D /* SkinTypeCollectionViewCell.swift */; };
-		20F2795A29530B07005D504D /* SkinTypeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20F2795829530B07005D504D /* SkinTypeCollectionViewCell.xib */; };
 		212800E20BB4E384C45882A9 /* Pods_Sunwise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEB400C7EBC470224748A827 /* Pods_Sunwise.framework */; };
 		3E31DB78147B430ED5655D1F /* Pods_SunwiseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77DDD99D7F47414FF15B1F7A /* Pods_SunwiseTests.framework */; };
 		A9D26E922952BB8E0015E79D /* WeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D26E902952BB8E0015E79D /* WeatherTableViewCell.swift */; };
@@ -85,8 +83,6 @@
 		208483FE29517CF70044F23A /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		2084840129517FE90044F23A /* UserDefaultExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultExtension.swift; sourceTree = "<group>"; };
 		20F279542952C7E1005D504D /* SkinCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinCheckViewController.swift; sourceTree = "<group>"; };
-		20F2795729530B07005D504D /* SkinTypeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinTypeCollectionViewCell.swift; sourceTree = "<group>"; };
-		20F2795829530B07005D504D /* SkinTypeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SkinTypeCollectionViewCell.xib; sourceTree = "<group>"; };
 		46AEBA3662E47A0CAD8A45BA /* Pods-SunwiseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SunwiseTests.release.xcconfig"; path = "Target Support Files/Pods-SunwiseTests/Pods-SunwiseTests.release.xcconfig"; sourceTree = "<group>"; };
 		478AD51CE9A81CA237584FB1 /* Pods-Sunwise.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sunwise.release.xcconfig"; path = "Target Support Files/Pods-Sunwise/Pods-Sunwise.release.xcconfig"; sourceTree = "<group>"; };
 		67A66DA3957D2C1DA05E621B /* Pods-Sunwise-SunwiseUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sunwise-SunwiseUITests.release.xcconfig"; path = "Target Support Files/Pods-Sunwise-SunwiseUITests/Pods-Sunwise-SunwiseUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -163,15 +159,12 @@
 			isa = PBXGroup;
 			children = (
 				2084840029517FC50044F23A /* Extension */,
-				202048E8294C180B007A9BC1 /* Assets.xcassets */,
 				2023BF89294FBEFD00972E36 /* Base */,
 				A9FCBD832952B3F900D89546 /* Component */,
 				2023BF8A294FBF2000972E36 /* Controller */,
 				A9FCBD802952849400D89546 /* Model */,
-				2023BF8B294FBF2D00972E36 /* View */,
 				202048E8294C180B007A9BC1 /* Assets.xcassets */,
 				202048ED294C180B007A9BC1 /* Info.plist */,
-				2023BF8C294FBF3400972E36 /* Model */,
 				202048E5294C1809007A9BC1 /* Sunwise.xcdatamodeld */,
 				2023BF8B294FBF2D00972E36 /* View */,
 			);
@@ -230,7 +223,6 @@
 		2023BF8F294FC06B00972E36 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				20F2795B29530B17005D504D /* Cell */,
 				202048E0294C1809007A9BC1 /* ViewController.swift */,
 				208483FE29517CF70044F23A /* OnboardingViewController.swift */,
 				20F279542952C7E1005D504D /* SkinCheckViewController.swift */,
@@ -241,7 +233,6 @@
 		2023BF90294FC09400972E36 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				20F2795629530ABE005D504D /* Cell */,
 				202048E2294C1809007A9BC1 /* Main.storyboard */,
 			);
 			path = Onboarding;
@@ -303,22 +294,6 @@
 				2084840129517FE90044F23A /* UserDefaultExtension.swift */,
 			);
 			path = Extension;
-			sourceTree = "<group>";
-		};
-		20F2795629530ABE005D504D /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				20F2795829530B07005D504D /* SkinTypeCollectionViewCell.xib */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
-		20F2795B29530B17005D504D /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				20F2795729530B07005D504D /* SkinTypeCollectionViewCell.swift */,
-			);
-			path = Cell;
 			sourceTree = "<group>";
 		};
 		493011EE4953D9D0F7ADF460 /* Frameworks */ = {
@@ -523,7 +498,6 @@
 				A9FCBD922952B64200D89546 /* UVSelected.xib in Resources */,
 				A9D26E982952BBD50015E79D /* HourlyCollectionViewCell.xib in Resources */,
 				202048EC294C180B007A9BC1 /* LaunchScreen.storyboard in Resources */,
-				20F2795A29530B07005D504D /* SkinTypeCollectionViewCell.xib in Resources */,
 				202048E9294C180B007A9BC1 /* Assets.xcassets in Resources */,
 				202048E4294C1809007A9BC1 /* Main.storyboard in Resources */,
 				2023BF9C294FC35500972E36 /* Setting.storyboard in Resources */,
@@ -664,7 +638,6 @@
 				202048DD294C1809007A9BC1 /* AppDelegate.swift in Sources */,
 				A9FCBD8B2952B59A00D89546 /* LocationSelected.swift in Sources */,
 				20F279552952C7E1005D504D /* SkinCheckViewController.swift in Sources */,
-				20F2795929530B07005D504D /* SkinTypeCollectionViewCell.swift in Sources */,
 				202048E7294C1809007A9BC1 /* Sunwise.xcdatamodeld in Sources */,
 				2084840229517FE90044F23A /* UserDefaultExtension.swift in Sources */,
 				2023BFA2294FFE5C00972E36 /* SettingViewController.swift in Sources */,
@@ -849,7 +822,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P7PL5J4AMN;
+				DEVELOPMENT_TEAM = 874S576UUN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Sunwise/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -882,7 +855,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P7PL5J4AMN;
+				DEVELOPMENT_TEAM = 874S576UUN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Sunwise/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

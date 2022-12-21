@@ -15,8 +15,8 @@ class SkinCheckViewController: UIViewController, AVCaptureVideoDataOutputSampleB
     var previewLayer: CALayer!
     var captureDevice: AVCaptureDevice!
     
-    @IBOutlet weak var SkinTypeCollectionView: UICollectionView!
     @IBOutlet weak var SetSkinTypeButton: UIButton!
+    @IBOutlet weak var cameraView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,8 +50,8 @@ class SkinCheckViewController: UIViewController, AVCaptureVideoDataOutputSampleB
         
         if let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession) as? AVCaptureVideoPreviewLayer {
             self.previewLayer = previewLayer
-            self.view.layer.addSublayer(self.previewLayer)
-            self.previewLayer.frame = self.view.layer.frame
+            self.cameraView.layer.addSublayer(self.previewLayer)
+            self.previewLayer.frame = self.cameraView.layer.frame
             captureSession.startRunning()
                     
             let dataOutput = AVCaptureVideoDataOutput()

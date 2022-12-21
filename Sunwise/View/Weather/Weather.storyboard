@@ -38,10 +38,10 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="666"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OoC-AL-YbL" userLabel="View Scroll">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1302.3333333333333"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1337.3333333333333"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="3aW-2d-l6K">
-                                                <rect key="frame" x="10" y="10" width="373" height="1282.3333333333333"/>
+                                                <rect key="frame" x="10" y="10" width="373" height="1317.3333333333333"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="1be-Mp-1df" userLabel="Stack View Top">
                                                         <rect key="frame" x="0.0" y="0.0" width="373" height="87.666666666666671"/>
@@ -133,7 +133,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="pgQ-1L-zmB" userLabel="Stack View Day">
-                                                        <rect key="frame" x="0.0" y="117.66666666666669" width="373" height="574.33333333333326"/>
+                                                        <rect key="frame" x="0.0" y="117.66666666666669" width="373" height="609.33333333333326"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="hKa-z0-ezC">
                                                                 <rect key="frame" x="0.0" y="0.0" width="373" height="34.333333333333336"/>
@@ -181,16 +181,52 @@
                                                                     <constraint firstAttribute="height" constant="170" id="WKs-gt-gJN"/>
                                                                 </constraints>
                                                             </stackView>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mrB-54-3FY" customClass="ProtectionSelected" customModule="Sunwise" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="404.33333333333337" width="373" height="170"/>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="EK2-R3-QAV">
+                                                                <rect key="frame" x="0.0" y="404.33333333333337" width="373" height="205"/>
+                                                                <subviews>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mrB-54-3FY" customClass="ProtectionSelected" customModule="Sunwise" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="373" height="170"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="170" id="50y-91-Zk4"/>
+                                                                        </constraints>
+                                                                    </view>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L8k-xn-C25">
+                                                                        <rect key="frame" x="0.0" y="170" width="373" height="35"/>
+                                                                        <subviews>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m9s-3k-NoR">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="150" height="34.333333333333336"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="width" constant="150" id="eL6-dV-nxR"/>
+                                                                                </constraints>
+                                                                                <state key="normal" title="Button"/>
+                                                                                <buttonConfiguration key="configuration" style="plain" title="See More &gt;&gt;"/>
+                                                                                <connections>
+                                                                                    <action selector="seeMoreButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ByS-8b-FOC"/>
+                                                                                    <segue destination="FEe-I1-2m3" kind="presentation" id="IJD-cV-1nO"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                        </subviews>
+                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                        <constraints>
+                                                                            <constraint firstItem="m9s-3k-NoR" firstAttribute="top" secondItem="L8k-xn-C25" secondAttribute="top" id="07D-di-jYF"/>
+                                                                            <constraint firstAttribute="height" constant="35" id="28m-YH-YMW"/>
+                                                                            <constraint firstItem="m9s-3k-NoR" firstAttribute="leading" secondItem="L8k-xn-C25" secondAttribute="leading" id="5iJ-w4-Nma"/>
+                                                                        </constraints>
+                                                                    </view>
+                                                                </subviews>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="170" id="50y-91-Zk4"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="L8k-xn-C25" secondAttribute="bottom" constant="10" id="Qe6-dc-dR5"/>
                                                                 </constraints>
-                                                            </view>
+                                                                <variation key="default">
+                                                                    <mask key="constraints">
+                                                                        <exclude reference="Qe6-dc-dR5"/>
+                                                                    </mask>
+                                                                </variation>
+                                                            </stackView>
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="2EK-Yk-zVm" userLabel="Stack View Forecast">
-                                                        <rect key="frame" x="0.0" y="722" width="373" height="560.33333333333348"/>
+                                                        <rect key="frame" x="0.0" y="757" width="373" height="560.33333333333348"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UV Forecast:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dx6-az-fUW">
                                                                 <rect key="frame" x="0.0" y="0.0" width="373" height="20.333333333333332"/>
@@ -266,7 +302,7 @@
                                                 </subviews>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <constraints>
                                             <constraint firstItem="3aW-2d-l6K" firstAttribute="leading" secondItem="OoC-AL-YbL" secondAttribute="leading" constant="10" id="2XM-HY-59t"/>
                                             <constraint firstAttribute="bottom" secondItem="3aW-2d-l6K" secondAttribute="bottom" constant="10" id="63a-KT-ibw"/>
@@ -304,6 +340,7 @@
                         <outlet property="locationSelected" destination="klM-jQ-Rtu" id="90q-YF-ieb"/>
                         <outlet property="nowButton" destination="b9H-tA-DLj" id="V63-Pe-VDH"/>
                         <outlet property="protectionSelected" destination="mrB-54-3FY" id="dzV-An-MlR"/>
+                        <outlet property="seeMoreButton" destination="m9s-3k-NoR" id="ikS-U5-2Zm"/>
                         <outlet property="sunriseHour" destination="Adr-Nn-r6T" id="Udj-a9-v7r"/>
                         <outlet property="sunsetHour" destination="7la-LS-5wW" id="tPN-HI-6CO"/>
                         <outlet property="uvSelectedView" destination="uOa-Cs-i1U" id="JOK-9O-VSO"/>
@@ -312,6 +349,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5.343511450381679" y="-2.1126760563380285"/>
+        </scene>
+        <!--SunProtectionDetail-->
+        <scene sceneID="TgW-0p-8bW">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SunProtectionDetail" id="FEe-I1-2m3" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZDr-Ri-u6B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1019" y="-23"/>
         </scene>
     </scenes>
     <resources>
@@ -323,6 +368,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

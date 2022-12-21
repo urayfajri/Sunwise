@@ -19,6 +19,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet var locationSelected: LocationSelected!
     @IBOutlet var protectionSelected: ProtectionSelected!
     @IBOutlet var nowButton: UIButton!
+    @IBOutlet var seeMoreButton: UIButton!
     
     var modelDaily = [DailyWeather]()
     var modelHourly = [HourlyWeather]()
@@ -26,6 +27,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     var currentWeather: CurrentWeather?
     let locationManager = CLLocationManager()
     var currentLocation: CLLocation?
+    var uVI = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +47,10 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBAction func nowButtonPressed(_ sender: Any) {
         self.hourlyForecastView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .left, animated: true)
         getCurrentWeatherView()
+    }
+    
+    @IBAction func seeMoreButtonPressed(_ sender: Any) {
+        print("Go to modal \(uVI)")
     }
     
     //MARK: - Location Functions
@@ -99,6 +105,8 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
                 self.dayLabel.text = self.convertUnixToDate(unix: result.current.dt, format: "EEEE, d MMMM yyyy")
                 self.sunriseHour.text = self.convertUnixToDate(unix: result.current.sunrise, format: "HH.mm")
                 self.sunsetHour.text = self.convertUnixToDate(unix: result.current.sunset, format: "HH.mm")
+                
+                self.uVI = Int(result.current.uvi)
                 
                 self.uvSelectedView.uviSelectedText.text = "\(Int(result.current.uvi))"
                 self.uvSelectedView.categoryUviSelectedText.text = "(\(self.getUVCategory(uvi: Int(result.current.uvi))))"
@@ -177,7 +185,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("tap \(indexPath)")
+        uVI = getUVIndexFromModel(model: modelHourly, index: indexPath)
         uvSelectedView.uviSelectedText.text = "\(getUVIndexFromModel(model: modelHourly, index: indexPath))"
         uvSelectedView.categoryUviSelectedText.text = "(\(getUVCategory(uvi: getUVIndexFromModel(model: modelHourly, index: indexPath))))"
         uvSelectedView.recommendationText.text = getUVRecommendation(uvi: getUVIndexFromModel(model: modelHourly, index: indexPath))
@@ -208,6 +216,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func getCurrentWeatherView() {
+        uVI = getUVIndexFromModel(model: modelHourly, index: IndexPath(row: 0, section: 0))
         uvSelectedView.uviSelectedText.text = "\(getUVIndexFromModel(model: modelHourly, index: IndexPath(row: 0, section: 0)))"
         uvSelectedView.categoryUviSelectedText.text = "(\(getUVCategory(uvi: getUVIndexFromModel(model: modelHourly, index: IndexPath(row: 0, section: 0)))))"
         uvSelectedView.recommendationText.text = getUVRecommendation(uvi: getUVIndexFromModel(model: modelHourly, index: IndexPath(row: 0, section: 0)))

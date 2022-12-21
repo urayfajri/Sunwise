@@ -27,32 +27,35 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="393" height="171"/>
+            <rect key="frame" x="0.0" y="0.0" width="393" height="147"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5GU-2y-KCR">
-                    <rect key="frame" x="10" y="10" width="373" height="151"/>
+                    <rect key="frame" x="10" y="10" width="373" height="127"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Protection Needed:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3bg-fV-TAR">
-                            <rect key="frame" x="0.0" y="0.0" width="373" height="20.333333333333332"/>
+                            <rect key="frame" x="0.0" y="0.0" width="373" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="s3y-nb-HAJ"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UQQ-yS-lH2">
-                            <rect key="frame" x="0.0" y="30.333333333333343" width="373" height="77"/>
+                            <rect key="frame" x="0.0" y="30" width="373" height="97"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No sun protection needed ✅" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8u-FT-6sV">
-                                    <rect key="frame" x="50.666666666666657" y="26.666666666666664" width="272" height="24"/>
+                                    <rect key="frame" x="50.666666666666657" y="36.666666666666671" width="272" height="24"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="0qe-Wr-STu">
-                                    <rect key="frame" x="0.0" y="0.0" width="373" height="77"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="373" height="97"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bjz-sf-wrv">
-                                            <rect key="frame" x="0.0" y="0.0" width="59.666666666666664" height="77"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="59.666666666666664" height="97"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🕶" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQm-zs-9ZI">
                                                     <rect key="frame" x="7.3333333333333321" y="0.0" width="45" height="53"/>
@@ -64,7 +67,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunglasses" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Gi-im-s7v">
-                                                    <rect key="frame" x="2.3333333333333357" y="53" width="55" height="24"/>
+                                                    <rect key="frame" x="2.3333333333333357" y="53" width="55" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -72,7 +75,7 @@
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sHm-Xa-8nf">
-                                            <rect key="frame" x="62.666666666666671" y="0.0" width="59.666666666666671" height="77"/>
+                                            <rect key="frame" x="62.666666666666671" y="0.0" width="59.666666666666671" height="97"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="👕" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ayM-hV-CLr">
                                                     <rect key="frame" x="7.3333333333333286" y="0.0" width="45" height="53"/>
@@ -84,7 +87,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VJ4-gB-VvQ">
-                                                    <rect key="frame" x="5.3333333333333286" y="53" width="49.333333333333336" height="24"/>
+                                                    <rect key="frame" x="5.3333333333333286" y="53" width="49.333333333333336" height="44"/>
                                                     <string key="text">Protective
 Clothes</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
@@ -94,7 +97,7 @@ Clothes</string>
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4uO-KM-Ueg">
-                                            <rect key="frame" x="125.33333333333336" y="0.0" width="59.666666666666671" height="77"/>
+                                            <rect key="frame" x="125.33333333333336" y="0.0" width="59.666666666666671" height="97"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🧴" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MOl-ah-PPi">
                                                     <rect key="frame" x="7.3333333333333144" y="0.0" width="45" height="53"/>
@@ -106,7 +109,7 @@ Clothes</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunscreen SPF 30+" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEL-8y-Fpm">
-                                                    <rect key="frame" x="3" y="53" width="54" height="24"/>
+                                                    <rect key="frame" x="3" y="53" width="54" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -114,7 +117,7 @@ Clothes</string>
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="QqX-S2-E5E">
-                                            <rect key="frame" x="188" y="0.0" width="59.666666666666657" height="77"/>
+                                            <rect key="frame" x="188" y="0.0" width="59.666666666666657" height="97"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🧢" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qc6-P9-DQq">
                                                     <rect key="frame" x="7.3333333333333428" y="0.0" width="45" height="53"/>
@@ -126,7 +129,7 @@ Clothes</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hat" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4m3-RY-ktv">
-                                                    <rect key="frame" x="21.333333333333343" y="53" width="17" height="24"/>
+                                                    <rect key="frame" x="21.333333333333343" y="53" width="17" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -134,7 +137,7 @@ Clothes</string>
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="WBz-jY-SVy">
-                                            <rect key="frame" x="250.66666666666666" y="0.0" width="59.666666666666657" height="77"/>
+                                            <rect key="frame" x="250.66666666666666" y="0.0" width="59.666666666666657" height="97"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⛱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ZG-Gs-GKd">
                                                     <rect key="frame" x="7.3333333333333144" y="0.0" width="45" height="53"/>
@@ -146,7 +149,7 @@ Clothes</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shelter" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wOx-Kk-yGV">
-                                                    <rect key="frame" x="12.666666666666629" y="53" width="34.666666666666664" height="24"/>
+                                                    <rect key="frame" x="12.666666666666629" y="53" width="34.666666666666664" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -154,7 +157,7 @@ Clothes</string>
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="zDf-nL-Xy3">
-                                            <rect key="frame" x="313.33333333333331" y="0.0" width="59.666666666666686" height="77"/>
+                                            <rect key="frame" x="313.33333333333331" y="0.0" width="59.666666666666686" height="97"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🏠" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GjE-iB-5dn">
                                                     <rect key="frame" x="7.3333333333333712" y="0.0" width="45" height="53"/>
@@ -166,7 +169,7 @@ Clothes</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stay Indoor" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4rV-9S-sAP">
-                                                    <rect key="frame" x="2.3333333333333712" y="53" width="55.333333333333336" height="24"/>
+                                                    <rect key="frame" x="2.3333333333333712" y="53" width="55.333333333333336" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -186,26 +189,6 @@ Clothes</string>
                                 <constraint firstItem="0qe-Wr-STu" firstAttribute="top" secondItem="UQQ-yS-lH2" secondAttribute="top" id="vXH-L3-a4R"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tQo-GX-hcs">
-                            <rect key="frame" x="0.0" y="117.33333333333333" width="373" height="33.666666666666671"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6r4-Vt-Z5w">
-                                    <rect key="frame" x="10" y="10.000000000000014" width="150" height="20"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="150" id="LaU-5Z-W09"/>
-                                        <constraint firstAttribute="height" constant="20" id="hrL-IK-da2"/>
-                                    </constraints>
-                                    <color key="tintColor" systemColor="linkColor"/>
-                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                    <state key="normal" title="See More &gt;&gt;"/>
-                                </button>
-                            </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            <constraints>
-                                <constraint firstItem="6r4-Vt-Z5w" firstAttribute="top" secondItem="tQo-GX-hcs" secondAttribute="top" constant="10" id="ElW-sM-aSM"/>
-                                <constraint firstItem="6r4-Vt-Z5w" firstAttribute="leading" secondItem="tQo-GX-hcs" secondAttribute="leading" constant="10" id="fyr-AM-lvZ"/>
-                            </constraints>
-                        </view>
                     </subviews>
                 </stackView>
             </subviews>
@@ -218,13 +201,10 @@ Clothes</string>
                 <constraint firstAttribute="bottom" secondItem="5GU-2y-KCR" secondAttribute="bottom" constant="10" id="uzH-hn-ISj"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="139.69465648854961" y="-219.36619718309859"/>
+            <point key="canvasLocation" x="139.69465648854961" y="-227.81690140845072"/>
         </view>
     </objects>
     <resources>
-        <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

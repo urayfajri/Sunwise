@@ -51,6 +51,15 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBAction func seeMoreButtonPressed(_ sender: Any) {
         print("Go to modal \(uVI)")
+        let controller = SunProtectionDetailViewController()
+        present(controller, animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "sunProtectionDetailVC" {
+            let vc = segue.destination as! SunProtectionDetailViewController
+            vc.uvi = uVI
+        }
     }
     
     //MARK: - Location Functions

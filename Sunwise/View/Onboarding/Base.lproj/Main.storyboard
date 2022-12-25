@@ -117,11 +117,72 @@
                                             <action selector="skinTypeButtonTapped:" destination="Gb2-Ua-9Dr" eventType="touchUpInside" id="tcD-uX-5c3"/>
                                         </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wjR-dm-ru7">
+                                        <rect key="frame" x="0.0" y="89" width="393" height="85"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ePK-RE-47h">
+                                                <rect key="frame" x="0.0" y="50" width="40" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="40" id="BbO-Vp-oxK"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="chevron.backward" catalog="system"/>
+                                                <connections>
+                                                    <action selector="prevSkinButtonTapped:" destination="Gb2-Ua-9Dr" eventType="touchUpInside" id="JAq-Ou-wts"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8hO-jx-7L6">
+                                                <rect key="frame" x="353" y="50" width="40" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="40" id="LUW-AY-SNx"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system"/>
+                                                <connections>
+                                                    <action selector="nextSkinButtonTapped:" destination="Gb2-Ua-9Dr" eventType="touchUpInside" id="Nhc-dV-kxy"/>
+                                                </connections>
+                                            </button>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ART-ze-H5d">
+                                                <rect key="frame" x="110" y="0.0" width="173" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="dqB-UF-gLf"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skin Type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8jh-zF-jvQ">
+                                                <rect key="frame" x="110" y="57" width="173" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="173" id="Kkx-H3-Rv8"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="ART-ze-H5d" secondAttribute="trailing" constant="110" id="24W-cC-3nw"/>
+                                            <constraint firstItem="ART-ze-H5d" firstAttribute="leading" secondItem="wjR-dm-ru7" secondAttribute="leading" constant="110" id="2hA-1E-VNu"/>
+                                            <constraint firstAttribute="bottom" secondItem="8hO-jx-7L6" secondAttribute="bottom" id="bVJ-2b-vf3"/>
+                                            <constraint firstItem="8hO-jx-7L6" firstAttribute="top" secondItem="wjR-dm-ru7" secondAttribute="top" constant="50" id="cv8-12-1Re"/>
+                                            <constraint firstAttribute="bottom" secondItem="ePK-RE-47h" secondAttribute="bottom" id="fBY-3D-gAT"/>
+                                            <constraint firstItem="8jh-zF-jvQ" firstAttribute="leading" secondItem="ePK-RE-47h" secondAttribute="trailing" constant="70" id="hjQ-Y1-E7l"/>
+                                            <constraint firstItem="8jh-zF-jvQ" firstAttribute="centerX" secondItem="wjR-dm-ru7" secondAttribute="centerX" id="jZf-0r-607"/>
+                                            <constraint firstItem="ePK-RE-47h" firstAttribute="leading" secondItem="wjR-dm-ru7" secondAttribute="leading" id="kwK-SD-TSl"/>
+                                            <constraint firstAttribute="trailing" secondItem="8hO-jx-7L6" secondAttribute="trailing" id="lS4-Eg-ejx"/>
+                                            <constraint firstAttribute="bottom" secondItem="8jh-zF-jvQ" secondAttribute="bottom" constant="7" id="nuT-LQ-sAN"/>
+                                            <constraint firstAttribute="height" constant="85" id="pt2-EL-XZ7"/>
+                                            <constraint firstItem="ART-ze-H5d" firstAttribute="top" secondItem="wjR-dm-ru7" secondAttribute="top" id="tki-1M-RXF"/>
+                                            <constraint firstItem="ePK-RE-47h" firstAttribute="top" secondItem="wjR-dm-ru7" secondAttribute="top" constant="50" id="u3k-xM-Xg6"/>
+                                            <constraint firstItem="8hO-jx-7L6" firstAttribute="leading" secondItem="8jh-zF-jvQ" secondAttribute="trailing" constant="70" id="vrt-7d-30a"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray3Color"/>
                                 <constraints>
                                     <constraint firstItem="UJx-zw-5o3" firstAttribute="centerX" secondItem="K2t-d4-RoL" secondAttribute="centerX" id="BKV-NJ-f6N"/>
-                                    <constraint firstAttribute="trailing" secondItem="UJx-zw-5o3" secondAttribute="trailing" constant="40" id="HWz-BA-jpd"/>
+                                    <constraint firstAttribute="trailing" secondItem="wjR-dm-ru7" secondAttribute="trailing" id="QQS-a7-chN"/>
+                                    <constraint firstItem="wjR-dm-ru7" firstAttribute="leading" secondItem="K2t-d4-RoL" secondAttribute="leading" id="evi-Ct-dUa"/>
+                                    <constraint firstItem="UJx-zw-5o3" firstAttribute="top" secondItem="wjR-dm-ru7" secondAttribute="bottom" constant="50" id="kmm-ND-Kf3"/>
                                     <constraint firstItem="UJx-zw-5o3" firstAttribute="leading" secondItem="K2t-d4-RoL" secondAttribute="leading" constant="40" id="uTF-mY-FoA"/>
                                     <constraint firstAttribute="bottom" secondItem="UJx-zw-5o3" secondAttribute="bottom" constant="40" id="xrf-4R-n4g"/>
                                 </constraints>
@@ -157,6 +218,11 @@
                     <connections>
                         <outlet property="SetSkinTypeButton" destination="UJx-zw-5o3" id="Gv5-1J-bIc"/>
                         <outlet property="cameraView" destination="D1a-d8-wvQ" id="5LA-uT-kdb"/>
+                        <outlet property="nextSkinButton" destination="8hO-jx-7L6" id="T82-YQ-ENa"/>
+                        <outlet property="prevSkinButton" destination="ePK-RE-47h" id="cHt-qs-w8o"/>
+                        <outlet property="skinInfoView" destination="wjR-dm-ru7" id="ZLM-7G-xbS"/>
+                        <outlet property="skinTypeImage" destination="ART-ze-H5d" id="qE2-QF-Vf6"/>
+                        <outlet property="skinTypeLabel" destination="8jh-zF-jvQ" id="ytr-Mf-RmI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q5q-aS-hAG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -232,6 +298,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.backward" catalog="system" width="97" height="128"/>
+        <image name="chevron.right" catalog="system" width="97" height="128"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

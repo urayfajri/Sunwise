@@ -16,6 +16,8 @@ class OnboardingViewController: UIViewController {
     @IBOutlet weak var setSkinProfileButton: UIButton!
     @IBOutlet weak var titleDescriptionTextView: UITextView!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

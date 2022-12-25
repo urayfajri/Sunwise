@@ -24,8 +24,26 @@
 		2023BF9E294FFE3D00972E36 /* SunbatheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2023BF9D294FFE3D00972E36 /* SunbatheViewController.swift */; };
 		2023BFA0294FFE4E00972E36 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2023BF9F294FFE4E00972E36 /* WeatherViewController.swift */; };
 		2023BFA2294FFE5C00972E36 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2023BFA1294FFE5C00972E36 /* SettingViewController.swift */; };
+		207B95612958985F00F5CC03 /* SkinTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207B95602958985F00F5CC03 /* SkinTypeModel.swift */; };
+		208309B52958C1D200BEA9D2 /* SunwiseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208309B42958C1D200BEA9D2 /* SunwiseTabBarController.swift */; };
+		208483FF29517CF70044F23A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208483FE29517CF70044F23A /* OnboardingViewController.swift */; };
+		2084840229517FE90044F23A /* UserDefaultExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2084840129517FE90044F23A /* UserDefaultExtension.swift */; };
+		20F279552952C7E1005D504D /* SkinCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F279542952C7E1005D504D /* SkinCheckViewController.swift */; };
 		212800E20BB4E384C45882A9 /* Pods_Sunwise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEB400C7EBC470224748A827 /* Pods_Sunwise.framework */; };
 		3E31DB78147B430ED5655D1F /* Pods_SunwiseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77DDD99D7F47414FF15B1F7A /* Pods_SunwiseTests.framework */; };
+		A9D26E922952BB8E0015E79D /* WeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D26E902952BB8E0015E79D /* WeatherTableViewCell.swift */; };
+		A9D26E932952BB8E0015E79D /* WeatherTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9D26E912952BB8E0015E79D /* WeatherTableViewCell.xib */; };
+		A9D26E972952BBD50015E79D /* HourlyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D26E952952BBD50015E79D /* HourlyCollectionViewCell.swift */; };
+		A9D26E982952BBD50015E79D /* HourlyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9D26E962952BBD50015E79D /* HourlyCollectionViewCell.xib */; };
+		A9D26E9F2953094B0015E79D /* SunProtectionDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9D26E9E2953094B0015E79D /* SunProtectionDetail.storyboard */; };
+		A9D26EA1295309770015E79D /* SunProtectionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D26EA0295309770015E79D /* SunProtectionDetailViewController.swift */; };
+		A9FCBD82295284B500D89546 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FCBD81295284B500D89546 /* WeatherModel.swift */; };
+		A9FCBD862952B43800D89546 /* ProtectionSelected.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9FCBD852952B43800D89546 /* ProtectionSelected.xib */; };
+		A9FCBD882952B48600D89546 /* ProtectionSelected.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FCBD872952B48600D89546 /* ProtectionSelected.swift */; };
+		A9FCBD8B2952B59A00D89546 /* LocationSelected.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FCBD8A2952B59A00D89546 /* LocationSelected.swift */; };
+		A9FCBD8D2952B5A500D89546 /* LocationSelected.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9FCBD8C2952B5A500D89546 /* LocationSelected.xib */; };
+		A9FCBD922952B64200D89546 /* UVSelected.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9FCBD912952B64200D89546 /* UVSelected.xib */; };
+		A9FCBD942952B66800D89546 /* UVSelected.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FCBD932952B66800D89546 /* UVSelected.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,11 +84,29 @@
 		2023BF9D294FFE3D00972E36 /* SunbatheViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunbatheViewController.swift; sourceTree = "<group>"; };
 		2023BF9F294FFE4E00972E36 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		2023BFA1294FFE5C00972E36 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		207B95602958985F00F5CC03 /* SkinTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinTypeModel.swift; sourceTree = "<group>"; };
+		208309B42958C1D200BEA9D2 /* SunwiseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunwiseTabBarController.swift; sourceTree = "<group>"; };
+		208483FE29517CF70044F23A /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		2084840129517FE90044F23A /* UserDefaultExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultExtension.swift; sourceTree = "<group>"; };
+		20F279542952C7E1005D504D /* SkinCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinCheckViewController.swift; sourceTree = "<group>"; };
 		46AEBA3662E47A0CAD8A45BA /* Pods-SunwiseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SunwiseTests.release.xcconfig"; path = "Target Support Files/Pods-SunwiseTests/Pods-SunwiseTests.release.xcconfig"; sourceTree = "<group>"; };
 		478AD51CE9A81CA237584FB1 /* Pods-Sunwise.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sunwise.release.xcconfig"; path = "Target Support Files/Pods-Sunwise/Pods-Sunwise.release.xcconfig"; sourceTree = "<group>"; };
 		67A66DA3957D2C1DA05E621B /* Pods-Sunwise-SunwiseUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sunwise-SunwiseUITests.release.xcconfig"; path = "Target Support Files/Pods-Sunwise-SunwiseUITests/Pods-Sunwise-SunwiseUITests.release.xcconfig"; sourceTree = "<group>"; };
 		77DDD99D7F47414FF15B1F7A /* Pods_SunwiseTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SunwiseTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D579DABA4C3F549B9D5FD49 /* Pods-SunwiseTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SunwiseTests.debug.xcconfig"; path = "Target Support Files/Pods-SunwiseTests/Pods-SunwiseTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A9D26E902952BB8E0015E79D /* WeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTableViewCell.swift; sourceTree = "<group>"; };
+		A9D26E912952BB8E0015E79D /* WeatherTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherTableViewCell.xib; sourceTree = "<group>"; };
+		A9D26E952952BBD50015E79D /* HourlyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyCollectionViewCell.swift; sourceTree = "<group>"; };
+		A9D26E962952BBD50015E79D /* HourlyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HourlyCollectionViewCell.xib; sourceTree = "<group>"; };
+		A9D26E9E2953094B0015E79D /* SunProtectionDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SunProtectionDetail.storyboard; sourceTree = "<group>"; };
+		A9D26EA0295309770015E79D /* SunProtectionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunProtectionDetailViewController.swift; sourceTree = "<group>"; };
+		A9FCBD81295284B500D89546 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		A9FCBD852952B43800D89546 /* ProtectionSelected.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProtectionSelected.xib; sourceTree = "<group>"; };
+		A9FCBD872952B48600D89546 /* ProtectionSelected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectionSelected.swift; sourceTree = "<group>"; };
+		A9FCBD8A2952B59A00D89546 /* LocationSelected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSelected.swift; sourceTree = "<group>"; };
+		A9FCBD8C2952B5A500D89546 /* LocationSelected.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationSelected.xib; sourceTree = "<group>"; };
+		A9FCBD912952B64200D89546 /* UVSelected.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UVSelected.xib; sourceTree = "<group>"; };
+		A9FCBD932952B66800D89546 /* UVSelected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UVSelected.swift; sourceTree = "<group>"; };
 		B33F950FF4B3D8D0D69266A3 /* Pods-Sunwise.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sunwise.debug.xcconfig"; path = "Target Support Files/Pods-Sunwise/Pods-Sunwise.debug.xcconfig"; sourceTree = "<group>"; };
 		BBC90F2AA32C469A2ED506AC /* Pods_Sunwise_SunwiseUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sunwise_SunwiseUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEB400C7EBC470224748A827 /* Pods_Sunwise.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sunwise.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,14 +166,15 @@
 		202048DB294C1809007A9BC1 /* Sunwise */ = {
 			isa = PBXGroup;
 			children = (
+				2084840029517FC50044F23A /* Extension */,
 				2023BF89294FBEFD00972E36 /* Base */,
-				2023BF8E294FC00A00972E36 /* Component */,
+				A9FCBD832952B3F900D89546 /* Component */,
 				2023BF8A294FBF2000972E36 /* Controller */,
-				2023BF8C294FBF3400972E36 /* Model */,
-				2023BF8B294FBF2D00972E36 /* View */,
+				A9FCBD802952849400D89546 /* Model */,
 				202048E8294C180B007A9BC1 /* Assets.xcassets */,
 				202048ED294C180B007A9BC1 /* Info.plist */,
 				202048E5294C1809007A9BC1 /* Sunwise.xcdatamodeld */,
+				2023BF8B294FBF2D00972E36 /* View */,
 			);
 			path = Sunwise;
 			sourceTree = "<group>";
@@ -171,7 +208,8 @@
 		2023BF8A294FBF2000972E36 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				2023BF8F294FC06B00972E36 /* Dashboard */,
+				A9D26EA2295309820015E79D /* Sun Protection Detail */,
+				2023BF8F294FC06B00972E36 /* Onboarding */,
 				2023BF91294FC0B200972E36 /* Sunbathe */,
 				2023BF92294FC0BB00972E36 /* Weather */,
 				2023BF93294FC0C500972E36 /* Setting */,
@@ -182,7 +220,8 @@
 		2023BF8B294FBF2D00972E36 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				2023BF90294FC09400972E36 /* Dashboard */,
+				A9D26E9D295309310015E79D /* Sun Protection Detail */,
+				2023BF90294FC09400972E36 /* Onboarding */,
 				2023BF94294FC0F000972E36 /* Sunbathe */,
 				2023BF95294FC0FA00972E36 /* Weather */,
 				2023BF96294FC10200972E36 /* Setting */,
@@ -191,34 +230,22 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		2023BF8C294FBF3400972E36 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		2023BF8E294FC00A00972E36 /* Component */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Component;
-			sourceTree = "<group>";
-		};
-		2023BF8F294FC06B00972E36 /* Dashboard */ = {
+		2023BF8F294FC06B00972E36 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
 				202048E0294C1809007A9BC1 /* ViewController.swift */,
+				208483FE29517CF70044F23A /* OnboardingViewController.swift */,
+				20F279542952C7E1005D504D /* SkinCheckViewController.swift */,
 			);
-			path = Dashboard;
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
-		2023BF90294FC09400972E36 /* Dashboard */ = {
+		2023BF90294FC09400972E36 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
 				202048E2294C1809007A9BC1 /* Main.storyboard */,
 			);
-			path = Dashboard;
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		2023BF91294FC0B200972E36 /* Sunbathe */ = {
@@ -256,6 +283,8 @@
 		2023BF95294FC0FA00972E36 /* Weather */ = {
 			isa = PBXGroup;
 			children = (
+				A9D26E942952BBB70015E79D /* CollectionViewCell */,
+				A9FCBD972952B8B200D89546 /* TableViewCell */,
 				2023BF99294FC34900972E36 /* Weather.storyboard */,
 			);
 			path = Weather;
@@ -267,6 +296,14 @@
 				2023BF9B294FC35500972E36 /* Setting.storyboard */,
 			);
 			path = Setting;
+			sourceTree = "<group>";
+		};
+		2084840029517FC50044F23A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				2084840129517FE90044F23A /* UserDefaultExtension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		493011EE4953D9D0F7ADF460 /* Frameworks */ = {
@@ -290,6 +327,87 @@
 				46AEBA3662E47A0CAD8A45BA /* Pods-SunwiseTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		A9D26E942952BBB70015E79D /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				A9D26E952952BBD50015E79D /* HourlyCollectionViewCell.swift */,
+				A9D26E962952BBD50015E79D /* HourlyCollectionViewCell.xib */,
+			);
+			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
+		A9D26E9D295309310015E79D /* Sun Protection Detail */ = {
+			isa = PBXGroup;
+			children = (
+				A9D26E9E2953094B0015E79D /* SunProtectionDetail.storyboard */,
+			);
+			path = "Sun Protection Detail";
+			sourceTree = "<group>";
+		};
+		A9D26EA2295309820015E79D /* Sun Protection Detail */ = {
+			isa = PBXGroup;
+			children = (
+				A9D26EA0295309770015E79D /* SunProtectionDetailViewController.swift */,
+			);
+			path = "Sun Protection Detail";
+			sourceTree = "<group>";
+		};
+		A9FCBD802952849400D89546 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A9FCBD81295284B500D89546 /* WeatherModel.swift */,
+				207B95602958985F00F5CC03 /* SkinTypeModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A9FCBD832952B3F900D89546 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				A9FCBD8E2952B61E00D89546 /* UVSelectedView */,
+				A9FCBD892952B58200D89546 /* LocationSelectedView */,
+				A9FCBD842952B40800D89546 /* ProtectionSelectedView */,
+				208309B42958C1D200BEA9D2 /* SunwiseTabBarController.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		A9FCBD842952B40800D89546 /* ProtectionSelectedView */ = {
+			isa = PBXGroup;
+			children = (
+				A9FCBD852952B43800D89546 /* ProtectionSelected.xib */,
+				A9FCBD872952B48600D89546 /* ProtectionSelected.swift */,
+			);
+			path = ProtectionSelectedView;
+			sourceTree = "<group>";
+		};
+		A9FCBD892952B58200D89546 /* LocationSelectedView */ = {
+			isa = PBXGroup;
+			children = (
+				A9FCBD8A2952B59A00D89546 /* LocationSelected.swift */,
+				A9FCBD8C2952B5A500D89546 /* LocationSelected.xib */,
+			);
+			path = LocationSelectedView;
+			sourceTree = "<group>";
+		};
+		A9FCBD8E2952B61E00D89546 /* UVSelectedView */ = {
+			isa = PBXGroup;
+			children = (
+				A9FCBD912952B64200D89546 /* UVSelected.xib */,
+				A9FCBD932952B66800D89546 /* UVSelected.swift */,
+			);
+			path = UVSelectedView;
+			sourceTree = "<group>";
+		};
+		A9FCBD972952B8B200D89546 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				A9D26E902952BB8E0015E79D /* WeatherTableViewCell.swift */,
+				A9D26E912952BB8E0015E79D /* WeatherTableViewCell.xib */,
+			);
+			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -402,11 +520,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				2023BF98294FC33000972E36 /* Sunbathe.storyboard in Resources */,
+				A9FCBD862952B43800D89546 /* ProtectionSelected.xib in Resources */,
+				A9D26E932952BB8E0015E79D /* WeatherTableViewCell.xib in Resources */,
 				2023BF9A294FC34900972E36 /* Weather.storyboard in Resources */,
+				A9FCBD922952B64200D89546 /* UVSelected.xib in Resources */,
+				A9D26E982952BBD50015E79D /* HourlyCollectionViewCell.xib in Resources */,
 				202048EC294C180B007A9BC1 /* LaunchScreen.storyboard in Resources */,
 				202048E9294C180B007A9BC1 /* Assets.xcassets in Resources */,
 				202048E4294C1809007A9BC1 /* Main.storyboard in Resources */,
+				A9D26E9F2953094B0015E79D /* SunProtectionDetail.storyboard in Resources */,
 				2023BF9C294FC35500972E36 /* Setting.storyboard in Resources */,
+				A9FCBD8D2952B5A500D89546 /* LocationSelected.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,13 +658,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9D26E922952BB8E0015E79D /* WeatherTableViewCell.swift in Sources */,
+				207B95612958985F00F5CC03 /* SkinTypeModel.swift in Sources */,
+				A9FCBD882952B48600D89546 /* ProtectionSelected.swift in Sources */,
+				A9D26E972952BBD50015E79D /* HourlyCollectionViewCell.swift in Sources */,
 				2023BF9E294FFE3D00972E36 /* SunbatheViewController.swift in Sources */,
 				2023BFA0294FFE4E00972E36 /* WeatherViewController.swift in Sources */,
+				208309B52958C1D200BEA9D2 /* SunwiseTabBarController.swift in Sources */,
 				202048E1294C1809007A9BC1 /* ViewController.swift in Sources */,
 				202048DD294C1809007A9BC1 /* AppDelegate.swift in Sources */,
+				A9FCBD8B2952B59A00D89546 /* LocationSelected.swift in Sources */,
+				20F279552952C7E1005D504D /* SkinCheckViewController.swift in Sources */,
 				202048E7294C1809007A9BC1 /* Sunwise.xcdatamodeld in Sources */,
+				2084840229517FE90044F23A /* UserDefaultExtension.swift in Sources */,
 				2023BFA2294FFE5C00972E36 /* SettingViewController.swift in Sources */,
+				A9FCBD82295284B500D89546 /* WeatherModel.swift in Sources */,
+				A9D26EA1295309770015E79D /* SunProtectionDetailViewController.swift in Sources */,
+				A9FCBD942952B66800D89546 /* UVSelected.swift in Sources */,
 				202048DF294C1809007A9BC1 /* SceneDelegate.swift in Sources */,
+				208483FF29517CF70044F23A /* OnboardingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -726,6 +862,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -758,6 +895,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -228,10 +228,10 @@
             </objects>
             <point key="canvasLocation" x="3286.2595419847326" y="-261.26760563380282"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Sunwise Tab Bar Controller-->
         <scene sceneID="LBb-U2-BEu">
             <objects>
-                <tabBarController storyboardIdentifier="tabBarController" id="UML-z5-2Z8" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBarController" id="UML-z5-2Z8" customClass="SunwiseTabBarController" customModule="Sunwise" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gmR-WH-ucG">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

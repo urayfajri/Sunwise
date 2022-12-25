@@ -25,6 +25,7 @@
 		2023BFA0294FFE4E00972E36 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2023BF9F294FFE4E00972E36 /* WeatherViewController.swift */; };
 		2023BFA2294FFE5C00972E36 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2023BFA1294FFE5C00972E36 /* SettingViewController.swift */; };
 		207B95612958985F00F5CC03 /* SkinTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207B95602958985F00F5CC03 /* SkinTypeModel.swift */; };
+		208309B52958C1D200BEA9D2 /* SunwiseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208309B42958C1D200BEA9D2 /* SunwiseTabBarController.swift */; };
 		208483FF29517CF70044F23A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208483FE29517CF70044F23A /* OnboardingViewController.swift */; };
 		2084840229517FE90044F23A /* UserDefaultExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2084840129517FE90044F23A /* UserDefaultExtension.swift */; };
 		20F279552952C7E1005D504D /* SkinCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F279542952C7E1005D504D /* SkinCheckViewController.swift */; };
@@ -84,6 +85,7 @@
 		2023BF9F294FFE4E00972E36 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		2023BFA1294FFE5C00972E36 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		207B95602958985F00F5CC03 /* SkinTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinTypeModel.swift; sourceTree = "<group>"; };
+		208309B42958C1D200BEA9D2 /* SunwiseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunwiseTabBarController.swift; sourceTree = "<group>"; };
 		208483FE29517CF70044F23A /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		2084840129517FE90044F23A /* UserDefaultExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultExtension.swift; sourceTree = "<group>"; };
 		20F279542952C7E1005D504D /* SkinCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinCheckViewController.swift; sourceTree = "<group>"; };
@@ -367,6 +369,7 @@
 				A9FCBD8E2952B61E00D89546 /* UVSelectedView */,
 				A9FCBD892952B58200D89546 /* LocationSelectedView */,
 				A9FCBD842952B40800D89546 /* ProtectionSelectedView */,
+				208309B42958C1D200BEA9D2 /* SunwiseTabBarController.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -661,6 +664,7 @@
 				A9D26E972952BBD50015E79D /* HourlyCollectionViewCell.swift in Sources */,
 				2023BF9E294FFE3D00972E36 /* SunbatheViewController.swift in Sources */,
 				2023BFA0294FFE4E00972E36 /* WeatherViewController.swift in Sources */,
+				208309B52958C1D200BEA9D2 /* SunwiseTabBarController.swift in Sources */,
 				202048E1294C1809007A9BC1 /* ViewController.swift in Sources */,
 				202048DD294C1809007A9BC1 /* AppDelegate.swift in Sources */,
 				A9FCBD8B2952B59A00D89546 /* LocationSelected.swift in Sources */,

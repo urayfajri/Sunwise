@@ -103,10 +103,10 @@ class SkinCheckViewController: UIViewController, AVCaptureVideoDataOutputSampleB
     @IBAction func skinTypeButtonTapped(_ sender: Any) {
         
         let alertControl = UIAlertController(title: "Set Skin Type", message: "Are you sure you have chosen your skin type correctly?", preferredStyle: .alert)
-        alertControl.addAction(UIAlertAction(title: "No", style: .destructive, handler: {_ in
+        alertControl.addAction(UIAlertAction(title: "No", style: .cancel, handler: {_ in
             alertControl.dismiss(animated: true, completion: nil)
         }))
-        alertControl.addAction(UIAlertAction(title: "Yes", style: .cancel, handler: { [self]_ in
+        alertControl.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { [self]_ in
             let controller = storyboard?.instantiateViewController(identifier: "tabBarController") as! UITabBarController
             controller.modalTransitionStyle = .flipHorizontal
             controller.modalPresentationStyle = .fullScreen

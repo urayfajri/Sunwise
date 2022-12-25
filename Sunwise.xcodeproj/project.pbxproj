@@ -24,6 +24,11 @@
 		2023BF9E294FFE3D00972E36 /* SunbatheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2023BF9D294FFE3D00972E36 /* SunbatheViewController.swift */; };
 		2023BFA0294FFE4E00972E36 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2023BF9F294FFE4E00972E36 /* WeatherViewController.swift */; };
 		2023BFA2294FFE5C00972E36 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2023BFA1294FFE5C00972E36 /* SettingViewController.swift */; };
+		207B95612958985F00F5CC03 /* SkinTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207B95602958985F00F5CC03 /* SkinTypeModel.swift */; };
+		208309B52958C1D200BEA9D2 /* SunwiseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208309B42958C1D200BEA9D2 /* SunwiseTabBarController.swift */; };
+		208483FF29517CF70044F23A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208483FE29517CF70044F23A /* OnboardingViewController.swift */; };
+		2084840229517FE90044F23A /* UserDefaultExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2084840129517FE90044F23A /* UserDefaultExtension.swift */; };
+		20F279552952C7E1005D504D /* SkinCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F279542952C7E1005D504D /* SkinCheckViewController.swift */; };
 		212800E20BB4E384C45882A9 /* Pods_Sunwise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEB400C7EBC470224748A827 /* Pods_Sunwise.framework */; };
 		3E31DB78147B430ED5655D1F /* Pods_SunwiseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77DDD99D7F47414FF15B1F7A /* Pods_SunwiseTests.framework */; };
 		A9D26E922952BB8E0015E79D /* WeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D26E902952BB8E0015E79D /* WeatherTableViewCell.swift */; };
@@ -79,6 +84,11 @@
 		2023BF9D294FFE3D00972E36 /* SunbatheViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunbatheViewController.swift; sourceTree = "<group>"; };
 		2023BF9F294FFE4E00972E36 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		2023BFA1294FFE5C00972E36 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		207B95602958985F00F5CC03 /* SkinTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinTypeModel.swift; sourceTree = "<group>"; };
+		208309B42958C1D200BEA9D2 /* SunwiseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunwiseTabBarController.swift; sourceTree = "<group>"; };
+		208483FE29517CF70044F23A /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		2084840129517FE90044F23A /* UserDefaultExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultExtension.swift; sourceTree = "<group>"; };
+		20F279542952C7E1005D504D /* SkinCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinCheckViewController.swift; sourceTree = "<group>"; };
 		46AEBA3662E47A0CAD8A45BA /* Pods-SunwiseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SunwiseTests.release.xcconfig"; path = "Target Support Files/Pods-SunwiseTests/Pods-SunwiseTests.release.xcconfig"; sourceTree = "<group>"; };
 		478AD51CE9A81CA237584FB1 /* Pods-Sunwise.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sunwise.release.xcconfig"; path = "Target Support Files/Pods-Sunwise/Pods-Sunwise.release.xcconfig"; sourceTree = "<group>"; };
 		67A66DA3957D2C1DA05E621B /* Pods-Sunwise-SunwiseUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sunwise-SunwiseUITests.release.xcconfig"; path = "Target Support Files/Pods-Sunwise-SunwiseUITests/Pods-Sunwise-SunwiseUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -156,14 +166,15 @@
 		202048DB294C1809007A9BC1 /* Sunwise */ = {
 			isa = PBXGroup;
 			children = (
+				2084840029517FC50044F23A /* Extension */,
 				2023BF89294FBEFD00972E36 /* Base */,
 				A9FCBD832952B3F900D89546 /* Component */,
 				2023BF8A294FBF2000972E36 /* Controller */,
 				A9FCBD802952849400D89546 /* Model */,
-				2023BF8B294FBF2D00972E36 /* View */,
 				202048E8294C180B007A9BC1 /* Assets.xcassets */,
 				202048ED294C180B007A9BC1 /* Info.plist */,
 				202048E5294C1809007A9BC1 /* Sunwise.xcdatamodeld */,
+				2023BF8B294FBF2D00972E36 /* View */,
 			);
 			path = Sunwise;
 			sourceTree = "<group>";
@@ -198,7 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				A9D26EA2295309820015E79D /* Sun Protection Detail */,
-				2023BF8F294FC06B00972E36 /* Dashboard */,
+				2023BF8F294FC06B00972E36 /* Onboarding */,
 				2023BF91294FC0B200972E36 /* Sunbathe */,
 				2023BF92294FC0BB00972E36 /* Weather */,
 				2023BF93294FC0C500972E36 /* Setting */,
@@ -210,7 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				A9D26E9D295309310015E79D /* Sun Protection Detail */,
-				2023BF90294FC09400972E36 /* Dashboard */,
+				2023BF90294FC09400972E36 /* Onboarding */,
 				2023BF94294FC0F000972E36 /* Sunbathe */,
 				2023BF95294FC0FA00972E36 /* Weather */,
 				2023BF96294FC10200972E36 /* Setting */,
@@ -219,20 +230,22 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		2023BF8F294FC06B00972E36 /* Dashboard */ = {
+		2023BF8F294FC06B00972E36 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
 				202048E0294C1809007A9BC1 /* ViewController.swift */,
+				208483FE29517CF70044F23A /* OnboardingViewController.swift */,
+				20F279542952C7E1005D504D /* SkinCheckViewController.swift */,
 			);
-			path = Dashboard;
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
-		2023BF90294FC09400972E36 /* Dashboard */ = {
+		2023BF90294FC09400972E36 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
 				202048E2294C1809007A9BC1 /* Main.storyboard */,
 			);
-			path = Dashboard;
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		2023BF91294FC0B200972E36 /* Sunbathe */ = {
@@ -283,6 +296,14 @@
 				2023BF9B294FC35500972E36 /* Setting.storyboard */,
 			);
 			path = Setting;
+			sourceTree = "<group>";
+		};
+		2084840029517FC50044F23A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				2084840129517FE90044F23A /* UserDefaultExtension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		493011EE4953D9D0F7ADF460 /* Frameworks */ = {
@@ -337,6 +358,7 @@
 			isa = PBXGroup;
 			children = (
 				A9FCBD81295284B500D89546 /* WeatherModel.swift */,
+				207B95602958985F00F5CC03 /* SkinTypeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -347,6 +369,7 @@
 				A9FCBD8E2952B61E00D89546 /* UVSelectedView */,
 				A9FCBD892952B58200D89546 /* LocationSelectedView */,
 				A9FCBD842952B40800D89546 /* ProtectionSelectedView */,
+				208309B42958C1D200BEA9D2 /* SunwiseTabBarController.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -636,19 +659,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9D26E922952BB8E0015E79D /* WeatherTableViewCell.swift in Sources */,
+				207B95612958985F00F5CC03 /* SkinTypeModel.swift in Sources */,
 				A9FCBD882952B48600D89546 /* ProtectionSelected.swift in Sources */,
 				A9D26E972952BBD50015E79D /* HourlyCollectionViewCell.swift in Sources */,
 				2023BF9E294FFE3D00972E36 /* SunbatheViewController.swift in Sources */,
 				2023BFA0294FFE4E00972E36 /* WeatherViewController.swift in Sources */,
+				208309B52958C1D200BEA9D2 /* SunwiseTabBarController.swift in Sources */,
 				202048E1294C1809007A9BC1 /* ViewController.swift in Sources */,
 				202048DD294C1809007A9BC1 /* AppDelegate.swift in Sources */,
 				A9FCBD8B2952B59A00D89546 /* LocationSelected.swift in Sources */,
+				20F279552952C7E1005D504D /* SkinCheckViewController.swift in Sources */,
 				202048E7294C1809007A9BC1 /* Sunwise.xcdatamodeld in Sources */,
+				2084840229517FE90044F23A /* UserDefaultExtension.swift in Sources */,
 				2023BFA2294FFE5C00972E36 /* SettingViewController.swift in Sources */,
 				A9FCBD82295284B500D89546 /* WeatherModel.swift in Sources */,
 				A9D26EA1295309770015E79D /* SunProtectionDetailViewController.swift in Sources */,
 				A9FCBD942952B66800D89546 /* UVSelected.swift in Sources */,
 				202048DF294C1809007A9BC1 /* SceneDelegate.swift in Sources */,
+				208483FF29517CF70044F23A /* OnboardingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -826,7 +854,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P7PL5J4AMN;
+				DEVELOPMENT_TEAM = 874S576UUN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Sunwise/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -834,6 +862,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -858,7 +887,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P7PL5J4AMN;
+				DEVELOPMENT_TEAM = 874S576UUN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Sunwise/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -866,6 +895,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

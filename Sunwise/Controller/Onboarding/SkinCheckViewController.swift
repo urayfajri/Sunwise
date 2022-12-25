@@ -137,6 +137,7 @@ class SkinCheckViewController: UIViewController, AVCaptureVideoDataOutputSampleB
     func initElementForSkinInfo() {
         if(!skinTypes.isEmpty) {
             skinTypeLabel.text = skinTypes[0].name
+            skinTypeImage.image = UIImage(named:"SkinType1")
         }
         
         // if user want to swipe
@@ -168,37 +169,51 @@ class SkinCheckViewController: UIViewController, AVCaptureVideoDataOutputSampleB
         switch skinTypeLabel.text {
             case "Skin Type I":
                 skinTypeLabel.text = "Skin Type II"
+                skinTypeImage.image = UIImage(named:"SkinType2")
             case "Skin Type II":
                 skinTypeLabel.text = "Skin Type III"
+                skinTypeImage.image = UIImage(named:"SkinType3")
             case "Skin Type III":
                 skinTypeLabel.text = "Skin Type IV"
+                skinTypeImage.image = UIImage(named:"SkinType4")
             case "Skin Type IV":
                 skinTypeLabel.text = "Skin Type V"
+                skinTypeImage.image = UIImage(named:"SkinType5")
             case "Skin Type V":
                 skinTypeLabel.text = "Skin Type VI"
+                skinTypeImage.image = UIImage(named:"SkinType6")
             case "Skin Type VI":
                 skinTypeLabel.text = "Skin Type I"
+                skinTypeImage.image = UIImage(named:"SkinType1")
             default:
                 skinTypeLabel.text = "Skin Type"
+                skinTypeImage.image = UIImage(named:"SkinType1")
         }
     }
     
     func skinTypePrevChanged() {
         switch skinTypeLabel.text {
             case "Skin Type I":
-                skinTypeLabel.text = "Skin Type IV"
+                skinTypeLabel.text = "Skin Type VI"
+                skinTypeImage.image = UIImage(named:"SkinType6")
             case "Skin Type II":
                 skinTypeLabel.text = "Skin Type I"
+                skinTypeImage.image = UIImage(named:"SkinType1")
             case "Skin Type III":
                 skinTypeLabel.text = "Skin Type II"
+                skinTypeImage.image = UIImage(named:"SkinType2")
             case "Skin Type IV":
                 skinTypeLabel.text = "Skin Type III"
+                skinTypeImage.image = UIImage(named:"SkinType3")
             case "Skin Type V":
                 skinTypeLabel.text = "Skin Type IV"
+                skinTypeImage.image = UIImage(named:"SkinType4")
             case "Skin Type VI":
                 skinTypeLabel.text = "Skin Type V"
+                skinTypeImage.image = UIImage(named:"SkinType5")
             default:
                 skinTypeLabel.text = "Skin Type"
+                skinTypeImage.image = UIImage(named:"SkinType1")
         }
     }
 }

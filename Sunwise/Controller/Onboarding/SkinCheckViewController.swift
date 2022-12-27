@@ -110,6 +110,7 @@ class SkinCheckViewController: UIViewController, AVCaptureVideoDataOutputSampleB
             let controller = storyboard?.instantiateViewController(identifier: "tabBarController") as! UITabBarController
             controller.modalTransitionStyle = .flipHorizontal
             controller.modalPresentationStyle = .fullScreen
+            UserDefaults.standard.hasOnboarded = true
             present(controller, animated: true, completion: {
                 self.stopCaptureSession()
             })

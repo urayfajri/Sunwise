@@ -28,6 +28,12 @@
 		208309B52958C1D200BEA9D2 /* SunwiseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208309B42958C1D200BEA9D2 /* SunwiseTabBarController.swift */; };
 		208483FF29517CF70044F23A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208483FE29517CF70044F23A /* OnboardingViewController.swift */; };
 		2084840229517FE90044F23A /* UserDefaultExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2084840129517FE90044F23A /* UserDefaultExtension.swift */; };
+		20F19F51295BEA980032776D /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F19F4B295BEA980032776D /* User+CoreDataClass.swift */; };
+		20F19F52295BEA980032776D /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F19F4C295BEA980032776D /* User+CoreDataProperties.swift */; };
+		20F19F53295BEA980032776D /* Session+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F19F4D295BEA980032776D /* Session+CoreDataClass.swift */; };
+		20F19F54295BEA980032776D /* Session+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F19F4E295BEA980032776D /* Session+CoreDataProperties.swift */; };
+		20F19F55295BEA980032776D /* DailySunbathe+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F19F4F295BEA980032776D /* DailySunbathe+CoreDataClass.swift */; };
+		20F19F56295BEA980032776D /* DailySunbathe+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F19F50295BEA980032776D /* DailySunbathe+CoreDataProperties.swift */; };
 		20F279552952C7E1005D504D /* SkinCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F279542952C7E1005D504D /* SkinCheckViewController.swift */; };
 		212800E20BB4E384C45882A9 /* Pods_Sunwise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEB400C7EBC470224748A827 /* Pods_Sunwise.framework */; };
 		3E31DB78147B430ED5655D1F /* Pods_SunwiseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77DDD99D7F47414FF15B1F7A /* Pods_SunwiseTests.framework */; };
@@ -88,6 +94,12 @@
 		208309B42958C1D200BEA9D2 /* SunwiseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunwiseTabBarController.swift; sourceTree = "<group>"; };
 		208483FE29517CF70044F23A /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		2084840129517FE90044F23A /* UserDefaultExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultExtension.swift; sourceTree = "<group>"; };
+		20F19F4B295BEA980032776D /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		20F19F4C295BEA980032776D /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		20F19F4D295BEA980032776D /* Session+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Session+CoreDataClass.swift"; sourceTree = "<group>"; };
+		20F19F4E295BEA980032776D /* Session+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Session+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		20F19F4F295BEA980032776D /* DailySunbathe+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DailySunbathe+CoreDataClass.swift"; sourceTree = "<group>"; };
+		20F19F50295BEA980032776D /* DailySunbathe+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DailySunbathe+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		20F279542952C7E1005D504D /* SkinCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinCheckViewController.swift; sourceTree = "<group>"; };
 		46AEBA3662E47A0CAD8A45BA /* Pods-SunwiseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SunwiseTests.release.xcconfig"; path = "Target Support Files/Pods-SunwiseTests/Pods-SunwiseTests.release.xcconfig"; sourceTree = "<group>"; };
 		478AD51CE9A81CA237584FB1 /* Pods-Sunwise.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sunwise.release.xcconfig"; path = "Target Support Files/Pods-Sunwise/Pods-Sunwise.release.xcconfig"; sourceTree = "<group>"; };
@@ -166,6 +178,7 @@
 		202048DB294C1809007A9BC1 /* Sunwise */ = {
 			isa = PBXGroup;
 			children = (
+				20F19F32295BE9AA0032776D /* Database */,
 				2084840029517FC50044F23A /* Extension */,
 				2023BF89294FBEFD00972E36 /* Base */,
 				A9FCBD832952B3F900D89546 /* Component */,
@@ -304,6 +317,19 @@
 				2084840129517FE90044F23A /* UserDefaultExtension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		20F19F32295BE9AA0032776D /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				20F19F4B295BEA980032776D /* User+CoreDataClass.swift */,
+				20F19F4C295BEA980032776D /* User+CoreDataProperties.swift */,
+				20F19F4D295BEA980032776D /* Session+CoreDataClass.swift */,
+				20F19F4E295BEA980032776D /* Session+CoreDataProperties.swift */,
+				20F19F4F295BEA980032776D /* DailySunbathe+CoreDataClass.swift */,
+				20F19F50295BEA980032776D /* DailySunbathe+CoreDataProperties.swift */,
+			);
+			path = Database;
 			sourceTree = "<group>";
 		};
 		493011EE4953D9D0F7ADF460 /* Frameworks */ = {
@@ -662,20 +688,26 @@
 				207B95612958985F00F5CC03 /* SkinTypeModel.swift in Sources */,
 				A9FCBD882952B48600D89546 /* ProtectionSelected.swift in Sources */,
 				A9D26E972952BBD50015E79D /* HourlyCollectionViewCell.swift in Sources */,
+				20F19F54295BEA980032776D /* Session+CoreDataProperties.swift in Sources */,
 				2023BF9E294FFE3D00972E36 /* SunbatheViewController.swift in Sources */,
 				2023BFA0294FFE4E00972E36 /* WeatherViewController.swift in Sources */,
 				208309B52958C1D200BEA9D2 /* SunwiseTabBarController.swift in Sources */,
 				202048E1294C1809007A9BC1 /* ViewController.swift in Sources */,
 				202048DD294C1809007A9BC1 /* AppDelegate.swift in Sources */,
 				A9FCBD8B2952B59A00D89546 /* LocationSelected.swift in Sources */,
+				20F19F53295BEA980032776D /* Session+CoreDataClass.swift in Sources */,
 				20F279552952C7E1005D504D /* SkinCheckViewController.swift in Sources */,
 				202048E7294C1809007A9BC1 /* Sunwise.xcdatamodeld in Sources */,
 				2084840229517FE90044F23A /* UserDefaultExtension.swift in Sources */,
+				20F19F55295BEA980032776D /* DailySunbathe+CoreDataClass.swift in Sources */,
 				2023BFA2294FFE5C00972E36 /* SettingViewController.swift in Sources */,
+				20F19F51295BEA980032776D /* User+CoreDataClass.swift in Sources */,
 				A9FCBD82295284B500D89546 /* WeatherModel.swift in Sources */,
 				A9D26EA1295309770015E79D /* SunProtectionDetailViewController.swift in Sources */,
+				20F19F52295BEA980032776D /* User+CoreDataProperties.swift in Sources */,
 				A9FCBD942952B66800D89546 /* UVSelected.swift in Sources */,
 				202048DF294C1809007A9BC1 /* SceneDelegate.swift in Sources */,
+				20F19F56295BEA980032776D /* DailySunbathe+CoreDataProperties.swift in Sources */,
 				208483FF29517CF70044F23A /* OnboardingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

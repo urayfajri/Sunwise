@@ -9,21 +9,23 @@ import UIKit
 
 class SettingViewController: UIViewController {
 
+    @IBOutlet weak var dailySunbatheView: UIView!
+    @IBOutlet weak var locationView: UIView!
+    @IBOutlet weak var notificationView: UIView!
+    @IBOutlet weak var skinProfileView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        initElements()
 
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func initElements() {
+        dailySunbatheView.layer.cornerRadius = 10
+        locationView.layer.cornerRadius = 10
+        notificationView.layer.cornerRadius = 10
+        skinProfileView.layer.cornerRadius = 10
     }
-    */
 
 }

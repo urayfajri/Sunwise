@@ -145,7 +145,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
                 jsonLocation = try JSONDecoder().decode([LocationCoordinate].self, from: data)
             }
             catch {
-                print("error: \(error)")
+                print("error location: \(error)")
             }
             
             guard let resultLocation = jsonLocation else {

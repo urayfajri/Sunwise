@@ -155,6 +155,10 @@
                                                                                         </constraints>
                                                                                         <state key="normal" title="Button"/>
                                                                                         <buttonConfiguration key="configuration" style="filled" title="Start Sunbathe"/>
+                                                                                        <connections>
+                                                                                            <action selector="startSunbathePressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Vnc-M9-LeU"/>
+                                                                                            <segue destination="fOY-0F-GOA" kind="presentation" identifier="sunbatheCounterVC" id="H0t-GC-Xc4"/>
+                                                                                        </connections>
                                                                                     </button>
                                                                                 </subviews>
                                                                                 <constraints>
@@ -228,7 +232,15 @@
                 <viewControllerPlaceholder storyboardName="SunProtectionDetail" referencedIdentifier="sunProtectionDetailVC" id="Z9J-9X-zeN" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LN9-99-cOj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="876" y="-2"/>
+            <point key="canvasLocation" x="887" y="-173"/>
+        </scene>
+        <!--sunbatheCounterVC-->
+        <scene sceneID="cuE-6v-c0R">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SunbatheCounter" referencedIdentifier="sunbatheCounterVC" id="fOY-0F-GOA" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PR6-cW-prD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="882" y="166"/>
         </scene>
     </scenes>
     <resources>

@@ -9,6 +9,12 @@ import UIKit
 
 class SunbatheViewController: UIViewController {
 
+    @IBOutlet weak var uvCurrentView: UVCurrent!
+    @IBOutlet weak var protectionView: ProtectionSelected!
+    @IBOutlet weak var seeMoreButton: UIButton!
+    @IBOutlet weak var progressLabel: UILabel!
+    @IBOutlet weak var startSunbathe: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

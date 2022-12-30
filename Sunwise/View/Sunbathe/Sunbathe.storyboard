@@ -77,6 +77,10 @@
                                                                         <rect key="frame" x="9.9999999999999929" y="0.33333333333331439" width="121.33333333333331" height="34.333333333333336"/>
                                                                         <state key="normal" title="Button"/>
                                                                         <buttonConfiguration key="configuration" style="plain" title="See More &gt;&gt;"/>
+                                                                        <connections>
+                                                                            <action selector="seeMoreButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Rp5-Ti-Mdt"/>
+                                                                            <segue destination="Z9J-9X-zeN" kind="presentation" identifier="sunProtectionDetailVC" id="2iP-7D-g9l"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -217,6 +221,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="38.931297709923662" y="-2.1126760563380285"/>
+        </scene>
+        <!--sunProtectionDetailVC-->
+        <scene sceneID="AsD-jY-7hq">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SunProtectionDetail" referencedIdentifier="sunProtectionDetailVC" id="Z9J-9X-zeN" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LN9-99-cOj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="876" y="-2"/>
         </scene>
     </scenes>
     <resources>

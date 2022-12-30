@@ -19,6 +19,7 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate {
     var currentWeather: CurrentWeather?
     var currentLocation: CLLocation?
     let locationManager = CLLocationManager()
+    var uVI = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,19 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate {
         setupLocation()
     }
 
+    @IBAction func seeMoreButtonPressed(_ sender: Any) {
+        print("go to modal \(uVI)")
+        let controller = SunProtectionDetailViewController()
+        present(controller, animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "sunProtectionDetailVC" {
+            let vc = segue.destination as! SunProtectionDetailViewController
+            vc.uvi = uVI
+        }
+    }
+    
     func setupLocation(){
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
@@ -76,10 +90,12 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate {
             }
             
             DispatchQueue.main.async {
-                
                 self.uvCurrentView.uvi.text = "\(Int(result.current.uvi))"
                 self.uvCurrentView.categoryText.text = "(\(self.getUVCategory(uvi: Int(result.current.uvi))))"
                 self.uvCurrentView.recommendationText.text = "\(self.getUVRecommendation(uvi: Int(result.current.uvi)))"
+                
+                self.uVI = Int(result.current.uvi)
+                self.protectionView.configureView(uvi: Int(result.current.uvi))
             }
         }).resume()
     }

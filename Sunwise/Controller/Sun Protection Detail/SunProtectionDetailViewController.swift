@@ -48,6 +48,7 @@ class SunProtectionDetailViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        closeModalButton.setTitle("", for: .normal)
         
         guard let uvi = uvi else {
             return

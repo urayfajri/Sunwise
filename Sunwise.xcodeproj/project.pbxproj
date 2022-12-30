@@ -43,6 +43,12 @@
 		A9D26E982952BBD50015E79D /* HourlyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9D26E962952BBD50015E79D /* HourlyCollectionViewCell.xib */; };
 		A9D26E9F2953094B0015E79D /* SunProtectionDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9D26E9E2953094B0015E79D /* SunProtectionDetail.storyboard */; };
 		A9D26EA1295309770015E79D /* SunProtectionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D26EA0295309770015E79D /* SunProtectionDetailViewController.swift */; };
+		A9D9A6A4295EB38200717E8D /* UVCurrent.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9D9A6A3295EB38200717E8D /* UVCurrent.xib */; };
+		A9D9A6A6295EB39B00717E8D /* UVCurrent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D9A6A5295EB39B00717E8D /* UVCurrent.swift */; };
+		A9D9A6A9295ED77F00717E8D /* SunbatheCounter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9D9A6A8295ED77F00717E8D /* SunbatheCounter.storyboard */; };
+		A9D9A6AC295ED7A200717E8D /* SunbatheCounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D9A6AB295ED7A200717E8D /* SunbatheCounterViewController.swift */; };
+		A9D9A6AF295EE65100717E8D /* LocationCurrent.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9D9A6AE295EE65100717E8D /* LocationCurrent.xib */; };
+		A9D9A6B1295EE66000717E8D /* LocationCurrent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D9A6B0295EE66000717E8D /* LocationCurrent.swift */; };
 		A9FCBD82295284B500D89546 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FCBD81295284B500D89546 /* WeatherModel.swift */; };
 		A9FCBD862952B43800D89546 /* ProtectionSelected.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9FCBD852952B43800D89546 /* ProtectionSelected.xib */; };
 		A9FCBD882952B48600D89546 /* ProtectionSelected.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FCBD872952B48600D89546 /* ProtectionSelected.swift */; };
@@ -112,6 +118,12 @@
 		A9D26E962952BBD50015E79D /* HourlyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HourlyCollectionViewCell.xib; sourceTree = "<group>"; };
 		A9D26E9E2953094B0015E79D /* SunProtectionDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SunProtectionDetail.storyboard; sourceTree = "<group>"; };
 		A9D26EA0295309770015E79D /* SunProtectionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunProtectionDetailViewController.swift; sourceTree = "<group>"; };
+		A9D9A6A3295EB38200717E8D /* UVCurrent.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UVCurrent.xib; sourceTree = "<group>"; };
+		A9D9A6A5295EB39B00717E8D /* UVCurrent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UVCurrent.swift; sourceTree = "<group>"; };
+		A9D9A6A8295ED77F00717E8D /* SunbatheCounter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SunbatheCounter.storyboard; sourceTree = "<group>"; };
+		A9D9A6AB295ED7A200717E8D /* SunbatheCounterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunbatheCounterViewController.swift; sourceTree = "<group>"; };
+		A9D9A6AE295EE65100717E8D /* LocationCurrent.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationCurrent.xib; sourceTree = "<group>"; };
+		A9D9A6B0295EE66000717E8D /* LocationCurrent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCurrent.swift; sourceTree = "<group>"; };
 		A9FCBD81295284B500D89546 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		A9FCBD852952B43800D89546 /* ProtectionSelected.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProtectionSelected.xib; sourceTree = "<group>"; };
 		A9FCBD872952B48600D89546 /* ProtectionSelected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectionSelected.swift; sourceTree = "<group>"; };
@@ -221,6 +233,7 @@
 		2023BF8A294FBF2000972E36 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A9D9A6AA295ED78600717E8D /* Sunbathe Counter */,
 				A9D26EA2295309820015E79D /* Sun Protection Detail */,
 				2023BF8F294FC06B00972E36 /* Onboarding */,
 				2023BF91294FC0B200972E36 /* Sunbathe */,
@@ -233,6 +246,7 @@
 		2023BF8B294FBF2D00972E36 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A9D9A6A7295ED73F00717E8D /* Sunbathe Counter */,
 				A9D26E9D295309310015E79D /* Sun Protection Detail */,
 				2023BF90294FC09400972E36 /* Onboarding */,
 				2023BF94294FC0F000972E36 /* Sunbathe */,
@@ -380,6 +394,40 @@
 			path = "Sun Protection Detail";
 			sourceTree = "<group>";
 		};
+		A9D9A69E295E9DB100717E8D /* UVCurrentView */ = {
+			isa = PBXGroup;
+			children = (
+				A9D9A6A3295EB38200717E8D /* UVCurrent.xib */,
+				A9D9A6A5295EB39B00717E8D /* UVCurrent.swift */,
+			);
+			path = UVCurrentView;
+			sourceTree = "<group>";
+		};
+		A9D9A6A7295ED73F00717E8D /* Sunbathe Counter */ = {
+			isa = PBXGroup;
+			children = (
+				A9D9A6A8295ED77F00717E8D /* SunbatheCounter.storyboard */,
+			);
+			path = "Sunbathe Counter";
+			sourceTree = "<group>";
+		};
+		A9D9A6AA295ED78600717E8D /* Sunbathe Counter */ = {
+			isa = PBXGroup;
+			children = (
+				A9D9A6AB295ED7A200717E8D /* SunbatheCounterViewController.swift */,
+			);
+			path = "Sunbathe Counter";
+			sourceTree = "<group>";
+		};
+		A9D9A6AD295EE63F00717E8D /* LocationCurrentView */ = {
+			isa = PBXGroup;
+			children = (
+				A9D9A6AE295EE65100717E8D /* LocationCurrent.xib */,
+				A9D9A6B0295EE66000717E8D /* LocationCurrent.swift */,
+			);
+			path = LocationCurrentView;
+			sourceTree = "<group>";
+		};
 		A9FCBD802952849400D89546 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -392,6 +440,8 @@
 		A9FCBD832952B3F900D89546 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				A9D9A6AD295EE63F00717E8D /* LocationCurrentView */,
+				A9D9A69E295E9DB100717E8D /* UVCurrentView */,
 				A9FCBD8E2952B61E00D89546 /* UVSelectedView */,
 				A9FCBD892952B58200D89546 /* LocationSelectedView */,
 				A9FCBD842952B40800D89546 /* ProtectionSelectedView */,
@@ -552,11 +602,14 @@
 				A9FCBD922952B64200D89546 /* UVSelected.xib in Resources */,
 				A9D26E982952BBD50015E79D /* HourlyCollectionViewCell.xib in Resources */,
 				202048EC294C180B007A9BC1 /* LaunchScreen.storyboard in Resources */,
+				A9D9A6AF295EE65100717E8D /* LocationCurrent.xib in Resources */,
 				202048E9294C180B007A9BC1 /* Assets.xcassets in Resources */,
 				202048E4294C1809007A9BC1 /* Main.storyboard in Resources */,
 				A9D26E9F2953094B0015E79D /* SunProtectionDetail.storyboard in Resources */,
+				A9D9A6A4295EB38200717E8D /* UVCurrent.xib in Resources */,
 				2023BF9C294FC35500972E36 /* Setting.storyboard in Resources */,
 				A9FCBD8D2952B5A500D89546 /* LocationSelected.xib in Resources */,
+				A9D9A6A9295ED77F00717E8D /* SunbatheCounter.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -684,8 +737,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9D9A6B1295EE66000717E8D /* LocationCurrent.swift in Sources */,
 				A9D26E922952BB8E0015E79D /* WeatherTableViewCell.swift in Sources */,
 				207B95612958985F00F5CC03 /* SkinTypeModel.swift in Sources */,
+				A9D9A6A6295EB39B00717E8D /* UVCurrent.swift in Sources */,
 				A9FCBD882952B48600D89546 /* ProtectionSelected.swift in Sources */,
 				A9D26E972952BBD50015E79D /* HourlyCollectionViewCell.swift in Sources */,
 				20F19F54295BEA980032776D /* Session+CoreDataProperties.swift in Sources */,
@@ -704,6 +759,7 @@
 				20F19F51295BEA980032776D /* User+CoreDataClass.swift in Sources */,
 				A9FCBD82295284B500D89546 /* WeatherModel.swift in Sources */,
 				A9D26EA1295309770015E79D /* SunProtectionDetailViewController.swift in Sources */,
+				A9D9A6AC295ED7A200717E8D /* SunbatheCounterViewController.swift in Sources */,
 				20F19F52295BEA980032776D /* User+CoreDataProperties.swift in Sources */,
 				A9FCBD942952B66800D89546 /* UVSelected.swift in Sources */,
 				202048DF294C1809007A9BC1 /* SceneDelegate.swift in Sources */,

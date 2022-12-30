@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Sunbathe Counter View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="sunbatheCounterVC" id="Y6W-OH-hqX" customClass="SunbatheCounterViewController" customModule="Sunwise" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="sunbath" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunbathing Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMi-vw-YUh">
+                                <rect key="frame" x="89.666666666666686" y="79" width="214" height="33"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p28-0z-0Qj" customClass="UVCurrent" customModule="Sunwise" customModuleProvider="target">
+                                <rect key="frame" x="10" y="132" width="373" height="60"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="cB6-4Z-u5C"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aYU-WQ-HrO">
+                                <rect key="frame" x="71.666666666666686" y="301" width="250" height="250"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="Uo0-S5-w9F"/>
+                                    <constraint firstAttribute="height" constant="250" id="h8m-SB-rL3"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Goal: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VlB-NU-BGg">
+                                <rect key="frame" x="10" y="571" width="373" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OZ3-Iv-u5K">
+                                <rect key="frame" x="103" y="765" width="187" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="187" id="Urg-KJ-7if"/>
+                                    <constraint firstAttribute="height" constant="28" id="jLi-Ur-c6a"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Finish Sunbathe"/>
+                                <connections>
+                                    <action selector="finishSunbatheButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Vls-6n-jo8"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j9a-zI-bYh">
+                                <rect key="frame" x="113.33333333333333" y="404" width="166.33333333333337" height="44.333333333333314"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="37"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gGc-rr-H2g" customClass="LocationCurrent" customModule="Sunwise" customModuleProvider="target">
+                                <rect key="frame" x="10" y="202" width="373" height="60"/>
+                                <color key="backgroundColor" systemColor="systemMintColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="49q-zC-eaL"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <constraints>
+                            <constraint firstItem="VlB-NU-BGg" firstAttribute="top" secondItem="aYU-WQ-HrO" secondAttribute="bottom" constant="20" id="4Gk-se-8bL"/>
+                            <constraint firstItem="HMi-vw-YUh" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="4Ii-kn-p0C"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="VlB-NU-BGg" secondAttribute="trailing" constant="10" id="5sk-XX-Voc"/>
+                            <constraint firstItem="j9a-zI-bYh" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="6aU-Vs-RJf"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="OZ3-Iv-u5K" secondAttribute="bottom" constant="25" id="I2O-O9-3R4"/>
+                            <constraint firstItem="p28-0z-0Qj" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="L93-m8-VXw"/>
+                            <constraint firstItem="gGc-rr-H2g" firstAttribute="top" secondItem="p28-0z-0Qj" secondAttribute="bottom" constant="10" id="MBd-xP-LMi"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="p28-0z-0Qj" secondAttribute="trailing" constant="10" id="NW5-Ti-HSc"/>
+                            <constraint firstItem="p28-0z-0Qj" firstAttribute="top" secondItem="HMi-vw-YUh" secondAttribute="bottom" constant="20" id="Ori-HW-pca"/>
+                            <constraint firstItem="VlB-NU-BGg" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="PJv-xM-WqP"/>
+                            <constraint firstItem="p28-0z-0Qj" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="QWV-4P-ws0"/>
+                            <constraint firstItem="gGc-rr-H2g" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="dsZ-SV-ccm"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="gGc-rr-H2g" secondAttribute="trailing" constant="10" id="f80-Xc-hF3"/>
+                            <constraint firstItem="OZ3-Iv-u5K" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="gum-Ka-Nxc"/>
+                            <constraint firstItem="VlB-NU-BGg" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="iYf-Hy-8QP"/>
+                            <constraint firstItem="HMi-vw-YUh" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="nDv-hI-qaY"/>
+                            <constraint firstItem="gGc-rr-H2g" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="nKt-GY-0xX"/>
+                            <constraint firstItem="aYU-WQ-HrO" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="tLE-SG-O3D"/>
+                            <constraint firstItem="aYU-WQ-HrO" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="vF9-zh-kHN"/>
+                            <constraint firstItem="j9a-zI-bYh" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="wkc-0v-YXE"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="finishSunbatheButton" destination="OZ3-Iv-u5K" id="wHa-LV-yRs"/>
+                        <outlet property="locationCurrentView" destination="gGc-rr-H2g" id="BoZ-G8-FGk"/>
+                        <outlet property="uvCurrentView" destination="p28-0z-0Qj" id="AtA-YO-JMw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="43.511450381679388" y="-2.1126760563380285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemMintColor">
+            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

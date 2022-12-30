@@ -1,73 +1,59 @@
 //
-//  SunbatheViewController.swift
+//  SunbatheCounterViewController.swift
 //  Sunwise
 //
-//  Created by Uray Muhamad Noor Fajri Widiansyah on 19/12/22.
+//  Created by Ariel Waraney on 30/12/22.
 //
 
 import UIKit
 import CoreLocation
 
-class SunbatheViewController: UIViewController, CLLocationManagerDelegate {
+class SunbatheCounterViewController: UIViewController, CLLocationManagerDelegate {
 
-    @IBOutlet weak var uvCurrentView: UVCurrent!
-    @IBOutlet weak var protectionView: ProtectionSelected!
-    @IBOutlet weak var seeMoreButton: UIButton!
-    @IBOutlet weak var progressLabel: UILabel!
-    @IBOutlet weak var startSunbathe: UIButton!
+    @IBOutlet var uvCurrentView: UVCurrent!
+    @IBOutlet var locationCurrentView: LocationCurrent!
+    @IBOutlet weak var finishSunbatheButton: UIButton!
     
     var currentWeather: CurrentWeather?
     var currentLocation: CLLocation?
     let locationManager = CLLocationManager()
     var modelLocation = [LocationCoordinate]()
     
-    var locationName = ""
-    var weatherID = 0
-    var temp = 0
-    var uVI = 0
-    var date = Date()
+    var duration: Date?
+    var finishTime: Date?
+    var location: String?
+    var startTime: Date?
+    var temp: Double?
+    var uvi: Int?
+    var weather: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        guard let location = location else { return }
+        guard let weather = weather else { return }
+        guard let temp = temp else { return }
+        guard let uvi = uvi else { return }
+        guard let startTime = startTime else { return }
+        
+        //MARK: CORE DATA NOT CREATED IN HERE (this prints is just for displaying the data)
+        print("\n===== SESSION CREATED WITH DATA =====")
+        print("location : \(location)")
+        print("weatherID : \(weather)")
+        print("temp : \(temp)")
+        print("uvi : \(uvi)")
+        print("start time : \(startTime)\n")
+        //MARK: duration and finishTime should still empty / nil
+    }
 
-        // Do any additional setup after loading the view.
+    @IBAction func finishSunbatheButtonPressed(_ sender: Any) {
+        //TODO: Update Core Data Model for finish and duration storing.
+        self.dismiss(animated: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setupLocation()
-    }
-
-    @IBAction func seeMoreButtonPressed(_ sender: Any) {
-        let controller = SunProtectionDetailViewController()
-        present(controller, animated: true, completion: nil)
-    }
-    
-    @IBAction func startSunbathePressed(_ sender: Any) {
-        let controller = SunbatheCounterViewController()
-        present(controller, animated: true, completion: nil)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "sunProtectionDetailVC" {
-            let vc = segue.destination as! SunProtectionDetailViewController
-            vc.uvi = uVI
-        }
-        else if segue.identifier == "sunbatheCounterVC" {
-            let vc = segue.destination as! SunbatheCounterViewController
-            vc.modalPresentationStyle = .fullScreen
-            //setting all starting data
-            vc.location = locationName
-            vc.weather = weatherID
-            vc.temp = Double(temp)
-            vc.uvi = uVI
-            vc.startTime = getlocalDate()
-            
-            //TODO: added new core data for new session
-            
-            
-            
-        }
     }
     
     func setupLocation(){
@@ -116,11 +102,8 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate {
                 self.uvCurrentView.categoryText.text = "(\(self.getUVCategory(uvi: Int(result.current.uvi))))"
                 self.uvCurrentView.recommendationText.text = "\(self.getUVRecommendation(uvi: Int(result.current.uvi)))"
                 
-                self.uVI = Int(result.current.uvi)
-                self.temp = Int(result.current.temp)
-                self.weatherID = result.current.weather[0].id
-                
-                self.protectionView.configureView(uvi: Int(result.current.uvi))
+                self.locationCurrentView.temp.text = "\(Int(result.current.temp))°C"
+                self.locationCurrentView.weatherIcon.image = UIImage(systemName: "\(self.getConditionWeatherId(id: result.current.weather[0].id))")
             }
         }).resume()
         
@@ -144,11 +127,12 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate {
                 return
             }
             
-            self.modelLocation = resultLocation
-            self.locationName = resultLocation[0].name
+            DispatchQueue.main.async {
+                self.locationCurrentView.location.text = resultLocation[0].name
+            }
         }).resume()
     }
-
+    
     func getUVCategory(uvi: Int) -> String {
         switch uvi{
         case 0...2:
@@ -183,22 +167,24 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-    func convertUnixToDate(unix: Int, format: String) -> String {
-        let date = Date(timeIntervalSince1970: TimeInterval(unix))
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeZone = TimeZone.current //current device time zone
-        dateFormatter.locale = NSLocale.current
-        dateFormatter.dateFormat = format
-        let strDate = dateFormatter.string(from: date)
-        return strDate
-    }
-
-    func getlocalDate()-> Date {
-        let nowUTC = Date()
-        let timeZoneOffSet = Double(TimeZone.current.secondsFromGMT(for: nowUTC))
-        guard let localDate = Calendar.current.date(byAdding: .second, value: Int(timeZoneOffSet), to: nowUTC) else {
-            return Date()
+    func getConditionWeatherId(id: Int) -> String {
+        switch id{
+        case 200...232:
+            return "cloud.bolt.rain.fill"
+        case 300...321:
+            return "cloud.drizzle"
+        case 500...531:
+            return "cloud.rain"
+        case 600...622:
+            return "cloud.snow"
+        case 701...781:
+            return "cloud.fog"
+        case 800:
+            return "sun.max"
+        case 801...804:
+            return "cloud.bolt"
+        default:
+            return "cloud"
         }
-        return localDate
     }
 }

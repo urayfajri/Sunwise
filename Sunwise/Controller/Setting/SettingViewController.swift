@@ -27,5 +27,12 @@ class SettingViewController: UIViewController {
         notificationView.layer.cornerRadius = 10
         skinProfileView.layer.cornerRadius = 10
     }
+    
+    @IBAction func EditGoalButtonTapped(_ sender: Any) {
+        let controller = self.storyboard?.instantiateViewController(withIdentifier: "GoalSettingViewController") as! GoalSettingViewController
+        controller.currentGoal = 12
+        present(controller, animated: true, completion: nil)
+    }
+    
 
 }

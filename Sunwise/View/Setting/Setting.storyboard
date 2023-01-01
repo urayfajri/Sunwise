@@ -108,31 +108,19 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tangerang, Indonesia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fm2-X5-cmG">
-                                                                <rect key="frame" x="9" y="29.666666666666657" width="239" height="25.333333333333329"/>
+                                                                <rect key="frame" x="9" y="29.666666666666657" width="210.66666666666666" height="25.333333333333329"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="237-jg-K3O">
-                                                                <rect key="frame" x="288" y="12.999999999999972" width="55" height="35"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="55" id="XqS-8C-ydg"/>
-                                                                </constraints>
-                                                                <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="tinted" title="Edit"/>
-                                                            </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemGray4Color"/>
                                                         <constraints>
                                                             <constraint firstAttribute="bottom" secondItem="Fm2-X5-cmG" secondAttribute="bottom" constant="5" id="8x0-cS-IyX"/>
-                                                            <constraint firstItem="237-jg-K3O" firstAttribute="top" secondItem="K2k-4A-c6I" secondAttribute="top" constant="13" id="Aha-Gn-5Xb"/>
-                                                            <constraint firstAttribute="bottom" secondItem="237-jg-K3O" secondAttribute="bottom" constant="12" id="F4N-cb-Bah"/>
                                                             <constraint firstItem="Fm2-X5-cmG" firstAttribute="leading" secondItem="K2k-4A-c6I" secondAttribute="leading" constant="9" id="Hc6-JK-nYI"/>
                                                             <constraint firstItem="Osl-Ng-k40" firstAttribute="top" secondItem="K2k-4A-c6I" secondAttribute="top" constant="8" id="d6r-qt-lvw"/>
-                                                            <constraint firstAttribute="trailing" secondItem="237-jg-K3O" secondAttribute="trailing" constant="18" id="hHw-gj-eLd"/>
                                                             <constraint firstAttribute="height" constant="60" id="hZR-0b-KI7"/>
                                                             <constraint firstItem="Osl-Ng-k40" firstAttribute="leading" secondItem="K2k-4A-c6I" secondAttribute="leading" constant="8" id="lXY-Si-SGJ"/>
-                                                            <constraint firstItem="237-jg-K3O" firstAttribute="leading" secondItem="Fm2-X5-cmG" secondAttribute="trailing" constant="40" id="vm1-MP-x8C"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aTv-P9-QtX">
@@ -308,6 +296,9 @@
                                                                 <rect key="frame" x="111" y="393.66666666666669" width="139" height="34.333333333333314"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="tinted" title="Set Skin Profile"/>
+                                                                <connections>
+                                                                    <action selector="setSkinProfileButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="8h1-XA-6ll"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemGray4Color"/>
@@ -377,10 +368,19 @@
                     <navigationItem key="navigationItem" id="eQY-5Y-CBa"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="dailySunbatheGoalLabel" destination="xkn-tv-0C0" id="C0a-go-jLx"/>
                         <outlet property="dailySunbatheView" destination="EP8-ij-jBj" id="Aug-7Z-h3F"/>
+                        <outlet property="locationLabel" destination="Fm2-X5-cmG" id="RqX-k0-yxn"/>
                         <outlet property="locationView" destination="K2k-4A-c6I" id="xpe-vv-wYu"/>
                         <outlet property="notificationView" destination="aTv-P9-QtX" id="JZ6-CD-qZy"/>
+                        <outlet property="setSkinProfileButton" destination="9qP-v2-X8w" id="Lol-hB-DRn"/>
                         <outlet property="skinProfileView" destination="4qP-zx-uZt" id="zAc-79-MJS"/>
+                        <outlet property="skinTypeBurnLabel" destination="gfG-Cs-U89" id="x9t-HD-fso"/>
+                        <outlet property="skinTypeImage" destination="u30-0I-eGx" id="LPG-8c-1CV"/>
+                        <outlet property="skinTypeLabel" destination="hsV-k1-hH5" id="6LW-zc-M0e"/>
+                        <outlet property="skinTypePeelLabel" destination="hBx-fd-zMw" id="cdZ-bs-PFu"/>
+                        <outlet property="skinTypeRecommendedSunExposureGoalLabel" destination="7L9-eN-m5P" id="ura-KT-g9w"/>
+                        <outlet property="skinTypeTanLabel" destination="sNR-rE-c4g" id="Tfd-0d-YOC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -533,6 +533,7 @@
                     <connections>
                         <outlet property="GoalLabel" destination="Zbe-qU-z1j" id="XhB-RX-6CE"/>
                         <outlet property="addDurationButton" destination="JTS-sD-vcj" id="vtb-K0-FAg"/>
+                        <outlet property="descriptionLabel" destination="MYJ-KO-Xtg" id="ucL-uY-Po9"/>
                         <outlet property="reduceDurationButton" destination="YtY-nA-1Xl" id="4Ub-FF-oQa"/>
                         <outlet property="setGoalButton" destination="1Ap-yg-rlQ" id="qb0-86-GsH"/>
                         <outlet property="setGoalView" destination="CU8-iS-ECU" id="lqf-G3-Q0M"/>

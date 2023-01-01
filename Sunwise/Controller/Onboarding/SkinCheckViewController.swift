@@ -26,6 +26,8 @@ class SkinCheckViewController: UIViewController, AVCaptureVideoDataOutputSampleB
     
     var skinTypes = [SkinType]()
     
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initSkinType()
@@ -110,7 +112,11 @@ class SkinCheckViewController: UIViewController, AVCaptureVideoDataOutputSampleB
             let controller = storyboard?.instantiateViewController(identifier: "tabBarController") as! UITabBarController
             controller.modalTransitionStyle = .flipHorizontal
             controller.modalPresentationStyle = .fullScreen
+            
+            // create user model
+            createUserInfo(skintype: skinTypeLabel.text ?? "")
             UserDefaults.standard.hasOnboarded = true
+            
             present(controller, animated: true, completion: {
                 self.stopCaptureSession()
             })
@@ -176,6 +182,7 @@ class SkinCheckViewController: UIViewController, AVCaptureVideoDataOutputSampleB
         }
     }
     
+    //MARK: Next State skin Type
     func skinTypeNextChanged() {
         switch skinTypeLabel.text {
             case "Skin Type I":
@@ -202,6 +209,7 @@ class SkinCheckViewController: UIViewController, AVCaptureVideoDataOutputSampleB
         }
     }
     
+    //MARK: Previous State skin Type
     func skinTypePrevChanged() {
         switch skinTypeLabel.text {
             case "Skin Type I":
@@ -225,6 +233,39 @@ class SkinCheckViewController: UIViewController, AVCaptureVideoDataOutputSampleB
             default:
                 skinTypeLabel.text = "Skin Type"
                 skinTypeImage.image = UIImage(named:"SkinType1")
+        }
+    }
+    
+    // MARK:  create core data user model
+    func createUserInfo(skintype: String) {
+        let user = User(context: context)
+        user.skin_type = skintype
+        user.ideal_time_notif = false
+        user.sun_protection_notif = false
+        
+        switch skintype {
+            case "Skin Type I":
+                user.sunbath_goal = 10
+            case "Skin Type II":
+                user.sunbath_goal = 20
+            case "Skin Type III":
+                user.sunbath_goal = 30
+            case "Skin Type IV":
+                user.sunbath_goal = 40
+            case "Skin Type V":
+                user.sunbath_goal = 60
+            case "Skin Type VI":
+                user.sunbath_goal = 60
+            default:
+                user.sunbath_goal = 10
+        }
+        
+        do{
+            try context.save()
+        }
+        catch
+        {
+            
         }
     }
 }

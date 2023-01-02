@@ -33,7 +33,8 @@ class OnboardingViewController: UIViewController {
     
     //MARK: Go to onboarding page two
     @IBAction func setSkinProfileButtonTapped(_ sender: Any) {
-        let controller = storyboard?.instantiateViewController(identifier: "skinCheck") as! UINavigationController
+        let controller = storyboard?.instantiateViewController(identifier: "SkinCheckViewController") as! SkinCheckViewController
+        controller.fromViewController = "OnboardingViewController"
         controller.modalTransitionStyle = .crossDissolve
         controller.modalPresentationStyle = .fullScreen
         present(controller, animated: true)

@@ -98,7 +98,7 @@
         <!--Skin Check View Controller-->
         <scene sceneID="KXp-SI-7BC">
             <objects>
-                <viewController storyboardIdentifier="skinCheckStoryboard" id="Gb2-Ua-9Dr" customClass="SkinCheckViewController" customModule="Sunwise" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SkinCheckViewController" id="Gb2-Ua-9Dr" customClass="SkinCheckViewController" customModule="Sunwise" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yF4-z2-RsR">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -277,10 +277,10 @@
             </objects>
             <point key="canvasLocation" x="1350" y="690"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Skin Check Navigation Controller-->
         <scene sceneID="IpN-CY-p3c">
             <objects>
-                <navigationController storyboardIdentifier="skinCheck" automaticallyAdjustsScrollViewInsets="NO" id="1dc-yd-Nhu" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="skinCheck" automaticallyAdjustsScrollViewInsets="NO" id="1dc-yd-Nhu" customClass="SkinCheckNavigationController" customModule="Sunwise" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xjq-zf-dnA">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>

@@ -49,18 +49,22 @@ class SettingViewController: UIViewController {
         skinProfileView.layer.cornerRadius = 10
         
         dailySunbatheGoalLabel.text = "\(user?.sunbath_goal ?? 0) Min / Day"
-        print(user?.sunbath_goal)
         skinTypeLabel.text = user?.skin_type ?? "-"
     }
     
     @IBAction func EditGoalButtonTapped(_ sender: Any) {
         let controller = self.storyboard?.instantiateViewController(withIdentifier: "GoalSettingViewController") as! GoalSettingViewController
         controller.user = user
+        controller.modalPresentationStyle = .popover
         present(controller, animated: true, completion: nil)
     }
     
     @IBAction func setSkinProfileButtonTapped(_ sender: Any) {
-        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(identifier: "skinCheck") as! UINavigationController
+        controller.modalTransitionStyle = .flipHorizontal
+        controller.modalPresentationStyle = .fullScreen
+        present(controller, animated: true)
     }
     
     

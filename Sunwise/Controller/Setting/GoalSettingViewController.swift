@@ -25,13 +25,22 @@ class GoalSettingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initElements()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presentingViewController?.viewWillDisappear(true)
+    }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        presentingViewController?.viewWillAppear(true)
     }
     
     func initElements() {
         GoalLabel.text = String(user?.sunbath_goal ?? 0)
-        
-        var skinType = user?.skin_type ?? "-"
+    
+        let skinType = user?.skin_type ?? "-"
         
         descriptionLabel.text = "Based on your skin type (\(skinType)), it is recommended to get \(timeRecommendationBySkinType(skinType: skinType)) minutes of sun exposure, each day"
         

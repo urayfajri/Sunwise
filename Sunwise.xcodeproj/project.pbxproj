@@ -28,6 +28,7 @@
 		208309B52958C1D200BEA9D2 /* SunwiseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208309B42958C1D200BEA9D2 /* SunwiseTabBarController.swift */; };
 		208483FF29517CF70044F23A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208483FE29517CF70044F23A /* OnboardingViewController.swift */; };
 		2084840229517FE90044F23A /* UserDefaultExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2084840129517FE90044F23A /* UserDefaultExtension.swift */; };
+		20D391F229626F2E000BF464 /* SkinCheckNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D391F129626F2E000BF464 /* SkinCheckNavigationController.swift */; };
 		20D98E33295F8325005D165A /* GoalSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D98E32295F8325005D165A /* GoalSettingViewController.swift */; };
 		20F19F51295BEA980032776D /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F19F4B295BEA980032776D /* User+CoreDataClass.swift */; };
 		20F19F52295BEA980032776D /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F19F4C295BEA980032776D /* User+CoreDataProperties.swift */; };
@@ -95,6 +96,7 @@
 		208309B42958C1D200BEA9D2 /* SunwiseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunwiseTabBarController.swift; sourceTree = "<group>"; };
 		208483FE29517CF70044F23A /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		2084840129517FE90044F23A /* UserDefaultExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultExtension.swift; sourceTree = "<group>"; };
+		20D391F129626F2E000BF464 /* SkinCheckNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinCheckNavigationController.swift; sourceTree = "<group>"; };
 		20D98E32295F8325005D165A /* GoalSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingViewController.swift; sourceTree = "<group>"; };
 		20F19F4B295BEA980032776D /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		20F19F4C295BEA980032776D /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 				202048E0294C1809007A9BC1 /* ViewController.swift */,
 				208483FE29517CF70044F23A /* OnboardingViewController.swift */,
 				20F279542952C7E1005D504D /* SkinCheckViewController.swift */,
+				20D391F129626F2E000BF464 /* SkinCheckNavigationController.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -710,6 +713,7 @@
 				A9D26EA1295309770015E79D /* SunProtectionDetailViewController.swift in Sources */,
 				20F19F52295BEA980032776D /* User+CoreDataProperties.swift in Sources */,
 				A9FCBD942952B66800D89546 /* UVSelected.swift in Sources */,
+				20D391F229626F2E000BF464 /* SkinCheckNavigationController.swift in Sources */,
 				202048DF294C1809007A9BC1 /* SceneDelegate.swift in Sources */,
 				20F19F56295BEA980032776D /* DailySunbathe+CoreDataProperties.swift in Sources */,
 				208483FF29517CF70044F23A /* OnboardingViewController.swift in Sources */,

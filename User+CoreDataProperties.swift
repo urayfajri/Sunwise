@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  Sunwise
 //
-//  Created by Uray Muhamad Noor Fajri Widiansyah on 28/12/22.
+//  Created by Uray Muhamad Noor Fajri Widiansyah on 02/01/23.
 //
 //
 
@@ -16,10 +16,10 @@ extension User {
         return NSFetchRequest<User>(entityName: "User")
     }
 
-    @NSManaged public var sunbath_goal: Int32
-    @NSManaged public var skin_type: String?
     @NSManaged public var ideal_time_notif: Bool
+    @NSManaged public var skin_type: String?
     @NSManaged public var sun_protection_notif: Bool
+    @NSManaged public var sunbath_goal: Int32
     @NSManaged public var dailySunbathes: NSSet?
 
 }

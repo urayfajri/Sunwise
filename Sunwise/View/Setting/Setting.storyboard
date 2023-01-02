@@ -395,21 +395,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Daily Sun Exposure Goal" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="inv-yy-tiK">
-                                <rect key="frame" x="0.0" y="59" width="393" height="45"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FXR-ee-Ja7">
+                                <rect key="frame" x="174" y="69" width="45" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="Zbr-Qc-7hF"/>
+                                    <constraint firstAttribute="width" constant="45" id="HQG-t0-r15"/>
+                                    <constraint firstAttribute="height" constant="35" id="kXN-4h-SGe"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="chevron.down" catalog="system" title=" ">
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="closeButtonTapped:" destination="lnX-xf-lGQ" eventType="touchUpInside" id="tSj-0U-kaO"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Daily Sun Exposure Goal" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="inv-yy-tiK">
+                                <rect key="frame" x="0.0" y="114" width="393" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="baS-cj-WML"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Based on your skin type (skin type III), it is recommended to get 30 minutes of sun exposure, each day" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MYJ-KO-Xtg">
-                                <rect key="frame" x="37" y="124" width="319" height="82"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="82" id="9wa-Ea-eao"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -510,24 +515,36 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Based on your skin type (skin type III), it is recommended to get 30 minutes of sun exposure, each day" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MYJ-KO-Xtg">
+                                <rect key="frame" x="36" y="169" width="321" height="105"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="105" id="q2N-M8-gh1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="X5y-UO-xmt"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="MYJ-KO-Xtg" firstAttribute="top" secondItem="inv-yy-tiK" secondAttribute="bottom" constant="20" id="5hB-Ac-y6S"/>
-                            <constraint firstItem="inv-yy-tiK" firstAttribute="leading" secondItem="X5y-UO-xmt" secondAttribute="leading" id="87H-OY-3zC"/>
+                            <constraint firstItem="inv-yy-tiK" firstAttribute="leading" secondItem="X5y-UO-xmt" secondAttribute="leading" id="107-4d-703"/>
+                            <constraint firstItem="FXR-ee-Ja7" firstAttribute="top" secondItem="X5y-UO-xmt" secondAttribute="top" constant="10" id="AyJ-rw-84L"/>
                             <constraint firstItem="X5y-UO-xmt" firstAttribute="bottom" secondItem="1Ap-yg-rlQ" secondAttribute="bottom" constant="22" id="EzH-wQ-Oae"/>
-                            <constraint firstItem="inv-yy-tiK" firstAttribute="trailing" secondItem="X5y-UO-xmt" secondAttribute="trailing" id="If6-Ys-gbK"/>
-                            <constraint firstItem="X5y-UO-xmt" firstAttribute="trailing" secondItem="MYJ-KO-Xtg" secondAttribute="trailing" constant="37" id="K87-z9-rDR"/>
+                            <constraint firstItem="MYJ-KO-Xtg" firstAttribute="centerX" secondItem="X5y-UO-xmt" secondAttribute="centerX" id="HUM-vI-Ljz"/>
+                            <constraint firstItem="MYJ-KO-Xtg" firstAttribute="top" secondItem="inv-yy-tiK" secondAttribute="bottom" constant="10" id="NQT-de-6WQ"/>
                             <constraint firstItem="1Ap-yg-rlQ" firstAttribute="centerX" secondItem="X5y-UO-xmt" secondAttribute="centerX" id="Z00-4l-WQM"/>
                             <constraint firstItem="X5y-UO-xmt" firstAttribute="trailing" secondItem="Ut4-aK-lVm" secondAttribute="trailing" constant="26" id="Zip-kc-m7a"/>
                             <constraint firstItem="Vk2-Li-i5Q" firstAttribute="leading" secondItem="X5y-UO-xmt" secondAttribute="leading" id="cXg-q3-lWv"/>
-                            <constraint firstItem="inv-yy-tiK" firstAttribute="top" secondItem="X5y-UO-xmt" secondAttribute="top" id="gys-uz-ghz"/>
+                            <constraint firstItem="MYJ-KO-Xtg" firstAttribute="leading" secondItem="X5y-UO-xmt" secondAttribute="leading" constant="36" id="g5f-Rw-Hem"/>
                             <constraint firstItem="Vk2-Li-i5Q" firstAttribute="centerY" secondItem="X5y-UO-xmt" secondAttribute="centerY" id="jnd-8u-G8G"/>
                             <constraint firstItem="Ut4-aK-lVm" firstAttribute="leading" secondItem="X5y-UO-xmt" secondAttribute="leading" constant="26" id="mgM-Le-cq8"/>
+                            <constraint firstItem="X5y-UO-xmt" firstAttribute="trailing" secondItem="MYJ-KO-Xtg" secondAttribute="trailing" constant="36" id="oKC-mm-SSD"/>
+                            <constraint firstItem="FXR-ee-Ja7" firstAttribute="centerX" secondItem="X5y-UO-xmt" secondAttribute="centerX" id="q2h-cj-JMT"/>
+                            <constraint firstItem="inv-yy-tiK" firstAttribute="trailing" secondItem="X5y-UO-xmt" secondAttribute="trailing" id="qRx-TA-NkA"/>
+                            <constraint firstItem="inv-yy-tiK" firstAttribute="top" secondItem="FXR-ee-Ja7" secondAttribute="bottom" constant="10" id="sbp-Zq-Yj1"/>
                             <constraint firstItem="Vk2-Li-i5Q" firstAttribute="trailing" secondItem="X5y-UO-xmt" secondAttribute="trailing" id="wKB-JK-OUr"/>
                             <constraint firstItem="1Ap-yg-rlQ" firstAttribute="top" secondItem="Ut4-aK-lVm" secondAttribute="bottom" constant="80" id="x0g-KQ-vXu"/>
-                            <constraint firstItem="MYJ-KO-Xtg" firstAttribute="leading" secondItem="X5y-UO-xmt" secondAttribute="leading" constant="37" id="xfu-kF-Eq2"/>
                         </constraints>
                     </view>
                     <connections>
@@ -546,6 +563,7 @@
     </scenes>
     <resources>
         <image name="chart.bar.doc.horizontal.fill" catalog="system" width="115" height="128"/>
+        <image name="chevron.down" catalog="system" width="128" height="70"/>
         <image name="minus.circle" catalog="system" width="128" height="123"/>
         <image name="plus.circle" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">

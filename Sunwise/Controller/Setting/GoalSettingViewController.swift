@@ -92,6 +92,9 @@ class GoalSettingViewController: UIViewController {
         GoalLabel.text = String(goal)
     }
     
+    @IBAction func closeButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     @IBAction func setGoalButtonTapped(_ sender: Any) {
         let alertControl = UIAlertController(title: "Edit Sun Exposure Goal", message: "Are you sure want to change your daily sun exposure goal?", preferredStyle: .alert)
         alertControl.addAction(UIAlertAction(title: "No", style: .cancel, handler: {_ in

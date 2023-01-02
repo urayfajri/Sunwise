@@ -63,5 +63,5 @@ struct LocationCoordinate: Codable {
     let lat: Float
     let lon: Float
     let country: String
-    let state: String
+    let state: String?
 }

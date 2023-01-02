@@ -1,4 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="22A400" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="DailySunbathe" representedClassName="DailySunbathe" syncable="YES">
+        <attribute name="achieve_time" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="target_time" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="sessions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Session" inverseName="dailySunbathe" inverseEntity="Session"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="dailySunbathes" inverseEntity="User"/>
+    </entity>
+    <entity name="Session" representedClassName="Session" syncable="YES">
+        <attribute name="duration" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="finish_time" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="location" optional="YES" attributeType="String"/>
+        <attribute name="start_time" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="temp" optional="YES" attributeType="Integer 32" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="uv_index" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="weather_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="dailySunbathe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DailySunbathe" inverseName="sessions" inverseEntity="DailySunbathe"/>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES">
+        <attribute name="ideal_time_notif" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="skin_type" optional="YES" attributeType="String"/>
+        <attribute name="sun_protection_notif" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="sunbath_goal" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="dailySunbathes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DailySunbathe" inverseName="user" inverseEntity="DailySunbathe"/>
+    </entity>
 </model>

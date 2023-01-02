@@ -17,15 +17,24 @@ class OnboardingViewController: UIViewController {
     @IBOutlet weak var titleDescriptionTextView: UITextView!
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
     
+    static var identifier: String {
+        return String(describing: self)
+    }
+    
+    static func instantiate() -> Self {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        return storyboard.instantiateViewController(identifier: identifier) as! Self
+    }
+    
     //MARK: Go to onboarding page two
     @IBAction func setSkinProfileButtonTapped(_ sender: Any) {
-        let controller = storyboard?.instantiateViewController(identifier: "skinCheck") as! UINavigationController
+        let controller = storyboard?.instantiateViewController(identifier: "SkinCheckViewController") as! SkinCheckViewController
+        controller.fromViewController = "OnboardingViewController"
         controller.modalTransitionStyle = .crossDissolve
         controller.modalPresentationStyle = .fullScreen
         present(controller, animated: true)

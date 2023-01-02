@@ -25,12 +25,18 @@ class SkinCheckViewController: UIViewController, AVCaptureVideoDataOutputSampleB
     @IBOutlet weak var skinTypeLabel: UILabel!
     
     var skinTypes = [SkinType]()
+    var fromViewController: String?
+    
+    var user: User?
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //addNavigationBar()
+        getUserInfo()
         initSkinType()
         initElementForSkinInfo()
-
         prepareCamera()
     }
     
@@ -38,6 +44,29 @@ class SkinCheckViewController: UIViewController, AVCaptureVideoDataOutputSampleB
 //        super.viewWillAppear(animated)
 //        prepareCamera()
 //    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presentingViewController?.viewWillDisappear(true)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        presentingViewController?.viewWillAppear(true)
+    }
+    
+    private func addNavigationBar() {
+        let height: CGFloat = 75
+        let navbar = UINavigationBar(frame: CGRect(x: 0, y: 50, width: UIScreen.main.bounds.width, height: height))
+        navbar.delegate = self as? UINavigationBarDelegate
+
+        let navItem = UINavigationItem()
+        navItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: nil)
+
+        navbar.items = [navItem]
+
+        view.addSubview(navbar)
+    }
     
     //MARK: Prepare Camera
     func prepareCamera() {
@@ -110,6 +139,16 @@ class SkinCheckViewController: UIViewController, AVCaptureVideoDataOutputSampleB
             let controller = storyboard?.instantiateViewController(identifier: "tabBarController") as! UITabBarController
             controller.modalTransitionStyle = .flipHorizontal
             controller.modalPresentationStyle = .fullScreen
+            
+            if(user == nil) {
+                // create user model
+                createUserInfo(skintype: skinTypeLabel.text ?? "")
+                UserDefaults.standard.hasOnboarded = true
+            } else {
+                // update user model skin type
+                updateSkinType(user: user!)
+            }
+            
             present(controller, animated: true, completion: {
                 self.stopCaptureSession()
             })
@@ -145,7 +184,7 @@ class SkinCheckViewController: UIViewController, AVCaptureVideoDataOutputSampleB
     }
     
     func initElementForSkinInfo() {
-        if(!skinTypes.isEmpty) {
+        if(!skinTypes.isEmpty && user == nil) {
             skinTypeLabel.text = skinTypes[0].name
             skinTypeImage.image = UIImage(named:"SkinType1")
         }
@@ -175,6 +214,7 @@ class SkinCheckViewController: UIViewController, AVCaptureVideoDataOutputSampleB
         }
     }
     
+    //MARK: Next State skin Type
     func skinTypeNextChanged() {
         switch skinTypeLabel.text {
             case "Skin Type I":
@@ -201,6 +241,7 @@ class SkinCheckViewController: UIViewController, AVCaptureVideoDataOutputSampleB
         }
     }
     
+    //MARK: Previous State skin Type
     func skinTypePrevChanged() {
         switch skinTypeLabel.text {
             case "Skin Type I":
@@ -224,6 +265,95 @@ class SkinCheckViewController: UIViewController, AVCaptureVideoDataOutputSampleB
             default:
                 skinTypeLabel.text = "Skin Type"
                 skinTypeImage.image = UIImage(named:"SkinType1")
+        }
+    }
+    
+    // MARK:  create core data user model
+    func createUserInfo(skintype: String) {
+        let user = User(context: context)
+        user.skin_type = skintype
+        user.ideal_time_notif = false
+        user.sun_protection_notif = false
+        
+        // default sunbath goal
+        switch skintype {
+            case "Skin Type I":
+                user.sunbath_goal = 10
+            case "Skin Type II":
+                user.sunbath_goal = 20
+            case "Skin Type III":
+                user.sunbath_goal = 30
+            case "Skin Type IV":
+                user.sunbath_goal = 40
+            case "Skin Type V":
+                user.sunbath_goal = 60
+            case "Skin Type VI":
+                user.sunbath_goal = 60
+            default:
+                user.sunbath_goal = 10
+        }
+        
+        do{
+            try context.save()
+        }
+        catch
+        {
+            
+        }
+    }
+    
+    func getUserInfo(){
+        do {
+            let users = try context.fetch(User.fetchRequest())
+            if(!users.isEmpty) {
+                user = users[0]
+                initSkinTypeUser(userSkinType: user?.skin_type ?? "-")
+            }
+        }
+        catch {
+            
+        }
+    }
+    
+    func initSkinTypeUser(userSkinType: String) {
+        switch userSkinType {
+            case "Skin Type I":
+                skinTypeLabel.text = "Skin Type I"
+                skinTypeImage.image = UIImage(named:"SkinType1")
+            case "Skin Type II":
+                skinTypeLabel.text = "Skin Type II"
+                skinTypeImage.image = UIImage(named:"SkinType2")
+            case "Skin Type III":
+                skinTypeLabel.text = "Skin Type III"
+                skinTypeImage.image = UIImage(named:"SkinType3")
+            case "Skin Type IV":
+                skinTypeLabel.text = "Skin Type IV"
+                skinTypeImage.image = UIImage(named:"SkinType4")
+            case "Skin Type V":
+                skinTypeLabel.text = "Skin Type V"
+                skinTypeImage.image = UIImage(named:"SkinType5")
+            case "Skin Type VI":
+                skinTypeLabel.text = "Skin Type VI"
+                skinTypeImage.image = UIImage(named:"SkinType6")
+            default:
+                skinTypeLabel.text = "Skin Type"
+                skinTypeImage.image = UIImage(named:"SkinType1")
+        }
+    }
+    
+    func updateSkinType(user: User)
+    {
+        user.skin_type = skinTypeLabel.text
+ 
+        do{
+            
+            try context.save()
+            
+            self.dismiss(animated: true, completion: nil)
+        }
+        catch
+        {
+            
         }
     }
 }

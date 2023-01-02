@@ -21,16 +21,10 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
     var modelLocation = [LocationCoordinate]()
     
-    var locationName = ""
-    var weatherID = 0
-    var temp = 0
     var uVI = 0
-    var date = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -56,17 +50,7 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate {
         else if segue.identifier == "sunbatheCounterVC" {
             let vc = segue.destination as! SunbatheCounterViewController
             vc.modalPresentationStyle = .fullScreen
-            //setting all starting data
-            vc.location = locationName
-            vc.weather = weatherID
-            vc.temp = Double(temp)
-            vc.uvi = uVI
-            vc.startTime = getlocalDate()
-            
-            //TODO: added new core data for new session
-            
-            
-            
+            //MARK: CORE DATA SESSION NEED TO BE CREATED WHEN FINISH BUTTON IN SUNBATH COUNTER IS PRESSED ONLY
         }
     }
     
@@ -115,11 +99,6 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate {
                 self.uvCurrentView.uvi.text = "\(Int(result.current.uvi))"
                 self.uvCurrentView.categoryText.text = "(\(self.getUVCategory(uvi: Int(result.current.uvi))))"
                 self.uvCurrentView.recommendationText.text = "\(self.getUVRecommendation(uvi: Int(result.current.uvi)))"
-                
-                self.uVI = Int(result.current.uvi)
-                self.temp = Int(result.current.temp)
-                self.weatherID = result.current.weather[0].id
-                
                 self.protectionView.configureView(uvi: Int(result.current.uvi))
             }
         }).resume()
@@ -144,8 +123,9 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate {
                 return
             }
             
-            self.modelLocation = resultLocation
-            self.locationName = resultLocation[0].name
+            DispatchQueue.main.async {
+                self.modelLocation = resultLocation
+            }
         }).resume()
     }
 
@@ -191,14 +171,5 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate {
         dateFormatter.dateFormat = format
         let strDate = dateFormatter.string(from: date)
         return strDate
-    }
-
-    func getlocalDate()-> Date {
-        let nowUTC = Date()
-        let timeZoneOffSet = Double(TimeZone.current.secondsFromGMT(for: nowUTC))
-        guard let localDate = Calendar.current.date(byAdding: .second, value: Int(timeZoneOffSet), to: nowUTC) else {
-            return Date()
-        }
-        return localDate
     }
 }

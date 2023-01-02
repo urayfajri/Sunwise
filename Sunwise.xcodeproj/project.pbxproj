@@ -49,6 +49,7 @@
 		A9D9A6AC295ED7A200717E8D /* SunbatheCounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D9A6AB295ED7A200717E8D /* SunbatheCounterViewController.swift */; };
 		A9D9A6AF295EE65100717E8D /* LocationCurrent.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9D9A6AE295EE65100717E8D /* LocationCurrent.xib */; };
 		A9D9A6B1295EE66000717E8D /* LocationCurrent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D9A6B0295EE66000717E8D /* LocationCurrent.swift */; };
+		A9D9A6B329601F0500717E8D /* CircularProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D9A6B229601F0500717E8D /* CircularProgressBarView.swift */; };
 		A9FCBD82295284B500D89546 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FCBD81295284B500D89546 /* WeatherModel.swift */; };
 		A9FCBD862952B43800D89546 /* ProtectionSelected.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9FCBD852952B43800D89546 /* ProtectionSelected.xib */; };
 		A9FCBD882952B48600D89546 /* ProtectionSelected.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FCBD872952B48600D89546 /* ProtectionSelected.swift */; };
@@ -124,6 +125,7 @@
 		A9D9A6AB295ED7A200717E8D /* SunbatheCounterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunbatheCounterViewController.swift; sourceTree = "<group>"; };
 		A9D9A6AE295EE65100717E8D /* LocationCurrent.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationCurrent.xib; sourceTree = "<group>"; };
 		A9D9A6B0295EE66000717E8D /* LocationCurrent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCurrent.swift; sourceTree = "<group>"; };
+		A9D9A6B229601F0500717E8D /* CircularProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarView.swift; sourceTree = "<group>"; };
 		A9FCBD81295284B500D89546 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		A9FCBD852952B43800D89546 /* ProtectionSelected.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProtectionSelected.xib; sourceTree = "<group>"; };
 		A9FCBD872952B48600D89546 /* ProtectionSelected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectionSelected.swift; sourceTree = "<group>"; };
@@ -446,6 +448,7 @@
 				A9FCBD892952B58200D89546 /* LocationSelectedView */,
 				A9FCBD842952B40800D89546 /* ProtectionSelectedView */,
 				208309B42958C1D200BEA9D2 /* SunwiseTabBarController.swift */,
+				A9D9A6B229601F0500717E8D /* CircularProgressBarView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -754,6 +757,7 @@
 				20F279552952C7E1005D504D /* SkinCheckViewController.swift in Sources */,
 				202048E7294C1809007A9BC1 /* Sunwise.xcdatamodeld in Sources */,
 				2084840229517FE90044F23A /* UserDefaultExtension.swift in Sources */,
+				A9D9A6B329601F0500717E8D /* CircularProgressBarView.swift in Sources */,
 				20F19F55295BEA980032776D /* DailySunbathe+CoreDataClass.swift in Sources */,
 				2023BFA2294FFE5C00972E36 /* SettingViewController.swift in Sources */,
 				20F19F51295BEA980032776D /* User+CoreDataClass.swift in Sources */,

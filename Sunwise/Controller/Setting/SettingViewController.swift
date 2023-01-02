@@ -50,6 +50,7 @@ class SettingViewController: UIViewController {
         
         dailySunbatheGoalLabel.text = "\(user?.sunbath_goal ?? 0) Min / Day"
         skinTypeLabel.text = user?.skin_type ?? "-"
+        initSkinTypeRespone()
     }
     
     @IBAction func EditGoalButtonTapped(_ sender: Any) {
@@ -77,6 +78,53 @@ class SettingViewController: UIViewController {
         }
         catch {
             
+        }
+    }
+    
+    func initSkinTypeRespone() {
+        switch skinTypeLabel.text {
+            case "Skin Type I":
+                skinTypeImage.image = UIImage(named:"SkinType1")
+                skinTypeRecommendedSunExposureGoalLabel.text = "10 Min / Day"
+                skinTypeBurnLabel.text = "Easily, Severely (Painful Burn)"
+                skinTypeTanLabel.text = "Little or none"
+                skinTypePeelLabel.text = "Yes"
+            case "Skin Type II":
+                skinTypeImage.image = UIImage(named:"SkinType2")
+                skinTypeRecommendedSunExposureGoalLabel.text = "20 Min / Day"
+                skinTypeBurnLabel.text = "Easily, Severely (Painful Burn)"
+                skinTypeTanLabel.text = "Minimally or lightly"
+                skinTypePeelLabel.text = "Yes"
+            case "Skin Type III":
+                skinTypeImage.image = UIImage(named:"SkinType3")
+                skinTypeRecommendedSunExposureGoalLabel.text = "30 Min / Day"
+                skinTypeBurnLabel.text = "Burns Moderately"
+                skinTypeTanLabel.text = "Easily"
+                skinTypePeelLabel.text = "No"
+            case "Skin Type IV":
+                skinTypeImage.image = UIImage(named:"SkinType4")
+                skinTypeRecommendedSunExposureGoalLabel.text = "40 Min / Day"
+                skinTypeBurnLabel.text = "Burns Minimally"
+                skinTypeTanLabel.text = "Easily"
+                skinTypePeelLabel.text = "No"
+            case "Skin Type V":
+                skinTypeImage.image = UIImage(named:"SkinType5")
+                skinTypeRecommendedSunExposureGoalLabel.text = "60 Min / Day"
+                skinTypeBurnLabel.text = "Rarely Burns"
+                skinTypeTanLabel.text = "Easily and substantially"
+                skinTypePeelLabel.text = "No"
+            case "Skin Type VI":
+                skinTypeImage.image = UIImage(named:"SkinType6")
+                skinTypeRecommendedSunExposureGoalLabel.text = "60 Min / Day"
+                skinTypeBurnLabel.text = "Never Burns"
+                skinTypeTanLabel.text = "Profusely"
+                skinTypePeelLabel.text = "No"
+            default:
+                skinTypeImage.image = UIImage(named:"SkinType1")
+                skinTypeRecommendedSunExposureGoalLabel.text = "10 Min / Day"
+                skinTypeBurnLabel.text = "Easily, Severely (Painful Burn)"
+                skinTypeTanLabel.text = "Little or none"
+                skinTypePeelLabel.text = "Yes"
         }
     }
 

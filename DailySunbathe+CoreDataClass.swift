@@ -2,7 +2,7 @@
 //  DailySunbathe+CoreDataClass.swift
 //  Sunwise
 //
-//  Created by Uray Muhamad Noor Fajri Widiansyah on 28/12/22.
+//  Created by Uray Muhamad Noor Fajri Widiansyah on 02/01/23.
 //
 //
 

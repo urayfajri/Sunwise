@@ -41,10 +41,15 @@ class SunbatheCounterViewController: UIViewController, CLLocationManagerDelegate
     let COUNTING_KEY = "countingKey"
     let circularProgress = CircularProgressBarView(frame: .zero)
     
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var user: User?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //MARK: duration and finishTime should still empty / nil
         setupCircularProgressBarView()
+        getUserInfo()
+        goalDuration = TimeInterval((user?.sunbath_goal ?? -1) * 60)
         
         startTime = userDefaults.object(forKey: START_TIME_KEY) as? Date
         finishTime = userDefaults.object(forKey: FINISH_TIME_KEY) as? Date
@@ -56,6 +61,18 @@ class SunbatheCounterViewController: UIViewController, CLLocationManagerDelegate
         savedStartTime = getlocalDate()
     }
 
+    func getUserInfo(){
+        do {
+            let users = try context.fetch(User.fetchRequest())
+            if(!users.isEmpty) {
+                user = users[0]
+            }
+        }
+        catch {
+            print("error : \(error)")
+        }
+    }
+    
     @IBAction func finishSunbatheButtonPressed(_ sender: Any) {
         let alertConfirmation = UIAlertController(title: "Finish Sunbathe?", message: "Are you sure you want to finish your sunbath session?", preferredStyle: .alert)
         

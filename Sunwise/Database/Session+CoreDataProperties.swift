@@ -2,7 +2,7 @@
 //  Session+CoreDataProperties.swift
 //  Sunwise
 //
-//  Created by Uray Muhamad Noor Fajri Widiansyah on 02/01/23.
+//  Created by Uray Muhamad Noor Fajri Widiansyah on 04/01/23.
 //
 //
 

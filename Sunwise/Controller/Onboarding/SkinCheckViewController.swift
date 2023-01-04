@@ -201,6 +201,9 @@ class SkinCheckViewController: UIViewController, AVCaptureVideoDataOutputSampleB
         
         swipeRight.addTarget(self, action: #selector(swipe(sender:)))
         swipeLeft.addTarget(self, action: #selector(swipe(sender:)))
+        
+        prevSkinButton.setTitle("", for: .normal)
+        nextSkinButton.setTitle("", for: .normal)
     }
     
     @objc func swipe(sender: UISwipeGestureRecognizer) {

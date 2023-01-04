@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import CoreLocation
 
-class SettingViewController: UIViewController {
+class SettingViewController: UIViewController, CLLocationManagerDelegate {
 
     @IBOutlet weak var dailySunbatheView: UIView!
     @IBOutlet weak var locationView: UIView!
@@ -30,11 +31,22 @@ class SettingViewController: UIViewController {
     
     var user: User?
     
+    var modelDaily = [DailyWeather]()
+    var modelHourly = [HourlyWeather]()
+    var modelLocation = [LocationCoordinate]()
+    let locationManager = CLLocationManager()
+    var currentLocation: CLLocation?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         getUserInfo()
         initElements()
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setupLocation()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -126,6 +138,105 @@ class SettingViewController: UIViewController {
                 skinTypeTanLabel.text = "Little or none"
                 skinTypePeelLabel.text = "Yes"
         }
+    }
+    
+    //MARK: - Location Functions
+    func setupLocation() {
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if !locations.isEmpty, currentLocation == nil {
+            currentLocation = locations.first
+            locationManager.stopUpdatingLocation()
+            requestWeatherForLocation()
+        }
+    }
+    
+    //MARK: - Weather
+    func requestWeatherForLocation() {
+        guard let currentLocation = currentLocation else {
+            return
+        }
+        let longitude = currentLocation.coordinate.longitude
+        let latitude = currentLocation.coordinate.latitude
+        print("long: \(longitude), lat: \(latitude)")
+        
+        let url = "https://api.openweathermap.org/data/3.0/onecall?lat=\(latitude)&lon=\(longitude)&exclude=minutely&appid=2806ff2f0729ec6bedab98f254cb1226&units=metric"
+        
+        URLSession.shared.dataTask(with: URL(string: url)!, completionHandler: { data, response, error in
+            guard let data = data, error == nil else {
+                print("something went wrong during validation!")
+                return
+            }
+            
+            var json: WeatherResponse?
+            do {
+                json = try JSONDecoder().decode(WeatherResponse.self, from: data)
+            }
+            catch {
+                print("error: \(error)")
+            }
+            
+            guard let result = json else {
+                return
+            }
+            
+            let enteries = result.daily
+            self.modelDaily.append(contentsOf: enteries)
+            self.modelHourly = result.hourly
+            
+            // DispatchQueue.main.async {
+                //self.dayLabel.text = self.convertUnixToDate(unix: result.current.dt, format: "EEEE, d MMMM yyyy")
+                //self.sunriseHour.text = self.convertUnixToDate(unix: result.current.sunrise, format: "HH.mm")
+                // self.sunsetHour.text = self.convertUnixToDate(unix: result.current.sunset, format: "HH.mm")
+                
+                // self.uVI = Int(result.current.uvi)
+                
+                // self.uvSelectedView.uviSelectedText.text = "\(Int(result.current.uvi))"
+                // self.uvSelectedView.categoryUviSelectedText.text = "(\(self.getUVCategory(uvi: Int(result.current.uvi))))"
+                // self.uvSelectedView.recommendationText.text = self.getUVRecommendation(uvi: Int(result.current.uvi))
+                
+                // self.locationSelected.weatherIcon.image = UIImage(systemName: "\(self.getConditionWeatherId(id: Int(result.current.weather[0].id)))")
+                // self.locationSelected.temp.text = "\(Int(result.current.temp))°C"
+                
+                // self.protectionSelected.configureView(uvi: Int(result.current.uvi))
+                
+                // self.hourlyForecastView.reloadData()
+                // self.dailyForecastTable.reloadData()
+            // }
+        }).resume()
+        
+        //MARK: User Exact City Precise Location By Coordinates
+        let geoUrl = "https://api.openweathermap.org/geo/1.0/reverse?lat=\(latitude)&lon=\(longitude)&limit=1&appid=2806ff2f0729ec6bedab98f254cb1226"
+        
+        URLSession.shared.dataTask(with: URL(string: geoUrl)!, completionHandler: { data, response, error in
+            guard let data = data, error == nil else {
+                print("something went wrong during validation!")
+                return
+            }
+            
+            var jsonLocation: [LocationCoordinate]?
+            do {
+                jsonLocation = try JSONDecoder().decode([LocationCoordinate].self, from: data)
+            }
+            catch {
+                print("error location: \(error)")
+            }
+            
+            guard let resultLocation = jsonLocation else {
+                return
+            }
+    
+            self.modelLocation = resultLocation
+            
+            DispatchQueue.main.async {
+                self.locationLabel.text = "\(resultLocation[0].name)"
+            }
+            
+        }).resume()
     }
 
 }

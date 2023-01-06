@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreLocation
+import UserNotifications
 
 class SettingViewController: UIViewController, CLLocationManagerDelegate {
 
@@ -14,7 +15,6 @@ class SettingViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var locationView: UIView!
     @IBOutlet weak var notificationView: UIView!
     @IBOutlet weak var skinProfileView: UIView!
-    
 
     @IBOutlet weak var dailySunbatheGoalLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
@@ -24,6 +24,8 @@ class SettingViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var skinTypeBurnLabel: UILabel!
     @IBOutlet weak var skinTypeTanLabel: UILabel!
     @IBOutlet weak var skinTypePeelLabel: UILabel!
+    @IBOutlet weak var idealSunbathSwitch: UISwitch!
+    @IBOutlet weak var sunProtectionSwitch: UISwitch!
     
     @IBOutlet weak var setSkinProfileButton: UIButton!
     
@@ -41,7 +43,6 @@ class SettingViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         getUserInfo()
         initElements()
-        // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -62,6 +63,9 @@ class SettingViewController: UIViewController, CLLocationManagerDelegate {
         
         dailySunbatheGoalLabel.text = "\(user?.sunbath_goal ?? 0) Min / Day"
         skinTypeLabel.text = user?.skin_type ?? "-"
+        
+        idealSunbathSwitch.setOn(user?.ideal_time_notif ?? false, animated: true)
+        
         initSkinTypeRespone()
     }
     
@@ -80,6 +84,24 @@ class SettingViewController: UIViewController, CLLocationManagerDelegate {
         present(controller, animated: true)
     }
     
+    @IBAction func idealSunbatheSwitchChanged(_ sender: UISwitch) {
+        if sender.isOn {
+            checkForSunbathePermission()
+            showAlertSunbatheNotification(isActive: true)
+        } else {
+            cancelSunbatheNotification()
+            showAlertSunbatheNotification(isActive: false)
+        }
+        updateIdealTimeNotif(user: user!)
+    }
+    
+    @IBAction func sunProtectionSwitchChanged(_ sender: UISwitch) {
+        if sender.isOn {
+            view.backgroundColor = .cyan
+        } else {
+            view.backgroundColor = .green
+        }
+    }
     
     func getUserInfo(){
         do {
@@ -137,6 +159,20 @@ class SettingViewController: UIViewController, CLLocationManagerDelegate {
                 skinTypeBurnLabel.text = "Easily, Severely (Painful Burn)"
                 skinTypeTanLabel.text = "Little or none"
                 skinTypePeelLabel.text = "Yes"
+        }
+    }
+    
+    //MARK: - Update core data user - ideal time notif
+    func updateIdealTimeNotif(user: User)
+    {
+        user.ideal_time_notif = self.idealSunbathSwitch.isOn
+ 
+        do{
+            try context.save()
+        }
+        catch
+        {
+            print(error)
         }
     }
     
@@ -237,6 +273,120 @@ class SettingViewController: UIViewController, CLLocationManagerDelegate {
             }
             
         }).resume()
+    }
+    
+    
+    //MARK: Local Notification
+    func checkForSunbathePermission() {
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.getNotificationSettings { settings in
+            switch settings.authorizationStatus {
+                case .authorized:
+                    self.dispatchSunbatheNotification()
+                case .denied:
+                    return
+                case .notDetermined:
+                notificationCenter.requestAuthorization(options: [.alert, .sound, .badge]) { didAllow, error in
+                        if didAllow {
+                            self.dispatchSunbatheNotification()
+                        }
+                    }
+                default:
+                    return
+            }
+        }
+    }
+    
+    func dispatchSunbatheNotification() {
+        let identifier = "sunbathe-notification"
+        let title = "Time to Sunbathe"
+        let body = "Let's getting sun when there's not much sun"
+        let isDaily = true
+        
+        let notificationCenter = UNUserNotificationCenter.current()
+        
+        let content = UNMutableNotificationContent()
+        content.title = title
+        content.body = body
+        content.sound = .default
+        
+        notificationCenter.removePendingNotificationRequests(withIdentifiers: [identifier])
+        
+        for (index, model) in modelHourly.enumerated() {
+            if (index < modelHourly.count / 2) {
+                let dayHourly = getTimeForDate(Date(timeIntervalSince1970: Double(model.dt)))
+                
+                print(getTimeForDate(Date(timeIntervalSince1970: Double(model.dt))))
+                
+                // get hour string
+                let hourString = dayHourly.prefix(2)
+                
+                // get minute string
+                let indexMinute = dayHourly.index(dayHourly.endIndex, offsetBy: -2)
+                let minuteString = dayHourly[indexMinute...]
+                
+                let hour = Int(hourString)
+                let minute = Int(minuteString)
+                
+                let calendar = Calendar.current
+                var dateComponents = DateComponents(calendar: calendar, timeZone: TimeZone.current)
+                dateComponents.hour = hour!
+                dateComponents.minute = minute!
+                
+                print(dateComponents)
+                
+                let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: isDaily)
+                let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+                
+                notificationCenter.add(request)
+                
+            }
+        }
+    }
+    
+    func cancelSunbatheNotification() {
+        let center = UNUserNotificationCenter.current()
+        let identifier = "sunbathe-notification"
+        
+        center.removePendingNotificationRequests(withIdentifiers: [identifier])
+        center.removeDeliveredNotifications(withIdentifiers: [identifier])
+    }
+    
+    //MARK: - Other
+    func convertUnixToDate(unix: Int, format: String) -> String {
+        let date = Date(timeIntervalSince1970: TimeInterval(unix))
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone.current //current device time zone
+        dateFormatter.locale = NSLocale.current
+        dateFormatter.dateFormat = format
+        let strDate = dateFormatter.string(from: date)
+        return strDate
+    }
+    
+    func getTimeForDate(_ date: Date?) -> String {
+        guard let inputDate = date else {
+            return ""
+        }
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        return formatter.string(from: inputDate)
+    }
+    
+    func getUVIndexFromModel(model: [HourlyWeather], index: IndexPath) -> Int {
+        return Int(model[index.row].uvi)
+    }
+    
+    
+    func showAlertSunbatheNotification(isActive: Bool) {
+        let messageActivated = "Your sunbathe notification is activated"
+        let messageDeactivated = "Your sunbathe notification is deactivated"
+        
+        let alertControl = UIAlertController(title: "Sunbathe Notification", message: isActive ? messageActivated : messageDeactivated, preferredStyle: .alert)
+        alertControl.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in
+            alertControl.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alertControl, animated: true)
     }
 
 }

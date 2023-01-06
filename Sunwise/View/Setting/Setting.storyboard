@@ -145,17 +145,23 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ut4-iJ-K9I">
+                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ut4-iJ-K9I">
                                                                 <rect key="frame" x="291" y="33" width="49" height="31"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="47" id="8MT-TV-rmG"/>
                                                                 </constraints>
+                                                                <connections>
+                                                                    <action selector="idealSunbatheSwitchChanged:" destination="Y6W-OH-hqX" eventType="valueChanged" id="3qR-Ww-BnL"/>
+                                                                </connections>
                                                             </switch>
-                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nvE-j9-rN9">
+                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nvE-j9-rN9">
                                                                 <rect key="frame" x="291" y="69" width="49" height="31"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="47" id="xRy-OV-PlN"/>
                                                                 </constraints>
+                                                                <connections>
+                                                                    <action selector="sunProtectionSwitchChanged:" destination="Y6W-OH-hqX" eventType="valueChanged" id="mRF-Hp-ID1"/>
+                                                                </connections>
                                                             </switch>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sun Proctection is Recommended" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CME-yt-lcl">
                                                                 <rect key="frame" x="8" y="76.666666666666686" width="265" height="19.333333333333329"/>
@@ -370,6 +376,7 @@
                     <connections>
                         <outlet property="dailySunbatheGoalLabel" destination="xkn-tv-0C0" id="C0a-go-jLx"/>
                         <outlet property="dailySunbatheView" destination="EP8-ij-jBj" id="Aug-7Z-h3F"/>
+                        <outlet property="idealSunbathSwitch" destination="ut4-iJ-K9I" id="3Mx-Qe-cOv"/>
                         <outlet property="locationLabel" destination="Fm2-X5-cmG" id="RqX-k0-yxn"/>
                         <outlet property="locationView" destination="K2k-4A-c6I" id="xpe-vv-wYu"/>
                         <outlet property="notificationView" destination="aTv-P9-QtX" id="JZ6-CD-qZy"/>
@@ -381,6 +388,7 @@
                         <outlet property="skinTypePeelLabel" destination="hBx-fd-zMw" id="cdZ-bs-PFu"/>
                         <outlet property="skinTypeRecommendedSunExposureGoalLabel" destination="7L9-eN-m5P" id="ura-KT-g9w"/>
                         <outlet property="skinTypeTanLabel" destination="sNR-rE-c4g" id="Tfd-0d-YOC"/>
+                        <outlet property="sunProtectionSwitch" destination="nvE-j9-rN9" id="Mrr-FS-liH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

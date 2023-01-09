@@ -16,7 +16,7 @@ extension Session {
         return NSFetchRequest<Session>(entityName: "Session")
     }
 
-    @NSManaged public var duration: Date?
+    @NSManaged public var duration: Int32
     @NSManaged public var finish_time: Date?
     @NSManaged public var location: String?
     @NSManaged public var start_time: Date?

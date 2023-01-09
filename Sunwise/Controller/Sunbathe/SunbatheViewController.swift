@@ -25,14 +25,25 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCal
     
     var uVI = 0
     
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var user: User?
+    var dailySunbathes = [DailySunbathe]()
+    var sessions = [Session]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        getUserInfo()
         calendar.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setupLocation()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getUserInfo()
     }
 
     @IBAction func seeMoreButtonPressed(_ sender: Any) {
@@ -183,5 +194,29 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCal
         formatter.dateFormat = "MM-dd-YYYY"
         let selectedDate = formatter.string(from: date)
         print("\(selectedDate)")
+    }
+    
+    
+    func getUserInfo(){
+        do {
+            let users = try context.fetch(User.fetchRequest())
+            if(!users.isEmpty) {
+                user = users[0]
+            }
+            
+            //MARK: Fetch all daily sunbathe data from existing user
+            self.fetchUserDailySunbathe()
+            
+        }
+        catch {
+            print("error : \(error)")
+        }
+    }
+    
+    func fetchUserDailySunbathe()
+    {
+        if let datas = user?.dailySunbatheArray {
+            dailySunbathes = datas
+        }
     }
 }

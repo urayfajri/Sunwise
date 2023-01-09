@@ -22,6 +22,13 @@ extension User {
     @NSManaged public var sunbath_goal: Int32
     @NSManaged public var dailySunbathes: NSSet?
 
+    public var dailySunbatheArray : [DailySunbathe]?
+    {
+        get
+        {
+            return dailySunbathes?.allObjects as? [DailySunbathe]
+        }
+    }
 }
 
 // MARK: Generated accessors for dailySunbathes

@@ -55,10 +55,19 @@ class SunbatheCounterViewController: UIViewController, CLLocationManagerDelegate
         finishTime = userDefaults.object(forKey: FINISH_TIME_KEY) as? Date
         timerIsCounting = userDefaults.bool(forKey: COUNTING_KEY)
         
+        
+        let sunbatheGoalDaily = String(user?.sunbath_goal ?? 0)
+        goalLabel.text = "Goal: \(sunbatheGoalDaily) Min"
+        
         //MARK: START TIMER HERE
         setStartTime(date: Date())
         startTimer()
         savedStartTime = getlocalDate()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setupLocation()
     }
 
     func getUserInfo(){
@@ -87,11 +96,11 @@ class SunbatheCounterViewController: UIViewController, CLLocationManagerDelegate
             print("uvi : \(self.uvi)")
             print("start time: \(self.savedStartTime)")
             print("finish time: \(self.savedFinishedTime)")
+            print("target time: \(self.goalDuration)")
             print("duration in seconds: \(durationInSeconds)\n===============\n")
             
             
             //TODO: Add Core Data Session Here
-            
             
             self.setFinishTime(date: nil)
             self.setStartTime(date: nil)
@@ -106,9 +115,22 @@ class SunbatheCounterViewController: UIViewController, CLLocationManagerDelegate
         self.present(alertConfirmation, animated: true, completion: nil)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        setupLocation()
+    //MARK: Create Daily Sunbathe core data model
+    func createDailySunbathe (achieveTime: Int32, targetTime: Int32) {
+        let newDailySunbathe = DailySunbathe(context: self.context)
+        newDailySunbathe.date = Date()
+        newDailySunbathe.achieve_time = achieveTime
+        newDailySunbathe.target_time = targetTime
+        
+        user?.addToDailySunbathes(newDailySunbathe)
+
+        do{
+            try context.save()
+        }
+        catch
+        {
+            print(error);
+        }
     }
     
     func setupLocation(){
@@ -345,4 +367,5 @@ class SunbatheCounterViewController: UIViewController, CLLocationManagerDelegate
         }
         return localDate
     }
+    
 }

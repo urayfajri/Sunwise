@@ -2,7 +2,7 @@
 //  DailySunbathe+CoreDataProperties.swift
 //  Sunwise
 //
-//  Created by Uray Muhamad Noor Fajri Widiansyah on 04/01/23.
+//  Created by Uray Muhamad Noor Fajri Widiansyah on 10/01/23.
 //
 //
 
@@ -16,9 +16,9 @@ extension DailySunbathe {
         return NSFetchRequest<DailySunbathe>(entityName: "DailySunbathe")
     }
 
-    @NSManaged public var achieve_time: Date?
+    @NSManaged public var achieve_time: Int32
     @NSManaged public var date: Date?
-    @NSManaged public var target_time: Date?
+    @NSManaged public var target_time: Int32
     @NSManaged public var sessions: NSSet?
     @NSManaged public var user: User?
 

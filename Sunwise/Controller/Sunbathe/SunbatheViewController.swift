@@ -7,14 +7,16 @@
 
 import UIKit
 import CoreLocation
+import FSCalendar
 
-class SunbatheViewController: UIViewController, CLLocationManagerDelegate {
+class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCalendarDelegate {
 
     @IBOutlet weak var uvCurrentView: UVCurrent!
     @IBOutlet weak var protectionView: ProtectionSelected!
     @IBOutlet weak var seeMoreButton: UIButton!
     @IBOutlet weak var progressLabel: UILabel!
     @IBOutlet weak var startSunbathe: UIButton!
+    @IBOutlet weak var calendar: FSCalendar!
     
     var currentWeather: CurrentWeather?
     var currentLocation: CLLocation?
@@ -25,6 +27,7 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        calendar.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -171,5 +174,14 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate {
         dateFormatter.dateFormat = format
         let strDate = dateFormatter.string(from: date)
         return strDate
+    }
+    
+    
+    //MARK: FS Calendar Function
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM-dd-YYYY"
+        let selectedDate = formatter.string(from: date)
+        print("\(selectedDate)")
     }
 }

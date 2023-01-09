@@ -51,6 +51,8 @@ class SettingViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
         getUserInfo()
         initElements()
     }
@@ -65,7 +67,16 @@ class SettingViewController: UIViewController, CLLocationManagerDelegate {
         skinTypeLabel.text = user?.skin_type ?? "-"
         
         idealSunbathSwitch.setOn(user?.ideal_time_notif ?? false, animated: true)
+        sunProtectionSwitch.setOn(user?.sun_protection_notif ?? false, animated: true)
         
+        if idealSunbathSwitch.isOn {
+            self.checkForSunbathePermission()
+        }
+        
+        if sunProtectionSwitch.isOn {
+            self.checkForSunProtectionPermission()
+        }
+    
         initSkinTypeRespone()
     }
     
@@ -97,10 +108,13 @@ class SettingViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBAction func sunProtectionSwitchChanged(_ sender: UISwitch) {
         if sender.isOn {
-            view.backgroundColor = .cyan
+            checkForSunProtectionPermission()
+            showAlertProctectionNotification(isActive: true)
         } else {
-            view.backgroundColor = .green
+            cancelProtectionNotification()
+            showAlertProctectionNotification(isActive: false)
         }
+        updateSunProtectionNotif(user: user!)
     }
     
     func getUserInfo(){
@@ -166,6 +180,20 @@ class SettingViewController: UIViewController, CLLocationManagerDelegate {
     func updateIdealTimeNotif(user: User)
     {
         user.ideal_time_notif = self.idealSunbathSwitch.isOn
+ 
+        do{
+            try context.save()
+        }
+        catch
+        {
+            print(error)
+        }
+    }
+    
+    //MARK: - Update core data user - sun protection recommended
+    func updateSunProtectionNotif(user: User)
+    {
+        user.sun_protection_notif = self.sunProtectionSwitch.isOn
  
         do{
             try context.save()
@@ -275,8 +303,7 @@ class SettingViewController: UIViewController, CLLocationManagerDelegate {
         }).resume()
     }
     
-    
-    //MARK: Local Notification
+    //MARK: Local Notification - ideal sunbathe time
     func checkForSunbathePermission() {
         let notificationCenter = UNUserNotificationCenter.current()
         notificationCenter.getNotificationSettings { settings in
@@ -297,10 +324,32 @@ class SettingViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
+    //MARK: Local Notification - ideal sunbathe time
+    func checkForSunProtectionPermission() {
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.getNotificationSettings { settings in
+            switch settings.authorizationStatus {
+                case .authorized:
+                    self.dispatchSunProtectionNotification()
+                case .denied:
+                    return
+                case .notDetermined:
+                notificationCenter.requestAuthorization(options: [.alert, .sound, .badge]) { didAllow, error in
+                        if didAllow {
+                            self.dispatchSunProtectionNotification()
+                        }
+                    }
+                default:
+                    return
+            }
+        }
+    }
+    
+    //MARK: Dispatch notification for sunbathe time
     func dispatchSunbatheNotification() {
         let identifier = "sunbathe-notification"
         let title = "Time to Sunbathe"
-        let body = "Let's getting sun when there's not much sun"
+        let body = "It’s perfect time to do sunbathing!"
         let isDaily = true
         
         let notificationCenter = UNUserNotificationCenter.current()
@@ -314,31 +363,151 @@ class SettingViewController: UIViewController, CLLocationManagerDelegate {
         
         for (index, model) in modelHourly.enumerated() {
             if (index < modelHourly.count / 2) {
-                let dayHourly = getTimeForDate(Date(timeIntervalSince1970: Double(model.dt)))
+                // safe uvi index
+                if (model.uvi > 0.00 && model.uvi < 2.00) {
+                    let dayHourly = getTimeForDate(Date(timeIntervalSince1970: Double(model.dt)))
+
+                    // get hour string
+                    let hourString = dayHourly.prefix(2)
+
+                    // get minute string
+                    let indexMinute = dayHourly.index(dayHourly.endIndex, offsetBy: -2)
+                    let minuteString = dayHourly[indexMinute...]
+
+                    let hour = Int(hourString)!
+                    let minute = Int(minuteString)!
+
+                    let calendar = Calendar.current
+                    var dateComponents = DateComponents(calendar: calendar, timeZone: TimeZone.current)
+                    dateComponents.hour = hour
+                    dateComponents.minute = minute
+
+                    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: isDaily)
+                    let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+
+                    notificationCenter.add(request)
+                }
+            }
+        }
+    }
+    
+    //MARK: Dispatch notification for sunbathe time
+    func dispatchSunProtectionNotification() {
+        let identifier = "sun-protection-notification"
+        let title = "Sun Protection Recommendation"
+        let isDaily = true
+        
+        let notificationCenter = UNUserNotificationCenter.current()
+        
+        notificationCenter.removePendingNotificationRequests(withIdentifiers: [identifier])
+        
+        // for check hour range based on changed message body
+        var currentBody: String = ""
+        
+        for (index, model) in modelHourly.enumerated() {
+            if (index < modelHourly.count / 2) {
+                var body: String = ""
+                var hour: Int = 0
+                var minute: Int = 0
                 
-                print(getTimeForDate(Date(timeIntervalSince1970: Double(model.dt))))
+                // unsafe uvi index for sunbathing
+                if (model.uvi >= 2.00 && model.uvi < 5.00) {
                 
-                // get hour string
-                let hourString = dayHourly.prefix(2)
+                    let dayHourly = getTimeForDate(Date(timeIntervalSince1970: Double(model.dt)))
+
+                    // get hour string
+                    let hourString = dayHourly.prefix(2)
+
+                    // get minute string
+                    let indexMinute = dayHourly.index(dayHourly.endIndex, offsetBy: -2)
+                    let minuteString = dayHourly[indexMinute...]
+
+                    hour = Int(hourString)!
+                    minute = Int(minuteString)!
+
+                    print("Moderate level at hour: ", hour)
+                    
+                    body = "Sun Protection Is Recommended When Outside ~ Current UVI is on Moderate Level."
                 
-                // get minute string
-                let indexMinute = dayHourly.index(dayHourly.endIndex, offsetBy: -2)
-                let minuteString = dayHourly[indexMinute...]
+                }
+                else if(model.uvi >= 5.00 && model.uvi < 7.00) {
+                    let dayHourly = getTimeForDate(Date(timeIntervalSince1970: Double(model.dt)))
+
+                    // get hour string
+                    let hourString = dayHourly.prefix(2)
+
+                    // get minute string
+                    let indexMinute = dayHourly.index(dayHourly.endIndex, offsetBy: -2)
+                    let minuteString = dayHourly[indexMinute...]
+
+                    hour = Int(hourString)!
+                    minute = Int(minuteString)!
+
+                    print("High Level at hour: ", hour)
+                    
+                    body = "Sun Protection Is a Must When Outside ~ Current UVI is on High Level."
+                    
+                }
+                else if ( model.uvi >= 7.00 && model.uvi < 10.00) {
+                    let dayHourly = getTimeForDate(Date(timeIntervalSince1970: Double(model.dt)))
+
+                    // get hour string
+                    let hourString = dayHourly.prefix(2)
+
+                    // get minute string
+                    let indexMinute = dayHourly.index(dayHourly.endIndex, offsetBy: -2)
+                    let minuteString = dayHourly[indexMinute...]
+
+                    hour = Int(hourString)!
+                    minute = Int(minuteString)!
+
+                    print("Very  High Level at hour: ", hour)
+                    
+                    body = "Limit Outdoor Activity, Sun Protection Is a Must When Outside ~ Current UVI is on Very High Level."
+                    
+                }
+                else if (model.uvi >= 10.00) {
+                    let dayHourly = getTimeForDate(Date(timeIntervalSince1970: Double(model.dt)))
+
+                    // get hour string
+                    let hourString = dayHourly.prefix(2)
+
+                    // get minute string
+                    let indexMinute = dayHourly.index(dayHourly.endIndex, offsetBy: -2)
+                    let minuteString = dayHourly[indexMinute...]
+
+                    hour = Int(hourString)!
+                    minute = Int(minuteString)!
+
+                    print("Extreme Level at hour: ", hour)
+                    
+                    body = "Stay Indoor, Sun Protection Is a Must When Outside ~ Current UVI is on Extreme Level"
+                    
+                } else {
+                    continue
+                }
                 
-                let hour = Int(hourString)
-                let minute = Int(minuteString)
+                if(!currentBody.contains(body)) {
+                    print("message: ", body)
+                    print("current message: ", currentBody)
+                    
+                    currentBody = body
                 
-                let calendar = Calendar.current
-                var dateComponents = DateComponents(calendar: calendar, timeZone: TimeZone.current)
-                dateComponents.hour = hour!
-                dateComponents.minute = minute!
-                
-                print(dateComponents)
-                
-                let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: isDaily)
-                let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
-                
-                notificationCenter.add(request)
+                    let content = UNMutableNotificationContent()
+                    content.title = title
+                    content.body = body
+                    content.sound = .default
+
+                    let calendar = Calendar.current
+                    var dateComponents = DateComponents(calendar: calendar, timeZone: TimeZone.current)
+                    dateComponents.hour = hour
+                    dateComponents.minute = minute
+
+                    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: isDaily)
+                    let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+
+                    notificationCenter.add(request)
+                }
                 
             }
         }
@@ -347,6 +516,14 @@ class SettingViewController: UIViewController, CLLocationManagerDelegate {
     func cancelSunbatheNotification() {
         let center = UNUserNotificationCenter.current()
         let identifier = "sunbathe-notification"
+        
+        center.removePendingNotificationRequests(withIdentifiers: [identifier])
+        center.removeDeliveredNotifications(withIdentifiers: [identifier])
+    }
+    
+    func cancelProtectionNotification() {
+        let center = UNUserNotificationCenter.current()
+        let identifier = "protection-notification"
         
         center.removePendingNotificationRequests(withIdentifiers: [identifier])
         center.removeDeliveredNotifications(withIdentifiers: [identifier])
@@ -378,11 +555,24 @@ class SettingViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     
+    //MARK: Alert Sunbathe Notification
     func showAlertSunbatheNotification(isActive: Bool) {
         let messageActivated = "Your sunbathe notification is activated"
         let messageDeactivated = "Your sunbathe notification is deactivated"
         
         let alertControl = UIAlertController(title: "Sunbathe Notification", message: isActive ? messageActivated : messageDeactivated, preferredStyle: .alert)
+        alertControl.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in
+            alertControl.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alertControl, animated: true)
+    }
+    
+    //MARK: Alert Protection Notification
+    func showAlertProctectionNotification(isActive: Bool) {
+        let messageActivated = "Your sun protection notification is activated"
+        let messageDeactivated = "Your sun protection notification is deactivated"
+        
+        let alertControl = UIAlertController(title: "Sun Protection Notification", message: isActive ? messageActivated : messageDeactivated, preferredStyle: .alert)
         alertControl.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in
             alertControl.dismiss(animated: true, completion: nil)
         }))

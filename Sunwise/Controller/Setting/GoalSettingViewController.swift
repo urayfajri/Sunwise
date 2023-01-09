@@ -63,7 +63,9 @@ class GoalSettingViewController: UIViewController {
         case .right:
             // berkurang
             var goal = Int(GoalLabel.text!)!
+            if(goal > 0) {
                 goal -= 1
+            }
             GoalLabel.text = String(goal)
         case .left:
             // bertambah
@@ -88,7 +90,9 @@ class GoalSettingViewController: UIViewController {
     @IBAction func reduceDurationButtonTapped(_ sender: Any) {
         // berkurang
         var goal = Int(GoalLabel.text!)!
+        if(goal > 0) {
             goal -= 1
+        }
         GoalLabel.text = String(goal)
     }
     

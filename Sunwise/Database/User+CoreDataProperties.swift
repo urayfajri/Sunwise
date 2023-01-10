@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  Sunwise
 //
-//  Created by Uray Muhamad Noor Fajri Widiansyah on 04/01/23.
+//  Created by Uray Muhamad Noor Fajri Widiansyah on 10/01/23.
 //
 //
 
@@ -22,6 +22,13 @@ extension User {
     @NSManaged public var sunbath_goal: Int32
     @NSManaged public var dailySunbathes: NSSet?
 
+    public var dailySunbatheArray : [DailySunbathe]?
+    {
+        get
+        {
+            return dailySunbathes?.allObjects as? [DailySunbathe]
+        }
+    }
 }
 
 // MARK: Generated accessors for dailySunbathes

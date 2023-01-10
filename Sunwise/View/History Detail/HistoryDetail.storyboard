@@ -84,7 +84,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="eDr-VE-5Dl" secondAttribute="trailing" constant="10" id="4OI-KL-ECk"/>
                                                             <constraint firstItem="xF5-GE-BRl" firstAttribute="centerX" secondItem="Ei2-EK-cDZ" secondAttribute="centerX" id="8CW-Gg-Nuv"/>
@@ -115,14 +115,14 @@
                                                         </constraints>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SessionDetailCell" id="t71-X0-ro0" customClass="SessionDetailTableViewCell" customModule="Sunwise" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="50" width="373" height="262"/>
+                                                                <rect key="frame" x="0.0" y="50" width="373" height="263"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="t71-X0-ro0" id="FqZ-A8-BDA">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="373" height="262"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="373" height="263"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WJl-VH-4ty">
-                                                                            <rect key="frame" x="10" y="10" width="353" height="242"/>
+                                                                            <rect key="frame" x="10" y="10" width="353" height="243"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Sunbathe Detail - Session 1:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vBC-dR-0bs">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="353" height="20.333333333333332"/>
@@ -262,7 +262,7 @@
                                                                                     </subviews>
                                                                                 </stackView>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Om2-6b-SwV">
-                                                                                    <rect key="frame" x="0.0" y="182.33333333333334" width="353" height="59.666666666666657"/>
+                                                                                    <rect key="frame" x="0.0" y="182.33333333333334" width="353" height="60.666666666666657"/>
                                                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                                 </view>
                                                                             </subviews>
@@ -296,7 +296,7 @@
                                                 </subviews>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <constraints>
                                             <constraint firstItem="bIe-J9-5n0" firstAttribute="top" secondItem="J9L-Q6-1gw" secondAttribute="top" constant="10" id="38C-gC-ctG"/>
                                             <constraint firstItem="bIe-J9-5n0" firstAttribute="leading" secondItem="J9L-Q6-1gw" secondAttribute="leading" constant="10" id="9ug-H6-a0k"/>
@@ -352,14 +352,11 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

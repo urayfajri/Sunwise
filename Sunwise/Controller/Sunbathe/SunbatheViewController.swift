@@ -9,7 +9,7 @@ import UIKit
 import CoreLocation
 import FSCalendar
 
-class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCalendarDelegate {
+class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
 
     @IBOutlet weak var uvCurrentView: UVCurrent!
     @IBOutlet weak var protectionView: ProtectionSelected!
@@ -33,6 +33,7 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCal
     override func viewDidLoad() {
         super.viewDidLoad()
         getUserInfo()
+        calendar.dataSource = self
         calendar.delegate = self
     }
     
@@ -44,6 +45,8 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCal
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getUserInfo()
+        calendar.dataSource = self
+        calendar.delegate = self
     }
 
     @IBAction func seeMoreButtonPressed(_ sender: Any) {
@@ -188,14 +191,30 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCal
     }
     
     
-    //MARK: FS Calendar Function
+    //MARK: FS Calendar function
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         let formatter = DateFormatter()
-        formatter.dateFormat = "MM-dd-YYYY"
+        formatter.dateFormat = "dd-MM-YYYY"
         let selectedDate = formatter.string(from: date)
         print("\(selectedDate)")
     }
     
+    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MM-YYYY"
+        let dateCalendar = formatter.string(from: date)
+        
+        var count : Int = 0
+    
+        for dailySunbathe in dailySunbathes {
+            let dailySunbatheDate = formatter.string(from: dailySunbathe.date!)
+            print(dateCalendar)
+            if(dateCalendar == dailySunbatheDate){
+                count += 1
+            }
+        }
+        return count
+    }
     
     func getUserInfo(){
         do {

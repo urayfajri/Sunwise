@@ -21,6 +21,14 @@ extension DailySunbathe {
     @NSManaged public var target_time: Int32
     @NSManaged public var sessions: NSSet?
     @NSManaged public var user: User?
+    
+    public var sessionArray : [Session]?
+    {
+        get
+        {
+            return sessions?.allObjects as? [Session]
+        }
+    }
 
 }
 

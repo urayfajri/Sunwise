@@ -50,6 +50,7 @@ class SunbatheCounterViewController: UIViewController, CLLocationManagerDelegate
         setupCircularProgressBarView()
         getUserInfo()
         goalDuration = TimeInterval((user?.sunbath_goal ?? -1) * 60)
+        goalLabel.text = "Goal : \(user?.sunbath_goal ?? -1) min"
         
         startTime = userDefaults.object(forKey: START_TIME_KEY) as? Date
         finishTime = userDefaults.object(forKey: FINISH_TIME_KEY) as? Date
@@ -304,6 +305,9 @@ class SunbatheCounterViewController: UIViewController, CLLocationManagerDelegate
         let time = secondsToHoursMinutesSeconds(val)
         let timeString = makeTimeString(hour: time.0, min: time.1, sec: time.2)
         timerLabel.text = timeString
+        if Int(goalDuration) == val {
+            self.goalLabel.text = "Your Have Achieved You \(user?.sunbath_goal ?? -1) min(s) Goal ✅"
+        }
     }
     
     func secondsToHoursMinutesSeconds(_ ms: Int) -> (Int, Int, Int) {

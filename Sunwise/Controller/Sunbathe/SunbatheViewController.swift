@@ -32,6 +32,11 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate {
         setupLocation()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
     @IBAction func seeMoreButtonPressed(_ sender: Any) {
         let controller = SunProtectionDetailViewController()
         present(controller, animated: true, completion: nil)

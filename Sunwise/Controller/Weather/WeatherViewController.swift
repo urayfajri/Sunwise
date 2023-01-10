@@ -39,6 +39,11 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         hourlyForecastView.dataSource = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setupLocation()

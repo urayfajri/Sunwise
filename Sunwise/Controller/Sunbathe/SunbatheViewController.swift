@@ -44,14 +44,10 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCal
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
         getUserInfo()
         calendar.dataSource = self
         calendar.delegate = self
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     @IBAction func seeMoreButtonPressed(_ sender: Any) {

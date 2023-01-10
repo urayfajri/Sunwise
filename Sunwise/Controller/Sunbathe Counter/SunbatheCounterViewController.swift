@@ -43,6 +43,9 @@ class SunbatheCounterViewController: UIViewController, CLLocationManagerDelegate
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var user: User?
+    var todayDailySunbathe: DailySunbathe?
+    var dailySunbathes = [DailySunbathe]()
+    var sessions = [Session]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,10 +59,19 @@ class SunbatheCounterViewController: UIViewController, CLLocationManagerDelegate
         finishTime = userDefaults.object(forKey: FINISH_TIME_KEY) as? Date
         timerIsCounting = userDefaults.bool(forKey: COUNTING_KEY)
         
+        
+        let sunbatheGoalDaily = String(user?.sunbath_goal ?? 0)
+        goalLabel.text = "Goal: \(sunbatheGoalDaily) Min"
+        
         //MARK: START TIMER HERE
         setStartTime(date: Date())
         startTimer()
         savedStartTime = getlocalDate()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setupLocation()
     }
 
     func getUserInfo(){
@@ -68,6 +80,12 @@ class SunbatheCounterViewController: UIViewController, CLLocationManagerDelegate
             if(!users.isEmpty) {
                 user = users[0]
             }
+            
+            //MARK: Fetch all daily sunbathe data from existing user
+            self.fetchUserDailySunbathe()
+            
+            //MARK: get today daily sunbathe
+            self.getDailySunbatheByDate(selectedDate: Date())
         }
         catch {
             print("error : \(error)")
@@ -88,11 +106,57 @@ class SunbatheCounterViewController: UIViewController, CLLocationManagerDelegate
             print("uvi : \(self.uvi)")
             print("start time: \(self.savedStartTime)")
             print("finish time: \(self.savedFinishedTime)")
+            print("target time: \(self.goalDuration)")
             print("duration in seconds: \(durationInSeconds)\n===============\n")
             
             
             //TODO: Add Core Data Session Here
-            
+            if(self.dailySunbathes.isEmpty) {
+                //create new if still empty
+                self.createDailySunbathe(
+                    achieveTime: Int32(durationInSeconds),
+                    targetTime: (self.user?.sunbath_goal ?? 0) * 60,
+                    duration: Int32(durationInSeconds),
+                    location: self.location,
+                    startTime: self.savedStartTime,
+                    finishTime: self.savedFinishedTime,
+                    temp: Int32(self.temp),
+                    uvi: Int32(self.uvi),
+                    weatherID: Int32(self.weather)
+                )
+            } else {
+                if((self.todayDailySunbathe ) == nil) {
+                    //create new if today daily sunbathe not exist
+                    self.createDailySunbathe(
+                        achieveTime: Int32(durationInSeconds),
+                        targetTime: (self.user?.sunbath_goal ?? 0) * 60,
+                        duration: Int32(durationInSeconds),
+                        location: self.location,
+                        startTime: self.savedStartTime,
+                        finishTime: self.savedFinishedTime,
+                        temp: Int32(self.temp),
+                        uvi: Int32(self.uvi),
+                        weatherID: Int32(self.weather)
+                    )
+                } else {
+                    
+                    // print("ada daily sunbathe hari ini(before): ", self.todayDailySunbathe?.achieve_time, self.todayDailySunbathe?.target_time)
+                    self.updateDailySunbathe(
+                        dailySunbathe: self.todayDailySunbathe,
+                        updateAchieveTime: Int32(durationInSeconds)
+                    )
+                    self.createSession(dailySunbathe: self.todayDailySunbathe,
+                                       duration: Int32(durationInSeconds),
+                                       location: self.location,
+                                       startTime: self.savedStartTime,
+                                       finishTime: self.savedFinishedTime,
+                                       temp: Int32(self.temp),
+                                       uvi: Int32(self.uvi),
+                                       weatherID: Int32(self.weather)
+                    )
+                    // print("ada daily sunbathe hari ini(after): ", self.todayDailySunbathe?.achieve_time, self.todayDailySunbathe?.target_time)
+                }
+            }
             
             self.setFinishTime(date: nil)
             self.setStartTime(date: nil)
@@ -107,11 +171,88 @@ class SunbatheCounterViewController: UIViewController, CLLocationManagerDelegate
         self.present(alertConfirmation, animated: true, completion: nil)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        setupLocation()
+    //MARK: Create Daily Sunbathe core data model
+    func createDailySunbathe (achieveTime: Int32, targetTime: Int32, duration: Int32, location: String, startTime: Date, finishTime: Date, temp: Int32, uvi: Int32, weatherID: Int32) {
+        let newDailySunbathe = DailySunbathe(context: self.context)
+        newDailySunbathe.date = Date()
+        newDailySunbathe.achieve_time = achieveTime
+        newDailySunbathe.target_time = targetTime
+        
+        createSession(dailySunbathe: newDailySunbathe, duration: duration, location: location, startTime: startTime, finishTime: finishTime, temp: temp, uvi: uvi, weatherID: weatherID)
+        
+        user?.addToDailySunbathes(newDailySunbathe)
+
+        do{
+            try context.save()
+        }
+        catch
+        {
+            print(error)
+        }
     }
     
+    //MARK: - Update Daily Sunbathe core data model
+    func updateDailySunbathe(dailySunbathe: DailySunbathe?, updateAchieveTime: Int32)
+    {
+        dailySunbathe?.achieve_time += updateAchieveTime
+ 
+        do{
+            try context.save()
+        }
+        catch
+        {
+            print(error)
+        }
+    }
+    
+    //MARK: Create Session Sunbathe core data model
+    func createSession (dailySunbathe: DailySunbathe?, duration: Int32, location: String, startTime: Date, finishTime: Date, temp: Int32, uvi: Int32, weatherID: Int32) {
+        let newSession = Session(context: self.context)
+        
+        newSession.duration = duration
+        newSession.location = location
+        newSession.start_time = startTime
+        newSession.finish_time = finishTime
+        newSession.temp = temp
+        newSession.uv_index = uvi
+        newSession.weather_id = weatherID
+        
+        dailySunbathe?.addToSessions(newSession)
+
+        do{
+            try context.save()
+        }
+        catch
+        {
+            print(error)
+        }
+    }
+    
+    func fetchUserDailySunbathe()
+    {
+        if let datas = user?.dailySunbatheArray {
+            dailySunbathes = datas
+        }
+    }
+    
+    func getDailySunbatheByDate(selectedDate: Date) {
+        let dateFormat = DateFormatter()
+        dateFormat.dateStyle = .medium
+        
+        let dateCalendar = dateFormat.string(from: selectedDate)
+        
+        for dailySunbathe in dailySunbathes {
+            let dailySunbatheDate = dateFormat.string(from: dailySunbathe.date!)
+            if(dateCalendar == dailySunbatheDate){
+                todayDailySunbathe = dailySunbathe
+                break
+            }
+        }
+        
+    }
+    
+    
+    //MARK: CORE LOCATION
     func setupLocation(){
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
@@ -349,4 +490,5 @@ class SunbatheCounterViewController: UIViewController, CLLocationManagerDelegate
         }
         return localDate
     }
+    
 }

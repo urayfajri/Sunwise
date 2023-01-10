@@ -7,14 +7,16 @@
 
 import UIKit
 import CoreLocation
+import FSCalendar
 
-class SunbatheViewController: UIViewController, CLLocationManagerDelegate {
+class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
 
     @IBOutlet weak var uvCurrentView: UVCurrent!
     @IBOutlet weak var protectionView: ProtectionSelected!
     @IBOutlet weak var seeMoreButton: UIButton!
     @IBOutlet weak var progressLabel: UILabel!
     @IBOutlet weak var startSunbathe: UIButton!
+    @IBOutlet weak var calendar: FSCalendar!
     
     var currentWeather: CurrentWeather?
     var currentLocation: CLLocation?
@@ -23,18 +25,29 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate {
     
     var uVI = 0
     
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var user: User?
+    var dailySunbathes = [DailySunbathe]()
+    var sessions = [Session]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        getUserInfo()
+        calendar.dataSource = self
+        calendar.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setupLocation()
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
+        getUserInfo()
+        calendar.dataSource = self
+        calendar.delegate = self
     }
     
     @IBAction func seeMoreButtonPressed(_ sender: Any) {
@@ -176,5 +189,54 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate {
         dateFormatter.dateFormat = format
         let strDate = dateFormatter.string(from: date)
         return strDate
+    }
+    
+    
+    //MARK: FS Calendar function
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MM-YYYY"
+        let selectedDate = formatter.string(from: date)
+        print("\(selectedDate)")
+    }
+    
+    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MM-YYYY"
+        let dateCalendar = formatter.string(from: date)
+        
+        var count : Int = 0
+    
+        for dailySunbathe in dailySunbathes {
+            let dailySunbatheDate = formatter.string(from: dailySunbathe.date!)
+            print(dateCalendar)
+            if(dateCalendar == dailySunbatheDate){
+                count += 1
+            }
+        }
+        return count
+    }
+    
+    func getUserInfo(){
+        do {
+            let users = try context.fetch(User.fetchRequest())
+            if(!users.isEmpty) {
+                user = users[0]
+            }
+            
+            //MARK: Fetch all daily sunbathe data from existing user
+            self.fetchUserDailySunbathe()
+            
+        }
+        catch {
+            print("error : \(error)")
+        }
+    }
+    
+    func fetchUserDailySunbathe()
+    {
+        if let datas = user?.dailySunbatheArray {
+            dailySunbathes = datas
+        }
     }
 }

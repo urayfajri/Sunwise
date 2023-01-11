@@ -31,14 +31,14 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aYU-WQ-HrO" customClass="CircularProgressBarView" customModule="Sunwise" customModuleProvider="target">
-                                <rect key="frame" x="71.666666666666686" y="301" width="250" height="250"/>
+                                <rect key="frame" x="46.666666666666657" y="276" width="300" height="300"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="Uo0-S5-w9F"/>
-                                    <constraint firstAttribute="height" constant="250" id="h8m-SB-rL3"/>
+                                    <constraint firstAttribute="width" constant="300" id="Uo0-S5-w9F"/>
+                                    <constraint firstAttribute="height" constant="300" id="h8m-SB-rL3"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Goal: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VlB-NU-BGg">
-                                <rect key="frame" x="10" y="601" width="373" height="21"/>
+                                <rect key="frame" x="10" y="626" width="373" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>

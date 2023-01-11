@@ -17,6 +17,7 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCal
     @IBOutlet weak var progressLabel: UILabel!
     @IBOutlet weak var startSunbathe: UIButton!
     @IBOutlet weak var calendar: FSCalendar!
+    @IBOutlet weak var circularProgressBarView: CircularProgressBarView!
     
     var currentWeather: CurrentWeather?
     var currentLocation: CLLocation?
@@ -35,7 +36,7 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCal
         super.viewDidLoad()
         getUserInfo()
         initElements()
-        
+        setupCircularProgressBarHistoryView()
         calendar.dataSource = self
         calendar.delegate = self
         
@@ -101,6 +102,14 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCal
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+    }
+    
+    func setupCircularProgressBarHistoryView() {
+        circularProgressBarView.createCircularPath()
+        let achieveTime = (todayDailySunbathe?.achieve_time ?? 0) / 60
+        let targetTime = (todayDailySunbathe?.target_time ?? 0) / 60
+        let valueProgress = Float(achieveTime) / Float(targetTime)
+        circularProgressBarView.progressAnimation(duration: 0.1, value: valueProgress)
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

@@ -238,7 +238,9 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCal
                     vc.selectedDate = date
                     vc.targetTime = Int(dailySunbathe.target_time)
                     vc.achieveTime = Int(dailySunbathe.achieve_time)
-                    vc.sessions = dailySunbathe.sessionArray ?? []
+                    
+                    let theArraySession = dailySunbathe.sessionArray ?? []
+                    vc.sessions = theArraySession.sorted { $0.start_time! < $1.start_time! }
                     self.navigationController?.pushViewController(vc, animated: true)
                     return
                 }

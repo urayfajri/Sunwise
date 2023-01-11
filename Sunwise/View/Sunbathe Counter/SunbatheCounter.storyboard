@@ -30,7 +30,7 @@
                                     <constraint firstAttribute="height" constant="60" id="cB6-4Z-u5C"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aYU-WQ-HrO">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aYU-WQ-HrO" customClass="CircularProgressBarView" customModule="Sunwise" customModuleProvider="target">
                                 <rect key="frame" x="71.666666666666686" y="301" width="250" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="Uo0-S5-w9F"/>
@@ -95,6 +95,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="circularProgressBarView" destination="aYU-WQ-HrO" id="xW4-V3-8Mu"/>
                         <outlet property="finishSunbatheButton" destination="OZ3-Iv-u5K" id="wHa-LV-yRs"/>
                         <outlet property="goalLabel" destination="VlB-NU-BGg" id="S5M-55-pft"/>
                         <outlet property="locationCurrentView" destination="gGc-rr-H2g" id="BoZ-G8-FGk"/>

@@ -69,17 +69,17 @@ class HistoryDetailViewController: UIViewController {
     }
     
     func getStatementLabel(achiveTime: Int, targetTime: Int) -> String {
-        let value = Float(achiveTime/targetTime)
+        let value = Float(achiveTime)/Float(targetTime)
         switch value {
         case 0..<0.3:
             return "Good start, try better next time 😄"
-        case 0.4..<0.5:
+        case 0.3..<0.5:
             return "Don't give up to try your best next time ☺️"
         case 0.5..<0.8:
             return "Half way there, keep improving 🤗"
         case 0.8..<1.0:
             return "Great, you are almost there 😍"
-        case 0.8..<1.0:
+        case 1.0...:
             return "Goal Achieved ✅, Congratulations on closing the ring 🥳🤩"
         default:
             return ""

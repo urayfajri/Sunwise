@@ -52,17 +52,24 @@ class SunbatheCounterViewController: UIViewController, CLLocationManagerDelegate
         //MARK: duration and finishTime should still empty / nil
         setupCircularProgressBarView()
         getUserInfo()
-        goalDuration = TimeInterval((user?.sunbath_goal ?? -1) * 60)
-        goalLabel.text = "Goal : \(user?.sunbath_goal ?? -1) min"
+        
+        let duration = todayDailySunbathe != nil ?
+                        ((todayDailySunbathe?.target_time ?? 0) / 60) - ((todayDailySunbathe?.achieve_time ?? 0) / 60)
+                            :
+                        (user?.sunbath_goal ?? 0)
+        goalDuration = TimeInterval(duration * 60)
+        print("goal duration: ", goalDuration)
         
         startTime = userDefaults.object(forKey: START_TIME_KEY) as? Date
         finishTime = userDefaults.object(forKey: FINISH_TIME_KEY) as? Date
         timerIsCounting = userDefaults.bool(forKey: COUNTING_KEY)
         
-        
-        let sunbatheGoalDaily = String(user?.sunbath_goal ?? 0)
-        goalLabel.text = "Goal: \(sunbatheGoalDaily) Min"
-        
+        let sunbatheAchieveTimeToday = (todayDailySunbathe?.achieve_time ?? 0) / 60
+        let sunbatheGoalToday = todayDailySunbathe != nil ? (todayDailySunbathe?.target_time ?? 0) / 60 : user?.sunbath_goal ?? 0
+        if(goalDuration <= 0.0) {
+            goalLabel.text = "Your Have Achieved You \(user?.sunbath_goal ?? -1) min(s) Goal ✅"
+        }
+
         //MARK: START TIMER HERE
         setStartTime(date: Date())
         startTimer()
@@ -446,8 +453,17 @@ class SunbatheCounterViewController: UIViewController, CLLocationManagerDelegate
         let time = secondsToHoursMinutesSeconds(val)
         let timeString = makeTimeString(hour: time.0, min: time.1, sec: time.2)
         timerLabel.text = timeString
+        let durationPerMinute = Int32(val/60)
+        let sunbatheAchieveTimeToday = (todayDailySunbathe?.achieve_time ?? 0) / 60
+        let durationAchieveTimeTotal = sunbatheAchieveTimeToday+durationPerMinute
+        
+        let sunbatheGoalToday = todayDailySunbathe != nil ? (todayDailySunbathe?.target_time ?? 0) / 60 : user?.sunbath_goal ?? 0
+        
         if Int(goalDuration) == val {
             self.goalLabel.text = "Your Have Achieved You \(user?.sunbath_goal ?? -1) min(s) Goal ✅"
+        } else if (val % 60 == 0 && ((sunbatheGoalToday - durationAchieveTimeTotal) > 0)) {
+            
+            goalLabel.text = "Goal: \(durationAchieveTimeTotal) / \(sunbatheGoalToday) Min"
         }
     }
     
@@ -478,7 +494,7 @@ class SunbatheCounterViewController: UIViewController, CLLocationManagerDelegate
     func setRingAnimation(_ val: Int) {
         let time = secondsToHoursMinutesSeconds(val)
         let totalseconds = (time.0 * 3600) + (time.1 * 60) + time.2
-        let progressValue = Float(TimeInterval(totalseconds) / goalDuration)
+        let progressValue = Float(TimeInterval(totalseconds) / (goalDuration > 0.0 ? goalDuration : 1))
         circularProgress.progressAnimation(duration: 0.1, value: progressValue)
     }
     

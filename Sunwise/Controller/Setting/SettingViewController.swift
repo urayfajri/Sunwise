@@ -82,7 +82,6 @@ class SettingViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBAction func EditGoalButtonTapped(_ sender: Any) {
         let controller = self.storyboard?.instantiateViewController(withIdentifier: "GoalSettingViewController") as! GoalSettingViewController
-        controller.user = user
         controller.modalPresentationStyle = .popover
         present(controller, animated: true, completion: nil)
     }

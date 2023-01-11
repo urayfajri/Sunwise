@@ -18,6 +18,7 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCal
     @IBOutlet weak var startSunbathe: UIButton!
     @IBOutlet weak var calendar: FSCalendar!
     @IBOutlet weak var circularProgressBarView: CircularProgressBarView!
+    @IBOutlet weak var progressStatementLabel: UILabel!
     
     var currentWeather: CurrentWeather?
     var currentLocation: CLLocation?
@@ -109,6 +110,7 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCal
         let targetTime = (todayDailySunbathe?.target_time ?? 0) / 60
         let valueProgress = Float(achieveTime) / Float(targetTime)
         circularProgressBarView.progressAnimation(duration: 0.1, value: valueProgress)
+        progressStatementLabel.text = getStatementLabel(achiveTime: Int(achieveTime), targetTime: Int(targetTime))
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -209,6 +211,24 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCal
             return "Avoid Sunlight"
         case 11...99:
             return "Avoid Sunlight"
+        default:
+            return ""
+        }
+    }
+    
+    func getStatementLabel(achiveTime: Int, targetTime: Int) -> String {
+        let value = Float(achiveTime)/Float(targetTime)
+        switch value {
+        case 0..<0.3:
+            return "Good start 😄"
+        case 0.3..<0.5:
+            return "Keep Going ☺️"
+        case 0.5..<0.8:
+            return "Better Than Ever 🤩"
+        case 0.8..<1.0:
+            return "Almost there 😍"
+        case 1.0...:
+            return "Goal Achieved ✅"
         default:
             return ""
         }

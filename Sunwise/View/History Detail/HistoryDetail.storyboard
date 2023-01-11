@@ -46,9 +46,8 @@
                                                                     </label>
                                                                 </subviews>
                                                             </stackView>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="801-22-gu1">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="801-22-gu1" customClass="CircularProgressBarView" customModule="Sunwise" customModuleProvider="target">
                                                                 <rect key="frame" x="101.66666666666669" y="102.33333333333334" width="170" height="170.00000000000003"/>
-                                                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="170" id="mtD-b1-6LH"/>
                                                                     <constraint firstAttribute="width" constant="170" id="nxJ-pb-d4T"/>
@@ -115,14 +114,14 @@
                                                         </constraints>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SessionDetailCell" id="t71-X0-ro0" customClass="SessionDetailTableViewCell" customModule="Sunwise" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="50" width="373" height="263"/>
+                                                                <rect key="frame" x="0.0" y="50" width="373" height="264"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="t71-X0-ro0" id="FqZ-A8-BDA">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="373" height="263"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="373" height="264"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WJl-VH-4ty">
-                                                                            <rect key="frame" x="10" y="10" width="353" height="243"/>
+                                                                            <rect key="frame" x="10" y="10" width="353" height="244"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Sunbathe Detail - Session 1:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vBC-dR-0bs">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="353" height="20.333333333333332"/>
@@ -262,7 +261,7 @@
                                                                                     </subviews>
                                                                                 </stackView>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Om2-6b-SwV">
-                                                                                    <rect key="frame" x="0.0" y="182.33333333333334" width="353" height="60.666666666666657"/>
+                                                                                    <rect key="frame" x="0.0" y="182.33333333333334" width="353" height="61.666666666666657"/>
                                                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                                 </view>
                                                                             </subviews>
@@ -332,6 +331,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="circularProgressBarView" destination="801-22-gu1" id="S2Y-TN-cGD"/>
                         <outlet property="heightTableView" destination="ydW-ag-ZMo" id="FsI-0d-MQz"/>
                         <outlet property="progressLabel" destination="10M-ST-3o5" id="w36-Up-ilf"/>
                         <outlet property="sessionLabel" destination="U8h-Ny-XRN" id="19O-5O-BRG"/>
@@ -354,9 +354,6 @@
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -17,6 +17,7 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCal
     @IBOutlet weak var progressLabel: UILabel!
     @IBOutlet weak var startSunbathe: UIButton!
     @IBOutlet weak var calendar: FSCalendar!
+    @IBOutlet weak var circularProgressBarView: CircularProgressBarView!
     
     var currentWeather: CurrentWeather?
     var currentLocation: CLLocation?
@@ -35,7 +36,6 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCal
         super.viewDidLoad()
         getUserInfo()
         initElements()
-        
         calendar.dataSource = self
         calendar.delegate = self
         
@@ -52,7 +52,7 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCal
         tabBarController?.tabBar.isHidden = false
         getUserInfo()
         initElements()
-        
+        setupCircularProgressBarHistoryView()
         calendar.reloadData()
     }
     
@@ -101,6 +101,14 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCal
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+    }
+    
+    func setupCircularProgressBarHistoryView() {
+        circularProgressBarView.createCircularPath()
+        let achieveTime = (todayDailySunbathe?.achieve_time ?? 0) / 60
+        let targetTime = (todayDailySunbathe?.target_time ?? 0) / 60
+        let valueProgress = Float(achieveTime) / Float(targetTime)
+        circularProgressBarView.progressAnimation(duration: 0.1, value: valueProgress)
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -222,26 +230,25 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCal
         let formatter = DateFormatter()
         formatter.dateFormat = "dd-MM-YYYY"
         let selectedDate = formatter.string(from: date)
-        print("\(selectedDate)")
         
         for dailySunbathe in dailySunbathes {
             let dailySunbatheDate = formatter.string(from: dailySunbathe.date!)
             if selectedDate == dailySunbatheDate {
-                //prepare data
-                print("date \(selectedDate) have session ")
                 if let vc = storyboard?.instantiateViewController(identifier: "HistoryDetailSB") as? HistoryDetailViewController {
                     vc.selectedDate = date
                     vc.targetTime = Int(dailySunbathe.target_time)
                     vc.achieveTime = Int(dailySunbathe.achieve_time)
                     vc.sessions = dailySunbathe.sessionArray ?? []
                     self.navigationController?.pushViewController(vc, animated: true)
-                    break
+                    return
                 }
             }
         }
         
-        print("no session at date : \(selectedDate)")
-       
+        if let emptyVC = storyboard?.instantiateViewController(withIdentifier: "HistoryEmptySB") as? HistoryEmptyViewController {
+            emptyVC.selectedDate = date
+            self.navigationController?.pushViewController(emptyVC, animated: true)
+        }
     }
     
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {

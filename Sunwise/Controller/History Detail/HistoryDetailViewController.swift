@@ -12,6 +12,7 @@ class HistoryDetailViewController: UIViewController {
     @IBOutlet weak var progressLabel: UILabel!
     @IBOutlet weak var statementLabel: UILabel!
     @IBOutlet weak var sessionLabel: UILabel!
+    @IBOutlet weak var circularProgressBarView: CircularProgressBarView!
     
     @IBOutlet weak var tableViewSessions: UITableView!
     @IBOutlet weak var heightTableView: NSLayoutConstraint!
@@ -25,6 +26,7 @@ class HistoryDetailViewController: UIViewController {
         super.viewDidLoad()
         setupDateTitle()
         displayHistoryDetail()
+        setupCircularProgressBarHistoryView()
         // Do any additional setup after loading the view.
     }
     
@@ -48,6 +50,12 @@ class HistoryDetailViewController: UIViewController {
                 heightTableView.constant = newSize.height
             }
         }
+    }
+    
+    func setupCircularProgressBarHistoryView() {
+        circularProgressBarView.createCircularPath()
+        let valueProgress = Float(achieveTime) / Float(targetTime)
+        circularProgressBarView.progressAnimation(duration: 0.1, value: valueProgress)
     }
     
     public func setupDateTitle() {

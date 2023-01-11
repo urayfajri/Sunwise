@@ -15,6 +15,7 @@ class SunbatheCounterViewController: UIViewController, CLLocationManagerDelegate
     @IBOutlet weak var finishSunbatheButton: UIButton!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var goalLabel: UILabel!
+    @IBOutlet weak var circularProgressBarView: CircularProgressBarView!
     
     var currentWeather: CurrentWeather?
     var currentLocation: CLLocation?
@@ -39,7 +40,6 @@ class SunbatheCounterViewController: UIViewController, CLLocationManagerDelegate
     let START_TIME_KEY = "startTime"
     let FINISH_TIME_KEY = "stopTime"
     let COUNTING_KEY = "countingKey"
-    let circularProgress = CircularProgressBarView(frame: .zero)
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var user: User?
@@ -168,7 +168,7 @@ class SunbatheCounterViewController: UIViewController, CLLocationManagerDelegate
             self.setFinishTime(date: nil)
             self.setStartTime(date: nil)
             self.timerLabel.text = self.makeTimeString(hour: 0, min: 0, sec: 0)
-            self.circularProgress.progressAnimation(duration: 1, value: 0)
+            self.circularProgressBarView.progressAnimation(duration: 1, value: 0)
             self.finishTimer()
             self.dismiss(animated: true)
         }))
@@ -399,9 +399,9 @@ class SunbatheCounterViewController: UIViewController, CLLocationManagerDelegate
     }
     
     func setupCircularProgressBarView() {
-        circularProgress.createCircularPath()
-        circularProgress.center = view.center
-        view.addSubview(circularProgress)
+        circularProgressBarView.createCircularPath()
+        circularProgressBarView.center = view.center
+        view.addSubview(circularProgressBarView)
     }
     
     func startTimer(){
@@ -486,16 +486,16 @@ class SunbatheCounterViewController: UIViewController, CLLocationManagerDelegate
     
     //MARK: - Ring Animation
     func setUpCircularProgressBarView(){
-        circularProgress.createCircularPath()
-        circularProgress.center = view.center
-        view.addSubview(circularProgress)
+        circularProgressBarView.createCircularPath()
+        circularProgressBarView.center = view.center
+        view.addSubview(circularProgressBarView)
     }
     
     func setRingAnimation(_ val: Int) {
         let time = secondsToHoursMinutesSeconds(val)
         let totalseconds = (time.0 * 3600) + (time.1 * 60) + time.2
         let progressValue = Float(TimeInterval(totalseconds) / (goalDuration > 0.0 ? goalDuration : 1))
-        circularProgress.progressAnimation(duration: 0.1, value: progressValue)
+        circularProgressBarView.progressAnimation(duration: 0.1, value: progressValue)
     }
     
     func getlocalDate()-> Date {

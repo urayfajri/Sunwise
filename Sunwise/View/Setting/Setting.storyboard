@@ -74,7 +74,7 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vwh-Op-nou">
                                                                 <rect key="frame" x="288" y="13" width="55" height="35"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" constant="55" id="Pap-0x-f7W"/>
+                                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="55" id="Pap-0x-f7W"/>
                                                                 </constraints>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="tinted" title="Edit"/>

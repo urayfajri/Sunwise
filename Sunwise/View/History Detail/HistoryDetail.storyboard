@@ -48,7 +48,17 @@
                                                             </stackView>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="801-22-gu1" customClass="CircularProgressBarView" customModule="Sunwise" customModuleProvider="target">
                                                                 <rect key="frame" x="101.66666666666669" y="102.33333333333334" width="170" height="170.00000000000003"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Emoticon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cC6-r8-nVB">
+                                                                        <rect key="frame" x="23.999999999999986" y="67" width="122.00000000000001" height="36"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
                                                                 <constraints>
+                                                                    <constraint firstItem="cC6-r8-nVB" firstAttribute="centerX" secondItem="801-22-gu1" secondAttribute="centerX" id="I67-lX-1l2"/>
+                                                                    <constraint firstItem="cC6-r8-nVB" firstAttribute="centerY" secondItem="801-22-gu1" secondAttribute="centerY" id="dBy-yN-oQo"/>
                                                                     <constraint firstAttribute="height" constant="170" id="mtD-b1-6LH"/>
                                                                     <constraint firstAttribute="width" constant="170" id="nxJ-pb-d4T"/>
                                                                 </constraints>
@@ -114,14 +124,14 @@
                                                         </constraints>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SessionDetailCell" id="t71-X0-ro0" customClass="SessionDetailTableViewCell" customModule="Sunwise" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="50" width="373" height="264"/>
+                                                                <rect key="frame" x="0.0" y="50" width="373" height="268.33334350585938"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="t71-X0-ro0" id="FqZ-A8-BDA">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="373" height="264"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="373" height="268.33334350585938"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WJl-VH-4ty">
-                                                                            <rect key="frame" x="10" y="10" width="353" height="244"/>
+                                                                            <rect key="frame" x="10" y="10.000000000000014" width="353" height="248.33333333333337"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Sunbathe Detail - Session 1:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vBC-dR-0bs">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="353" height="20.333333333333332"/>
@@ -261,7 +271,7 @@
                                                                                     </subviews>
                                                                                 </stackView>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Om2-6b-SwV">
-                                                                                    <rect key="frame" x="0.0" y="182.33333333333334" width="353" height="61.666666666666657"/>
+                                                                                    <rect key="frame" x="0.0" y="182.33333333333334" width="353" height="66"/>
                                                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                                 </view>
                                                                             </subviews>
@@ -332,6 +342,7 @@
                     </view>
                     <connections>
                         <outlet property="circularProgressBarView" destination="801-22-gu1" id="S2Y-TN-cGD"/>
+                        <outlet property="emoticonLabel" destination="cC6-r8-nVB" id="Sx6-3q-t5E"/>
                         <outlet property="heightTableView" destination="ydW-ag-ZMo" id="FsI-0d-MQz"/>
                         <outlet property="progressLabel" destination="10M-ST-3o5" id="w36-Up-ilf"/>
                         <outlet property="sessionLabel" destination="U8h-Ny-XRN" id="19O-5O-BRG"/>

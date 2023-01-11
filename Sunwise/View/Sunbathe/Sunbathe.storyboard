@@ -36,7 +36,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l2P-Pr-fgZ">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6KH-nm-OdM" userLabel="View Scroll">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="955.33333333333337"/>
@@ -111,7 +111,7 @@
                                                                         <rect key="frame" x="0.0" y="0.0" width="184" height="190"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Goal Achieved ✅" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xVK-VM-lSB">
-                                                                                <rect key="frame" x="24.666666666666657" y="74.666666666666686" width="135" height="40.666666666666657"/>
+                                                                                <rect key="frame" x="24.666666666666657" y="74.666666666666629" width="135" height="40.666666666666657"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="135" id="KpA-Pl-vUJ"/>
                                                                                 </constraints>
@@ -235,10 +235,10 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="l2P-Pr-fgZ" secondAttribute="trailing" id="eSR-jb-RbB"/>
-                            <constraint firstAttribute="bottom" secondItem="l2P-Pr-fgZ" secondAttribute="bottom" id="hDQ-7d-vdU"/>
-                            <constraint firstItem="l2P-Pr-fgZ" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="rYD-Tx-fSp"/>
-                            <constraint firstItem="l2P-Pr-fgZ" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="ybS-ZY-aLv"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="l2P-Pr-fgZ" secondAttribute="trailing" id="eSR-jb-RbB"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="l2P-Pr-fgZ" secondAttribute="bottom" id="hDQ-7d-vdU"/>
+                            <constraint firstItem="l2P-Pr-fgZ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="rYD-Tx-fSp"/>
+                            <constraint firstItem="l2P-Pr-fgZ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="ybS-ZY-aLv"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wcP-ZY-Xxn"/>

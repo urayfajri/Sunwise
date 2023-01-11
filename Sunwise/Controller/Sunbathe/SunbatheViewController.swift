@@ -36,7 +36,6 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCal
         super.viewDidLoad()
         getUserInfo()
         initElements()
-        setupCircularProgressBarHistoryView()
         calendar.dataSource = self
         calendar.delegate = self
         
@@ -53,7 +52,7 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCal
         tabBarController?.tabBar.isHidden = false
         getUserInfo()
         initElements()
-        
+        setupCircularProgressBarHistoryView()
         calendar.reloadData()
     }
     

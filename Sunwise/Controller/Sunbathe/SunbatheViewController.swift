@@ -222,26 +222,25 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCal
         let formatter = DateFormatter()
         formatter.dateFormat = "dd-MM-YYYY"
         let selectedDate = formatter.string(from: date)
-        print("\(selectedDate)")
         
         for dailySunbathe in dailySunbathes {
             let dailySunbatheDate = formatter.string(from: dailySunbathe.date!)
             if selectedDate == dailySunbatheDate {
-                //prepare data
-                print("date \(selectedDate) have session ")
                 if let vc = storyboard?.instantiateViewController(identifier: "HistoryDetailSB") as? HistoryDetailViewController {
                     vc.selectedDate = date
                     vc.targetTime = Int(dailySunbathe.target_time)
                     vc.achieveTime = Int(dailySunbathe.achieve_time)
                     vc.sessions = dailySunbathe.sessionArray ?? []
                     self.navigationController?.pushViewController(vc, animated: true)
-                    break
+                    return
                 }
             }
         }
         
-        print("no session at date : \(selectedDate)")
-       
+        if let emptyVC = storyboard?.instantiateViewController(withIdentifier: "HistoryEmptySB") as? HistoryEmptyViewController {
+            emptyVC.selectedDate = date
+            self.navigationController?.pushViewController(emptyVC, animated: true)
+        }
     }
     
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {

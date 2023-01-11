@@ -55,6 +55,8 @@
 		A9F7C091296D6A6F009901B5 /* HistoryDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9F7C090296D6A6F009901B5 /* HistoryDetail.storyboard */; };
 		A9F7C094296D6A91009901B5 /* HistoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F7C093296D6A91009901B5 /* HistoryDetailViewController.swift */; };
 		A9F7C098296D8977009901B5 /* SessionDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F7C097296D8977009901B5 /* SessionDetailTableViewCell.swift */; };
+		A9F7C09A296E79E1009901B5 /* HistoryEmpty.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9F7C099296E79E1009901B5 /* HistoryEmpty.storyboard */; };
+		A9F7C09C296E79F9009901B5 /* HistoryEmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F7C09B296E79F9009901B5 /* HistoryEmptyViewController.swift */; };
 		A9FCBD82295284B500D89546 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FCBD81295284B500D89546 /* WeatherModel.swift */; };
 		A9FCBD862952B43800D89546 /* ProtectionSelected.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9FCBD852952B43800D89546 /* ProtectionSelected.xib */; };
 		A9FCBD882952B48600D89546 /* ProtectionSelected.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FCBD872952B48600D89546 /* ProtectionSelected.swift */; };
@@ -136,6 +138,8 @@
 		A9F7C090296D6A6F009901B5 /* HistoryDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HistoryDetail.storyboard; sourceTree = "<group>"; };
 		A9F7C093296D6A91009901B5 /* HistoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailViewController.swift; sourceTree = "<group>"; };
 		A9F7C097296D8977009901B5 /* SessionDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDetailTableViewCell.swift; sourceTree = "<group>"; };
+		A9F7C099296E79E1009901B5 /* HistoryEmpty.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HistoryEmpty.storyboard; sourceTree = "<group>"; };
+		A9F7C09B296E79F9009901B5 /* HistoryEmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryEmptyViewController.swift; sourceTree = "<group>"; };
 		A9FCBD81295284B500D89546 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		A9FCBD852952B43800D89546 /* ProtectionSelected.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProtectionSelected.xib; sourceTree = "<group>"; };
 		A9FCBD872952B48600D89546 /* ProtectionSelected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectionSelected.swift; sourceTree = "<group>"; };
@@ -448,6 +452,7 @@
 			isa = PBXGroup;
 			children = (
 				A9F7C090296D6A6F009901B5 /* HistoryDetail.storyboard */,
+				A9F7C099296E79E1009901B5 /* HistoryEmpty.storyboard */,
 			);
 			path = "History Detail";
 			sourceTree = "<group>";
@@ -457,6 +462,7 @@
 			children = (
 				A9F7C093296D6A91009901B5 /* HistoryDetailViewController.swift */,
 				A9F7C097296D8977009901B5 /* SessionDetailTableViewCell.swift */,
+				A9F7C09B296E79F9009901B5 /* HistoryEmptyViewController.swift */,
 			);
 			path = "History Detail";
 			sourceTree = "<group>";
@@ -632,6 +638,7 @@
 				2023BF98294FC33000972E36 /* Sunbathe.storyboard in Resources */,
 				A9FCBD862952B43800D89546 /* ProtectionSelected.xib in Resources */,
 				A9D26E932952BB8E0015E79D /* WeatherTableViewCell.xib in Resources */,
+				A9F7C09A296E79E1009901B5 /* HistoryEmpty.storyboard in Resources */,
 				2023BF9A294FC34900972E36 /* Weather.storyboard in Resources */,
 				A9F7C091296D6A6F009901B5 /* HistoryDetail.storyboard in Resources */,
 				A9FCBD922952B64200D89546 /* UVSelected.xib in Resources */,
@@ -792,6 +799,7 @@
 				20D98E33295F8325005D165A /* GoalSettingViewController.swift in Sources */,
 				200D597F296CCB1300BBA254 /* DailySunbathe+CoreDataProperties.swift in Sources */,
 				200D5981296CCB1300BBA254 /* Session+CoreDataProperties.swift in Sources */,
+				A9F7C09C296E79F9009901B5 /* HistoryEmptyViewController.swift in Sources */,
 				200D597E296CCB1300BBA254 /* DailySunbathe+CoreDataClass.swift in Sources */,
 				2084840229517FE90044F23A /* UserDefaultExtension.swift in Sources */,
 				200D597C296CCB1300BBA254 /* User+CoreDataClass.swift in Sources */,

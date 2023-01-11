@@ -234,6 +234,7 @@
                         <outlet property="startSunbathe" destination="qw2-jz-cXU" id="KZn-hH-wqC"/>
                         <outlet property="uvCurrentView" destination="Qe9-aK-cKE" id="Atf-wg-hJ0"/>
                         <segue destination="PiX-k0-WWe" kind="show" id="WQ8-Ep-gDJ"/>
+                        <segue destination="ENb-jI-5km" kind="show" id="syA-x7-faV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -256,6 +257,16 @@
             </objects>
             <point key="canvasLocation" x="882" y="166"/>
         </scene>
+        <!--HistoryEmpty-->
+        <scene sceneID="2Nm-bC-deo">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="HistoryEmptySB" storyboardName="HistoryEmpty" id="ENb-jI-5km" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Lte-mo-j0P"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m24-jH-Ig0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-298" y="425"/>
+        </scene>
         <!--HistoryDetail-->
         <scene sceneID="y36-cr-mHF">
             <objects>
@@ -264,7 +275,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tov-lz-PDz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="886" y="425"/>
+            <point key="canvasLocation" x="398" y="425"/>
         </scene>
     </scenes>
     <resources>

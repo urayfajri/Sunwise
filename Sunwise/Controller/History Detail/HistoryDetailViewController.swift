@@ -17,6 +17,7 @@ class HistoryDetailViewController: UIViewController {
     
     @IBOutlet weak var tableViewSessions: UITableView!
     @IBOutlet weak var heightTableView: NSLayoutConstraint!
+    @IBOutlet weak var viewSummary: UIView!
     
     var selectedDate = Date()
     var achieveTime = 0
@@ -28,6 +29,7 @@ class HistoryDetailViewController: UIViewController {
         setupDateTitle()
         displayHistoryDetail()
         setupCircularProgressBarHistoryView()
+        setupRoundCornerView()
         // Do any additional setup after loading the view.
     }
     
@@ -36,6 +38,7 @@ class HistoryDetailViewController: UIViewController {
         tabBarController?.tabBar.isHidden = true
         self.tableViewSessions.addObserver(self, forKeyPath: "contentSize", options: .new,  context: nil)
         self.tableViewSessions.reloadData()
+        setupNavigationView()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -58,6 +61,45 @@ class HistoryDetailViewController: UIViewController {
         let valueProgress = Float(achieveTime) / Float(targetTime)
         circularProgressBarView.progressAnimation(duration: 0.1, value: valueProgress)
         
+    }
+    
+    func setupRoundCornerView() {
+        viewSummary.layer.cornerRadius = 10
+    }
+    
+    func setupNavigationView() {
+        let newNavBarAppearance = customNavbarAppearance()
+        navigationController!.navigationBar.scrollEdgeAppearance = newNavBarAppearance
+        navigationController?.navigationBar.standardAppearance = newNavBarAppearance
+        navigationController?.navigationBar.tintColor = UIColor(named: "LB-mainText")
+    }
+    
+    func customNavbarAppearance() -> UINavigationBarAppearance {
+        let customNavBarAppearance = UINavigationBarAppearance()
+        
+        //adding the background
+        customNavBarAppearance.configureWithOpaqueBackground()
+        customNavBarAppearance.backgroundColor = UIColor(named: "TN-BG-mainYellow")
+        
+        //title color
+        customNavBarAppearance.titleTextAttributes = [.foregroundColor: UIColor(named: "LB-mainText")!]
+        
+        //button color
+        let barButtonItemAppearance = UIBarButtonItemAppearance(style: .plain)
+        barButtonItemAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor(named: "LB-mainText")!]
+        customNavBarAppearance.buttonAppearance = barButtonItemAppearance
+        
+        return customNavBarAppearance
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        if #available(iOS 13.0, *) {
+            if self.traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
+               setupCircularProgressBarHistoryView()
+            }
+        }
     }
     
     public func setupDateTitle() {

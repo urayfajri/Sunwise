@@ -346,6 +346,7 @@
                         <outlet property="sessionLabel" destination="U8h-Ny-XRN" id="19O-5O-BRG"/>
                         <outlet property="statementLabel" destination="n3r-ZT-7D2" id="2x7-QH-svn"/>
                         <outlet property="tableViewSessions" destination="Psb-sH-hry" id="asr-0q-gzP"/>
+                        <outlet property="viewSummary" destination="Ei2-EK-cDZ" id="hEW-JZ-eYR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

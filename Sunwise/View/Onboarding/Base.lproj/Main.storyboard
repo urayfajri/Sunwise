@@ -59,7 +59,9 @@
                                 </constraints>
                                 <color key="tintColor" name="CL-mainRed"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Set Skin Profile"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Set Skin Profile">
+                                    <color key="baseBackgroundColor" name="CL-mainRed"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="setSkinProfileButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8JU-No-X1A"/>
                                 </connections>

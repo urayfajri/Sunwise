@@ -13,6 +13,7 @@ class HistoryDetailViewController: UIViewController {
     @IBOutlet weak var statementLabel: UILabel!
     @IBOutlet weak var sessionLabel: UILabel!
     @IBOutlet weak var circularProgressBarView: CircularProgressBarView!
+    @IBOutlet weak var emoticonLabel: UILabel!
     
     @IBOutlet weak var tableViewSessions: UITableView!
     @IBOutlet weak var heightTableView: NSLayoutConstraint!
@@ -56,6 +57,7 @@ class HistoryDetailViewController: UIViewController {
         circularProgressBarView.createCircularPath()
         let valueProgress = Float(achieveTime) / Float(targetTime)
         circularProgressBarView.progressAnimation(duration: 0.1, value: valueProgress)
+        
     }
     
     public func setupDateTitle() {
@@ -66,7 +68,7 @@ class HistoryDetailViewController: UIViewController {
     }
     
     func displayHistoryDetail() {
-        progressLabel.text = "\(convertSecondsToMin(seconds: achieveTime))/\(convertSecondsToMin(seconds: targetTime)) min"
+        progressLabel.text = "\(convertSecondsToMin(seconds: achieveTime)) / \(convertSecondsToMin(seconds: targetTime)) min"
         sessionLabel.text = "\(sessions.count)"
         statementLabel.text = "\"\(getStatementLabel(achiveTime: achieveTime, targetTime: targetTime))\""
     }
@@ -80,15 +82,20 @@ class HistoryDetailViewController: UIViewController {
         let value = Float(achiveTime)/Float(targetTime)
         switch value {
         case 0..<0.3:
-            return "Good start, try better next time 😄"
+            emoticonLabel.text = "😄"
+            return "Good start, try better next time!"
         case 0.3..<0.5:
-            return "Don't give up to try your best next time ☺️"
+            emoticonLabel.text = "☺️"
+            return "Don't give up to try your best next time!"
         case 0.5..<0.8:
-            return "Half way there, keep improving 🤗"
+            emoticonLabel.text = "🤗"
+            return "You have made more than half, keep improving!"
         case 0.8..<1.0:
-            return "Great, you are almost there 😍"
+            emoticonLabel.text = "🤩"
+            return "You are almost there, you can do it!"
         case 1.0...:
-            return "Goal Achieved ✅, Congratulations on closing the ring 🥳🤩"
+            emoticonLabel.text = "✅"
+            return "Goal Achieved, Congratulations on closing the ring 🥳"
         default:
             return ""
         }

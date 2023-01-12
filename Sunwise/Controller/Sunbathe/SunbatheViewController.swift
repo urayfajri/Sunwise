@@ -18,6 +18,7 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCal
     @IBOutlet weak var startSunbathe: UIButton!
     @IBOutlet weak var calendar: FSCalendar!
     @IBOutlet weak var circularProgressBarView: CircularProgressBarView!
+    @IBOutlet weak var progressStatementLabel: UILabel!
     
     var currentWeather: CurrentWeather?
     var currentLocation: CLLocation?
@@ -109,6 +110,7 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCal
         let targetTime = (todayDailySunbathe?.target_time ?? 0) / 60
         let valueProgress = Float(achieveTime) / Float(targetTime)
         circularProgressBarView.progressAnimation(duration: 0.1, value: valueProgress)
+        progressStatementLabel.text = getStatementLabel(achiveTime: Int(achieveTime), targetTime: Int(targetTime))
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -214,6 +216,24 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCal
         }
     }
     
+    func getStatementLabel(achiveTime: Int, targetTime: Int) -> String {
+        let value = Float(achiveTime)/Float(targetTime)
+        switch value {
+        case 0..<0.3:
+            return "Good start 😄"
+        case 0.3..<0.5:
+            return "Keep Going ☺️"
+        case 0.5..<0.8:
+            return "Better Than Ever 🤩"
+        case 0.8..<1.0:
+            return "Almost there 😍"
+        case 1.0...:
+            return "Goal Achieved ✅"
+        default:
+            return ""
+        }
+    }
+    
     func convertUnixToDate(unix: Int, format: String) -> String {
         let date = Date(timeIntervalSince1970: TimeInterval(unix))
         let dateFormatter = DateFormatter()
@@ -238,7 +258,9 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCal
                     vc.selectedDate = date
                     vc.targetTime = Int(dailySunbathe.target_time)
                     vc.achieveTime = Int(dailySunbathe.achieve_time)
-                    vc.sessions = dailySunbathe.sessionArray ?? []
+                    
+                    let theArraySession = dailySunbathe.sessionArray ?? []
+                    vc.sessions = theArraySession.sorted { $0.start_time! < $1.start_time! }
                     self.navigationController?.pushViewController(vc, animated: true)
                     return
                 }

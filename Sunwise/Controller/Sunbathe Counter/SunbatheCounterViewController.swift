@@ -16,6 +16,7 @@ class SunbatheCounterViewController: UIViewController, CLLocationManagerDelegate
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var goalLabel: UILabel!
     @IBOutlet weak var circularProgressBarView: CircularProgressBarView!
+    @IBOutlet weak var viewCurrentUV: UIView!
     
     var currentWeather: CurrentWeather?
     var currentLocation: CLLocation?
@@ -51,6 +52,7 @@ class SunbatheCounterViewController: UIViewController, CLLocationManagerDelegate
         super.viewDidLoad()
         setupCircularProgressBarView()
         getUserInfo()
+        viewCurrentUV.layer.cornerRadius = 10
         
         let duration = todayDailySunbathe != nil ?
                         ((todayDailySunbathe?.target_time ?? 0) / 60) - ((todayDailySunbathe?.achieve_time ?? 0) / 60)
@@ -494,6 +496,16 @@ class SunbatheCounterViewController: UIViewController, CLLocationManagerDelegate
         let totalseconds = (time.0 * 3600) + (time.1 * 60) + time.2
         let progressValue = Float(TimeInterval(totalseconds) / (goalDuration > 0.0 ? goalDuration : 1))
         circularProgressBarView.progressAnimation(duration: 0.1, value: progressValue)
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        if #available(iOS 13.0, *) {
+            if self.traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
+               setupCircularProgressBarView()
+            }
+        }
     }
     
 }

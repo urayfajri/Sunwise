@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -439,7 +438,7 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="chevron.down" catalog="system" title=" ">
-                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseForegroundColor" name="LB-mainText"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="closeButtonTapped:" destination="lnX-xf-lGQ" eventType="touchUpInside" id="tSj-0U-kaO"/>
@@ -451,7 +450,7 @@
                                     <constraint firstAttribute="height" constant="45" id="baS-cj-WML"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="LB-mainText"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vk2-Li-i5Q">
@@ -463,11 +462,10 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zbe-qU-z1j">
                                                 <rect key="frame" x="0.0" y="0.0" width="153" height="64"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="60"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="LB-mainText"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="Zbe-qU-z1j" firstAttribute="top" secondItem="CU8-iS-ECU" secondAttribute="top" id="IEc-QV-2OA"/>
                                             <constraint firstAttribute="height" constant="64" id="OHV-H6-MpO"/>
@@ -485,7 +483,8 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="plus.circle" catalog="system" title=" ">
-                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" weight="bold"/>
+                                            <color key="baseForegroundColor" name="CL-mainRed"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="addDurationButtonTapped:" destination="lnX-xf-lGQ" eventType="touchUpInside" id="4ek-sv-0QR"/>
@@ -498,7 +497,10 @@
                                             <constraint firstAttribute="width" constant="72" id="k3S-8S-Hpc"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="minus.circle" catalog="system" title=" "/>
+                                        <buttonConfiguration key="configuration" style="plain" image="minus.circle" catalog="system" title=" ">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" weight="bold"/>
+                                            <color key="baseForegroundColor" name="CL-mainRed"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="reduceDurationButtonTapped:" destination="lnX-xf-lGQ" eventType="touchUpInside" id="LWj-43-cek"/>
                                         </connections>
@@ -509,11 +511,10 @@
                                             <constraint firstAttribute="height" constant="34" id="J2O-RL-KIA"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" name="LB-mainText"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="CU8-iS-ECU" firstAttribute="leading" secondItem="YtY-nA-1Xl" secondAttribute="trailing" id="4cu-1L-YDQ"/>
                                     <constraint firstItem="YtY-nA-1Xl" firstAttribute="top" secondItem="Vk2-Li-i5Q" secondAttribute="top" id="8S1-P3-CYE"/>
@@ -536,7 +537,9 @@
                                     <constraint firstAttribute="width" constant="121" id="b0X-jJ-xaq"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="Set Goal"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Set Goal">
+                                    <color key="baseBackgroundColor" name="CL-mainRed"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="setGoalButtonTapped:" destination="lnX-xf-lGQ" eventType="touchUpInside" id="mzF-jo-O0j"/>
                                 </connections>
@@ -546,9 +549,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="VIk-rs-9gS"/>
                                 </constraints>
-                                <string key="text">Every skin is unique and different. You can customize it according to your own preference on your skin's reaction towards the sun. Make sure you don't get sunburned</string>
+                                <string key="text">Every skin is unique and different 🧡. You can customize it according to your own preference on your skin's reaction towards the sun 🤩. Make sure you don't get sunburned❗️</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="LB-mainText"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Based on your skin type (skin type III), it is recommended to get 30 minutes of sun exposure, each day" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MYJ-KO-Xtg">
@@ -557,12 +560,12 @@
                                     <constraint firstAttribute="height" constant="105" id="q2N-M8-gh1"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="LB-mainText"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="X5y-UO-xmt"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BG-mainYellow"/>
                         <constraints>
                             <constraint firstItem="inv-yy-tiK" firstAttribute="leading" secondItem="X5y-UO-xmt" secondAttribute="leading" id="107-4d-703"/>
                             <constraint firstItem="FXR-ee-Ja7" firstAttribute="top" secondItem="X5y-UO-xmt" secondAttribute="top" constant="10" id="AyJ-rw-84L"/>
@@ -614,8 +617,5 @@
         <namedColor name="LB-mainText">
             <color red="0.54100000858306885" green="0.13300000131130219" blue="0.33300000429153442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

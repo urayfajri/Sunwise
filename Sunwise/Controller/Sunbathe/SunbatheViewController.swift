@@ -78,8 +78,7 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCal
 
         if #available(iOS 13.0, *) {
             if self.traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
-               print("change on appearance")
-                setupCircularProgressBarHistoryView()
+               setupCircularProgressBarHistoryView()
             }
         }
     }

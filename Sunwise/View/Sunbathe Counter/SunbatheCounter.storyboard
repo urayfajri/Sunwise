@@ -4,8 +4,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,14 +20,26 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunbathing Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMi-vw-YUh">
                                 <rect key="frame" x="89.666666666666686" y="79" width="214" height="33"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="LB-mainText"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p28-0z-0Qj" customClass="UVCurrent" customModule="Sunwise" customModuleProvider="target">
-                                <rect key="frame" x="10" y="132" width="373" height="60"/>
-                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cqc-nU-htd" userLabel="View Current UV">
+                                <rect key="frame" x="10" y="122" width="373" height="70"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p28-0z-0Qj" customClass="UVCurrent" customModule="Sunwise" customModuleProvider="target">
+                                        <rect key="frame" x="5" y="5" width="363" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="cB6-4Z-u5C"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" name="BG-mainYellow"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="cB6-4Z-u5C"/>
+                                    <constraint firstItem="p28-0z-0Qj" firstAttribute="leading" secondItem="cqc-nU-htd" secondAttribute="leading" constant="5" id="aB3-W8-6Ec"/>
+                                    <constraint firstAttribute="bottom" secondItem="p28-0z-0Qj" secondAttribute="bottom" constant="5" id="bTI-EH-nPj"/>
+                                    <constraint firstItem="p28-0z-0Qj" firstAttribute="top" secondItem="cqc-nU-htd" secondAttribute="top" constant="5" id="e19-1l-41C"/>
+                                    <constraint firstAttribute="trailing" secondItem="p28-0z-0Qj" secondAttribute="trailing" constant="5" id="e5t-2J-2Pr"/>
+                                    <constraint firstItem="p28-0z-0Qj" firstAttribute="centerX" secondItem="cqc-nU-htd" secondAttribute="centerX" id="qxh-O8-Tyj"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aYU-WQ-HrO" customClass="CircularProgressBarView" customModule="Sunwise" customModuleProvider="target">
@@ -40,17 +52,20 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Goal: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VlB-NU-BGg">
                                 <rect key="frame" x="10" y="626" width="373" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="LB-mainText"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OZ3-Iv-u5K">
-                                <rect key="frame" x="103" y="765" width="187" height="28"/>
+                                <rect key="frame" x="103" y="757" width="187" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="187" id="Urg-KJ-7if"/>
-                                    <constraint firstAttribute="height" constant="28" id="jLi-Ur-c6a"/>
+                                    <constraint firstAttribute="height" constant="36" id="jLi-Ur-c6a"/>
                                 </constraints>
+                                <color key="tintColor" name="CL-mainRed"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Finish Sunbathe"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Finish Sunbathe">
+                                    <color key="baseBackgroundColor" name="CL-mainRed"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="finishSunbatheButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Vls-6n-jo8"/>
                                 </connections>
@@ -58,32 +73,30 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j9a-zI-bYh">
                                 <rect key="frame" x="113.33333333333333" y="404" width="166.33333333333337" height="44.333333333333314"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="37"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="LB-mainText"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gGc-rr-H2g" customClass="LocationCurrent" customModule="Sunwise" customModuleProvider="target">
                                 <rect key="frame" x="10" y="202" width="373" height="60"/>
-                                <color key="backgroundColor" systemColor="systemMintColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="49q-zC-eaL"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <color key="backgroundColor" name="BG-lightYellow"/>
                         <constraints>
                             <constraint firstItem="VlB-NU-BGg" firstAttribute="top" secondItem="aYU-WQ-HrO" secondAttribute="bottom" constant="50" id="4Gk-se-8bL"/>
                             <constraint firstItem="HMi-vw-YUh" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="4Ii-kn-p0C"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="VlB-NU-BGg" secondAttribute="trailing" constant="10" id="5sk-XX-Voc"/>
                             <constraint firstItem="j9a-zI-bYh" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="6aU-Vs-RJf"/>
+                            <constraint firstItem="cqc-nU-htd" firstAttribute="top" secondItem="HMi-vw-YUh" secondAttribute="bottom" constant="10" id="E5o-sG-fHn"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="OZ3-Iv-u5K" secondAttribute="bottom" constant="25" id="I2O-O9-3R4"/>
-                            <constraint firstItem="p28-0z-0Qj" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="L93-m8-VXw"/>
-                            <constraint firstItem="gGc-rr-H2g" firstAttribute="top" secondItem="p28-0z-0Qj" secondAttribute="bottom" constant="10" id="MBd-xP-LMi"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="p28-0z-0Qj" secondAttribute="trailing" constant="10" id="NW5-Ti-HSc"/>
-                            <constraint firstItem="p28-0z-0Qj" firstAttribute="top" secondItem="HMi-vw-YUh" secondAttribute="bottom" constant="20" id="Ori-HW-pca"/>
                             <constraint firstItem="VlB-NU-BGg" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="PJv-xM-WqP"/>
-                            <constraint firstItem="p28-0z-0Qj" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="QWV-4P-ws0"/>
+                            <constraint firstItem="gGc-rr-H2g" firstAttribute="top" secondItem="cqc-nU-htd" secondAttribute="bottom" constant="10" id="Vi1-F3-OXp"/>
+                            <constraint firstItem="cqc-nU-htd" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="10" id="X7G-aU-Mfq"/>
                             <constraint firstItem="gGc-rr-H2g" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="dsZ-SV-ccm"/>
+                            <constraint firstAttribute="trailing" secondItem="cqc-nU-htd" secondAttribute="trailing" constant="10" id="f2I-5c-PdL"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="gGc-rr-H2g" secondAttribute="trailing" constant="10" id="f80-Xc-hF3"/>
                             <constraint firstItem="OZ3-Iv-u5K" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="gum-Ka-Nxc"/>
                             <constraint firstItem="VlB-NU-BGg" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="iYf-Hy-8QP"/>
@@ -101,6 +114,7 @@
                         <outlet property="locationCurrentView" destination="gGc-rr-H2g" id="BoZ-G8-FGk"/>
                         <outlet property="timerLabel" destination="j9a-zI-bYh" id="zJ1-u3-Hxi"/>
                         <outlet property="uvCurrentView" destination="p28-0z-0Qj" id="AtA-YO-JMw"/>
+                        <outlet property="viewCurrentUV" destination="cqc-nU-htd" id="c2Y-iB-0Hf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -109,14 +123,17 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemMintColor">
-            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <namedColor name="BG-lightYellow">
+            <color red="1" green="1" blue="0.81599998474121094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BG-mainYellow">
+            <color red="1" green="0.88200002908706665" blue="0.36500000953674316" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="CL-mainRed">
+            <color red="0.86299997568130493" green="0.20800000429153442" blue="0.20800000429153442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="LB-mainText">
+            <color red="0.54100000858306885" green="0.13300000131130219" blue="0.33300000429153442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

@@ -330,11 +330,11 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func setupRoundCornerViews() {
-        viewHourlyForecast.layer.cornerRadius = 15
-        viewProtection.layer.cornerRadius = 15
-        viewWeeklyForecast.layer.cornerRadius = 15
-        viewLocation.layer.cornerRadius = 15
-        viewUVI.layer.cornerRadius = 15
+        viewHourlyForecast.layer.cornerRadius = 10
+        viewProtection.layer.cornerRadius = 10
+        viewWeeklyForecast.layer.cornerRadius = 10
+        viewLocation.layer.cornerRadius = 10
+        viewUVI.layer.cornerRadius = 10
     }
 
 }

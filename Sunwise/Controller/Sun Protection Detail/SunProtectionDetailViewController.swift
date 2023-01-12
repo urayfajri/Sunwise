@@ -285,12 +285,12 @@ class SunProtectionDetailViewController: ViewController {
     }
     
     func setupRoundCorner() {
-        viewSunglasses.layer.cornerRadius = 15
-        viewClothes.layer.cornerRadius = 15
-        viewSunscreen.layer.cornerRadius = 15
-        viewHat.layer.cornerRadius = 15
-        viewShelter.layer.cornerRadius = 15
-        viewIndoor.layer.cornerRadius = 15
+        viewSunglasses.layer.cornerRadius = 10
+        viewClothes.layer.cornerRadius = 10
+        viewSunscreen.layer.cornerRadius = 10
+        viewHat.layer.cornerRadius = 10
+        viewShelter.layer.cornerRadius = 10
+        viewIndoor.layer.cornerRadius = 10
     }
 
 }

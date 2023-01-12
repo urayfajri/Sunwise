@@ -49,6 +49,7 @@ class SunProtectionDetailViewController: ViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         closeModalButton.setTitle("", for: .normal)
+        setupRoundCorner()
         
         guard let uvi = uvi else {
             return
@@ -283,5 +284,13 @@ class SunProtectionDetailViewController: ViewController {
         self.dismiss(animated: true)
     }
     
+    func setupRoundCorner() {
+        viewSunglasses.layer.cornerRadius = 15
+        viewClothes.layer.cornerRadius = 15
+        viewSunscreen.layer.cornerRadius = 15
+        viewHat.layer.cornerRadius = 15
+        viewShelter.layer.cornerRadius = 15
+        viewIndoor.layer.cornerRadius = 15
+    }
 
 }

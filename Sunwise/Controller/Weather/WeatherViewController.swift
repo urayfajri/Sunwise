@@ -62,6 +62,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     @objc func refresh(_ sender: AnyObject) {
         requestWeatherForLocation()
+        setupLocation()
         refreshControl.endRefreshing()
     }
     

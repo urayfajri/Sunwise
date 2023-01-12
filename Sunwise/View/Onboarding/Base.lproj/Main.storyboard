@@ -271,6 +271,32 @@
                         <tabBarAppearance key="standardAppearance">
                             <color key="backgroundColor" name="TN-BG-mainYellow"/>
                             <color key="shadowColor" name="RG-track"/>
+                            <tabBarItemAppearance key="stackedLayoutAppearance">
+                                <tabBarItemStateAppearance key="normal">
+                                    <textAttributes key="titleTextAttributes">
+                                        <color key="textColor" name="TN-LB-unactive"/>
+                                        <color key="textShadowColor" name="TN-LB-unactive"/>
+                                    </textAttributes>
+                                    <color key="iconColor" name="TN-LB-unactive"/>
+                                    <textAttributes key="badgeTextAttributes">
+                                        <color key="textColor" name="TN-LB-unactive"/>
+                                        <color key="textShadowColor" name="TN-LB-unactive"/>
+                                    </textAttributes>
+                                </tabBarItemStateAppearance>
+                                <tabBarItemStateAppearance key="selected">
+                                    <textAttributes key="titleTextAttributes">
+                                        <color key="textColor" name="TN-LB-active"/>
+                                        <color key="textShadowColor" name="TN-LB-active"/>
+                                    </textAttributes>
+                                    <color key="iconColor" name="TN-LB-active"/>
+                                    <textAttributes key="badgeTextAttributes">
+                                        <color key="textColor" name="TN-LB-active"/>
+                                        <color key="textShadowColor" name="TN-LB-active"/>
+                                    </textAttributes>
+                                </tabBarItemStateAppearance>
+                                <tabBarItemStateAppearance key="disabled"/>
+                                <tabBarItemStateAppearance key="focused"/>
+                            </tabBarItemAppearance>
                             <color key="selectionIndicatorTintColor" name="TN-LB-active"/>
                         </tabBarAppearance>
                         <tabBarAppearance key="scrollEdgeAppearance">
@@ -283,7 +309,10 @@
                                         <color key="textShadowColor" name="TN-LB-unactive"/>
                                     </textAttributes>
                                     <color key="iconColor" name="TN-LB-unactive"/>
-                                    <color key="badgeBackgroundColor" name="TN-LB-active"/>
+                                    <textAttributes key="badgeTextAttributes">
+                                        <color key="textColor" name="TN-LB-unactive"/>
+                                        <color key="textShadowColor" name="TN-LB-unactive"/>
+                                    </textAttributes>
                                 </tabBarItemStateAppearance>
                                 <tabBarItemStateAppearance key="selected">
                                     <textAttributes key="titleTextAttributes">
@@ -291,10 +320,9 @@
                                         <color key="textShadowColor" name="TN-LB-active"/>
                                     </textAttributes>
                                     <color key="iconColor" name="TN-LB-active"/>
-                                    <color key="badgeBackgroundColor" name="TN-LB-active"/>
                                     <textAttributes key="badgeTextAttributes">
-                                        <color key="textColor" name="LB-mainText"/>
-                                        <color key="textShadowColor" name="LB-mainText"/>
+                                        <color key="textColor" name="TN-LB-active"/>
+                                        <color key="textShadowColor" name="TN-LB-active"/>
                                     </textAttributes>
                                 </tabBarItemStateAppearance>
                                 <tabBarItemStateAppearance key="disabled"/>

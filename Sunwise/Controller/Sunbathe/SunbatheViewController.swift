@@ -20,6 +20,13 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCal
     @IBOutlet weak var circularProgressBarView: CircularProgressBarView!
     @IBOutlet weak var progressStatementLabel: UILabel!
     
+    @IBOutlet weak var viewCurrentUV: UIView!
+    @IBOutlet weak var viewSunProtection: UIView!
+    @IBOutlet weak var viewProgress: UIView!
+    @IBOutlet weak var viewCalendar: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    let refreshControl = UIRefreshControl()
     var currentWeather: CurrentWeather?
     var currentLocation: CLLocation?
     let locationManager = CLLocationManager()
@@ -35,11 +42,14 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCal
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupRoundCornerWeather()
         getUserInfo()
         initElements()
         calendar.dataSource = self
         calendar.delegate = self
-        
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        scrollView.refreshControl = refreshControl
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -55,6 +65,11 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCal
         initElements()
         setupCircularProgressBarHistoryView()
         calendar.reloadData()
+    }
+    
+    @objc func refresh(_ sender: AnyObject) {
+        requestUviConditionBasedOnLocation()
+        refreshControl.endRefreshing()
     }
     
     func initElements() {
@@ -111,6 +126,13 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCal
         let valueProgress = Float(achieveTime) / Float(targetTime)
         circularProgressBarView.progressAnimation(duration: 0.1, value: valueProgress)
         progressStatementLabel.text = getStatementLabel(achiveTime: Int(achieveTime), targetTime: Int(targetTime))
+    }
+    
+    func setupRoundCornerWeather() {
+        viewCurrentUV.layer.cornerRadius = 10
+        viewSunProtection.layer.cornerRadius = 10
+        viewProgress.layer.cornerRadius = 10
+        viewCalendar.layer.cornerRadius = 10
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

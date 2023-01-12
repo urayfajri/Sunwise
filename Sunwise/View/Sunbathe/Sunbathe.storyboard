@@ -39,10 +39,10 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="666"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6KH-nm-OdM" userLabel="View Scroll">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1016.6666666666666"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1042.6666666666667"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="DgM-7Y-7px" userLabel="Stack View Big">
-                                                <rect key="frame" x="10" y="0.0" width="373" height="1016.6666666666666"/>
+                                                <rect key="frame" x="10" y="0.0" width="373" height="1042.6666666666667"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Halaman Sunbathe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzw-gp-SfB">
                                                         <rect key="frame" x="0.0" y="0.0" width="373" height="50"/>
@@ -53,15 +53,27 @@
                                                         <color key="textColor" name="LB-mainText"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qe9-aK-cKE" customClass="UVCurrent" customModule="Sunwise" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="65" width="373" height="60"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eVR-ek-3dB" userLabel="View Current UV">
+                                                        <rect key="frame" x="0.0" y="65" width="373" height="70"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qe9-aK-cKE" customClass="UVCurrent" customModule="Sunwise" customModuleProvider="target">
+                                                                <rect key="frame" x="5" y="5" width="363" height="60"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="60" id="EzZ-tK-vse"/>
+                                                                </constraints>
+                                                            </view>
+                                                        </subviews>
                                                         <color key="backgroundColor" name="BG-lightYellow"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="60" id="EzZ-tK-vse"/>
+                                                            <constraint firstAttribute="bottom" secondItem="Qe9-aK-cKE" secondAttribute="bottom" constant="5" id="0ZD-Xv-WOl"/>
+                                                            <constraint firstItem="Qe9-aK-cKE" firstAttribute="leading" secondItem="eVR-ek-3dB" secondAttribute="leading" constant="5" id="8jq-RN-Ejh"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Qe9-aK-cKE" secondAttribute="trailing" constant="5" id="eiy-XC-pTc"/>
+                                                            <constraint firstItem="Qe9-aK-cKE" firstAttribute="top" secondItem="eVR-ek-3dB" secondAttribute="top" constant="5" id="q6W-TF-V5T"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RHe-G4-HG0" userLabel="View Sun Protection">
-                                                        <rect key="frame" x="0.0" y="140" width="373" height="242.33333333333337"/>
+                                                        <rect key="frame" x="0.0" y="150" width="373" height="242.33333333333337"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="KWw-Vd-fAY">
                                                                 <rect key="frame" x="0.0" y="10" width="373" height="227.33333333333334"/>
@@ -110,10 +122,10 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RV5-ne-h2W" userLabel="View Progress">
-                                                        <rect key="frame" x="0.0" y="397.33333333333326" width="373" height="240"/>
+                                                        <rect key="frame" x="0.0" y="407.33333333333326" width="373" height="240"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="vaL-7u-Lkv" userLabel="Stack View Start Sunbathe">
-                                                                <rect key="frame" x="10" y="10" width="353" height="220"/>
+                                                                <rect key="frame" x="10" y="10.000000000000057" width="353" height="220"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's Goal:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="crU-Bc-mL2">
                                                                         <rect key="frame" x="0.0" y="0.0" width="353" height="25"/>
@@ -125,7 +137,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="75c-Ik-uyV">
-                                                                        <rect key="frame" x="0.0" y="30.000000000000057" width="353" height="190"/>
+                                                                        <rect key="frame" x="0.0" y="30" width="353" height="190"/>
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nRy-LE-Lch" customClass="CircularProgressBarView" customModule="Sunwise" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="174" height="190"/>
@@ -221,7 +233,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jlI-vx-db2" userLabel="View Calendar">
-                                                        <rect key="frame" x="0.0" y="652.33333333333337" width="373" height="364.33333333333337"/>
+                                                        <rect key="frame" x="0.0" y="662.33333333333337" width="373" height="364.33333333333337"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="fnc-nM-N5m">
                                                                 <rect key="frame" x="10" y="10" width="353" height="344.33333333333331"/>
@@ -278,6 +290,12 @@
                                                             <constraint firstAttribute="trailing" secondItem="fnc-nM-N5m" secondAttribute="trailing" constant="10" id="bcR-BD-CYF"/>
                                                         </constraints>
                                                     </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mxr-fF-L3A">
+                                                        <rect key="frame" x="0.0" y="1041.6666666666667" width="373" height="1"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="1" id="eld-BS-dnK"/>
+                                                        </constraints>
+                                                    </view>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
@@ -317,9 +335,14 @@
                         <outlet property="progressLabel" destination="WXF-Af-3FL" id="iFg-qU-u5U"/>
                         <outlet property="progressStatementLabel" destination="xVK-VM-lSB" id="Bk0-ZD-E7v"/>
                         <outlet property="protectionView" destination="Qhh-dR-ibg" id="6GM-Up-non"/>
+                        <outlet property="scrollView" destination="l2P-Pr-fgZ" id="WxP-5k-5SR"/>
                         <outlet property="seeMoreButton" destination="YR1-y1-b69" id="6GC-qw-zXl"/>
                         <outlet property="startSunbathe" destination="qw2-jz-cXU" id="KZn-hH-wqC"/>
                         <outlet property="uvCurrentView" destination="Qe9-aK-cKE" id="Atf-wg-hJ0"/>
+                        <outlet property="viewCalendar" destination="jlI-vx-db2" id="k8k-2j-OAg"/>
+                        <outlet property="viewCurrentUV" destination="eVR-ek-3dB" id="UFN-42-mfb"/>
+                        <outlet property="viewProgress" destination="RV5-ne-h2W" id="oSk-n1-etO"/>
+                        <outlet property="viewSunProtection" destination="RHe-G4-HG0" id="Vob-4R-qya"/>
                         <segue destination="PiX-k0-WWe" kind="show" id="WQ8-Ep-gDJ"/>
                         <segue destination="ENb-jI-5km" kind="show" id="syA-x7-faV"/>
                     </connections>

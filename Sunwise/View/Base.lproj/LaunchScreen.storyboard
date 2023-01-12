@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cPW-DN-0jD">
-                                <rect key="frame" x="-123.66666666666669" y="289" width="640.33333333333348" height="274"/>
+                                <rect key="frame" x="-123.66666666666669" y="239" width="640.33333333333348" height="274"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="t4D-cy-iZY">
                                         <rect key="frame" x="0.0" y="0.0" width="640.33333333333337" height="250"/>
@@ -38,7 +38,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="BG-mainYellow"/>
                         <constraints>
-                            <constraint firstItem="cPW-DN-0jD" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="CFI-fL-9Tb"/>
+                            <constraint firstItem="cPW-DN-0jD" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-50" id="CFI-fL-9Tb"/>
                             <constraint firstItem="cPW-DN-0jD" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="rLT-Yj-eoY"/>
                         </constraints>
                     </view>

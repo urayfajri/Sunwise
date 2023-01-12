@@ -10,6 +10,7 @@ import CoreLocation
 
 class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet var hourlyForecastView: UICollectionView!
     @IBOutlet var dailyForecastTable: UITableView!
     @IBOutlet var dayLabel: UILabel!
@@ -20,7 +21,13 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet var protectionSelected: ProtectionSelected!
     @IBOutlet var nowButton: UIButton!
     @IBOutlet var seeMoreButton: UIButton!
+    @IBOutlet weak var viewHourlyForecast: UIView!
+    @IBOutlet weak var viewProtection: UIView!
+    @IBOutlet weak var viewWeeklyForecast: UIView!
+    @IBOutlet weak var viewLocation: UIView!
+    @IBOutlet weak var viewUVI: UIView!
     
+    let refreshControl = UIRefreshControl()
     var modelDaily = [DailyWeather]()
     var modelHourly = [HourlyWeather]()
     var modelLocation = [LocationCoordinate]()
@@ -37,11 +44,15 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         hourlyForecastView.register(HourlyCollectionViewCell.nib(), forCellWithReuseIdentifier: HourlyCollectionViewCell.identifier)
         hourlyForecastView.delegate = self
         hourlyForecastView.dataSource = self
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        scrollView.refreshControl = refreshControl
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
+        setupRoundCornerViews()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -49,9 +60,15 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         setupLocation()
     }
 
+    @objc func refresh(_ sender: AnyObject) {
+        requestWeatherForLocation()
+        refreshControl.endRefreshing()
+    }
+    
     @IBAction func nowButtonPressed(_ sender: Any) {
         self.hourlyForecastView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .left, animated: true)
-        getCurrentWeatherView()
+        //self.hourlyForecastView.reloadData()
+        //getCurrentWeatherView()
     }
     
     @IBAction func seeMoreButtonPressed(_ sender: Any) {
@@ -111,6 +128,10 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
                 return
             }
             
+            //MARK: reset before recatch
+            self.modelDaily = [DailyWeather]()
+            self.modelHourly = [HourlyWeather]()
+            
             let enteries = result.daily
             self.modelDaily.append(contentsOf: enteries)
             self.modelHourly = result.hourly
@@ -157,6 +178,8 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
                 return
             }
     
+            //MARK: reset before recatch
+            self.modelLocation = [LocationCoordinate]()
             self.modelLocation = resultLocation
             
             DispatchQueue.main.async {
@@ -190,6 +213,16 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HourlyCollectionViewCell.identifier, for: indexPath) as! HourlyCollectionViewCell
+        
+        let bgView = UIView()
+        if indexPath.row == 0 {
+            bgView.backgroundColor = UIColor(named: "CL-mainRed")
+        } else {
+            bgView.backgroundColor = UIColor(named: "CL-mainOrange")
+        }
+        bgView.layer.cornerRadius = 10
+        cell.selectedBackgroundView = bgView
+        
         cell.configure(with: modelHourly[indexPath.row])
         return cell
     }
@@ -294,6 +327,14 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         default:
             return "cloud"
         }
+    }
+    
+    func setupRoundCornerViews() {
+        viewHourlyForecast.layer.cornerRadius = 15
+        viewProtection.layer.cornerRadius = 15
+        viewWeeklyForecast.layer.cornerRadius = 15
+        viewLocation.layer.cornerRadius = 15
+        viewUVI.layer.cornerRadius = 15
     }
 
 }

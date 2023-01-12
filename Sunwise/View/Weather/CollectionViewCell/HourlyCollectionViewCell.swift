@@ -12,6 +12,7 @@ class HourlyCollectionViewCell: UICollectionViewCell {
     @IBOutlet var symbolText: UILabel!
     @IBOutlet var uVI: UILabel!
     @IBOutlet var hour: UILabel!
+    @IBOutlet weak var viewColor: UIView!
     
     static let identifier = "HourlyCollectionViewCell"
     
@@ -25,9 +26,10 @@ class HourlyCollectionViewCell: UICollectionViewCell {
     }
 
     func configure(with model: HourlyWeather){
-        self.symbolText.text = "UVI"
+        self.symbolText.text = "☀️"
         self.uVI.text = "\(Int(model.uvi))"
         self.hour.text = getTimeForDate(Date(timeIntervalSince1970: Double(model.dt)))
+        self.viewColor.layer.cornerRadius = 5
     }
     
     func getTimeForDate(_ date: Date?) -> String {

@@ -186,6 +186,7 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCal
                 self.uvCurrentView.categoryText.text = "(\(self.getUVCategory(uvi: Int(result.current.uvi))))"
                 self.uvCurrentView.recommendationText.text = "\(self.getUVRecommendation(uvi: Int(result.current.uvi)))"
                 self.protectionView.configureView(uvi: Int(result.current.uvi))
+                self.uVI = Int(result.current.uvi)
             }
         }).resume()
         

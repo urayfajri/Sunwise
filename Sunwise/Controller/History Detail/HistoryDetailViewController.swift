@@ -38,6 +38,7 @@ class HistoryDetailViewController: UIViewController {
         tabBarController?.tabBar.isHidden = true
         self.tableViewSessions.addObserver(self, forKeyPath: "contentSize", options: .new,  context: nil)
         self.tableViewSessions.reloadData()
+        self.tableViewSessions.layoutMargins = .init(top: 0.0, left: 0.1, bottom: 0.0, right: 0.1)
         setupNavigationView()
     }
     
@@ -184,19 +185,19 @@ class HistoryDetailViewController: UIViewController {
 extension HistoryDetailViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sessions.count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "SessionDetailCell", for: indexPath) as? SessionDetailTableViewCell {
-            cell.sessionNumberLabel.text = "Sunbathe Detail - Session \(indexPath.row+1)"
-            cell.durationLabel.text = getDurationTimeString(seconds: Int(sessions[indexPath.row].duration))
-            cell.startTimeLabel.text = getHrMinSecByDotFormat(date: sessions[indexPath.row].start_time ?? Date())
-            cell.finishTimeLabel.text = getHrMinSecByDotFormat(date: sessions[indexPath.row].finish_time ?? Date())
-            cell.uviLabel.text = "\(Int(sessions[indexPath.row].uv_index))"
-            cell.tempLabel.text = "\(Int(sessions[indexPath.row].temp))°C"
-            cell.weatherIcon.image = UIImage(systemName: getConditionWeatherId(id: Int(sessions[indexPath.row].weather_id)))
-            cell.locationLabel.text = sessions[indexPath.row].location
+            cell.sessionNumberLabel.text = "Sunbathe Detail - Session \(indexPath.section+1)"
+            cell.durationLabel.text = getDurationTimeString(seconds: Int(sessions[indexPath.section].duration))
+            cell.startTimeLabel.text = getHrMinSecByDotFormat(date: sessions[indexPath.section].start_time ?? Date())
+            cell.finishTimeLabel.text = getHrMinSecByDotFormat(date: sessions[indexPath.section].finish_time ?? Date())
+            cell.uviLabel.text = "\(Int(sessions[indexPath.section].uv_index))"
+            cell.tempLabel.text = "\(Int(sessions[indexPath.section].temp))°C"
+            cell.weatherIcon.image = UIImage(systemName: getConditionWeatherId(id: Int(sessions[indexPath.section].weather_id)))
+            cell.locationLabel.text = sessions[indexPath.section].location
             return cell
         }
         return UITableViewCell()
@@ -210,4 +211,11 @@ extension HistoryDetailViewController: UITableViewDelegate, UITableViewDataSourc
         return UITableView.automaticDimension
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sessions.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 5.0
+    }
 }

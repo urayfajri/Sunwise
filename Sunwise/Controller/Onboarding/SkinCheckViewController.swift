@@ -23,6 +23,7 @@ class SkinCheckViewController: UIViewController, AVCaptureVideoDataOutputSampleB
     @IBOutlet weak var nextSkinButton: UIButton!
     @IBOutlet weak var skinTypeImage: UIImageView!
     @IBOutlet weak var skinTypeLabel: UILabel!
+    @IBOutlet weak var topView: UIView!
     
     var skinTypes = [SkinType]()
     var fromViewController: String?
@@ -38,6 +39,7 @@ class SkinCheckViewController: UIViewController, AVCaptureVideoDataOutputSampleB
         initSkinType()
         initElementForSkinInfo()
         prepareCamera()
+        setupTopView()
     }
     
 //    override func viewWillAppear(_ animated: Bool) {
@@ -89,6 +91,7 @@ class SkinCheckViewController: UIViewController, AVCaptureVideoDataOutputSampleB
         
         if let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession) as? AVCaptureVideoPreviewLayer {
             self.previewLayer = previewLayer
+            previewLayer.videoGravity = .resizeAspectFill
             self.cameraView.layer.addSublayer(self.previewLayer)
             self.previewLayer.frame = self.cameraView.layer.frame
             captureSession.startRunning()
@@ -183,10 +186,16 @@ class SkinCheckViewController: UIViewController, AVCaptureVideoDataOutputSampleB
         }
     }
     
+    func setupTopView() {
+        topView.alpha = 0.7
+        topView.layer.cornerRadius = 10
+    }
+    
     func initElementForSkinInfo() {
         if(!skinTypes.isEmpty && user == nil) {
             skinTypeLabel.text = skinTypes[0].name
             skinTypeImage.image = UIImage(named:"SkinType1")
+            skinInfoView.backgroundColor = UIColor(named: "SkinType1")
         }
         
         // if user want to swipe
@@ -223,24 +232,31 @@ class SkinCheckViewController: UIViewController, AVCaptureVideoDataOutputSampleB
             case "Skin Type I":
                 skinTypeLabel.text = "Skin Type II"
                 skinTypeImage.image = UIImage(named:"SkinType2")
+                skinInfoView.backgroundColor = UIColor(named: "SkinType2")
             case "Skin Type II":
                 skinTypeLabel.text = "Skin Type III"
                 skinTypeImage.image = UIImage(named:"SkinType3")
+                skinInfoView.backgroundColor = UIColor(named: "SkinType3")
             case "Skin Type III":
                 skinTypeLabel.text = "Skin Type IV"
                 skinTypeImage.image = UIImage(named:"SkinType4")
+                skinInfoView.backgroundColor = UIColor(named: "SkinType4")
             case "Skin Type IV":
                 skinTypeLabel.text = "Skin Type V"
                 skinTypeImage.image = UIImage(named:"SkinType5")
+                skinInfoView.backgroundColor = UIColor(named: "SkinType5")
             case "Skin Type V":
                 skinTypeLabel.text = "Skin Type VI"
                 skinTypeImage.image = UIImage(named:"SkinType6")
+                skinInfoView.backgroundColor = UIColor(named: "SkinType6")
             case "Skin Type VI":
                 skinTypeLabel.text = "Skin Type I"
                 skinTypeImage.image = UIImage(named:"SkinType1")
+                skinInfoView.backgroundColor = UIColor(named: "SkinType1")
             default:
                 skinTypeLabel.text = "Skin Type"
                 skinTypeImage.image = UIImage(named:"SkinType1")
+                skinInfoView.backgroundColor = UIColor(named: "SkinType1")
         }
     }
     
@@ -250,24 +266,31 @@ class SkinCheckViewController: UIViewController, AVCaptureVideoDataOutputSampleB
             case "Skin Type I":
                 skinTypeLabel.text = "Skin Type VI"
                 skinTypeImage.image = UIImage(named:"SkinType6")
+                skinInfoView.backgroundColor = UIColor(named: "SkinType6")
             case "Skin Type II":
                 skinTypeLabel.text = "Skin Type I"
                 skinTypeImage.image = UIImage(named:"SkinType1")
+                skinInfoView.backgroundColor = UIColor(named: "SkinType1")
             case "Skin Type III":
                 skinTypeLabel.text = "Skin Type II"
                 skinTypeImage.image = UIImage(named:"SkinType2")
+                skinInfoView.backgroundColor = UIColor(named: "SkinType2")
             case "Skin Type IV":
                 skinTypeLabel.text = "Skin Type III"
                 skinTypeImage.image = UIImage(named:"SkinType3")
+                skinInfoView.backgroundColor = UIColor(named: "SkinType3")
             case "Skin Type V":
                 skinTypeLabel.text = "Skin Type IV"
                 skinTypeImage.image = UIImage(named:"SkinType4")
+                skinInfoView.backgroundColor = UIColor(named: "SkinType4")
             case "Skin Type VI":
                 skinTypeLabel.text = "Skin Type V"
                 skinTypeImage.image = UIImage(named:"SkinType5")
+                skinInfoView.backgroundColor = UIColor(named: "SkinType5")
             default:
                 skinTypeLabel.text = "Skin Type"
                 skinTypeImage.image = UIImage(named:"SkinType1")
+                skinInfoView.backgroundColor = UIColor(named: "SkinType1")
         }
     }
     
@@ -323,24 +346,31 @@ class SkinCheckViewController: UIViewController, AVCaptureVideoDataOutputSampleB
             case "Skin Type I":
                 skinTypeLabel.text = "Skin Type I"
                 skinTypeImage.image = UIImage(named:"SkinType1")
+                skinInfoView.backgroundColor = UIColor(named: "SkinType1")
             case "Skin Type II":
                 skinTypeLabel.text = "Skin Type II"
                 skinTypeImage.image = UIImage(named:"SkinType2")
+                skinInfoView.backgroundColor = UIColor(named: "SkinType2")
             case "Skin Type III":
                 skinTypeLabel.text = "Skin Type III"
                 skinTypeImage.image = UIImage(named:"SkinType3")
+                skinInfoView.backgroundColor = UIColor(named: "SkinType3")
             case "Skin Type IV":
                 skinTypeLabel.text = "Skin Type IV"
                 skinTypeImage.image = UIImage(named:"SkinType4")
+                skinInfoView.backgroundColor = UIColor(named: "SkinType4")
             case "Skin Type V":
                 skinTypeLabel.text = "Skin Type V"
                 skinTypeImage.image = UIImage(named:"SkinType5")
+                skinInfoView.backgroundColor = UIColor(named: "SkinType5")
             case "Skin Type VI":
                 skinTypeLabel.text = "Skin Type VI"
                 skinTypeImage.image = UIImage(named:"SkinType6")
+                skinInfoView.backgroundColor = UIColor(named: "SkinType6")
             default:
                 skinTypeLabel.text = "Skin Type"
                 skinTypeImage.image = UIImage(named:"SkinType1")
+                skinInfoView.backgroundColor = UIColor(named: "SkinType1")
         }
     }
     

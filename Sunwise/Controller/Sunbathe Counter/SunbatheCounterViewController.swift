@@ -15,6 +15,8 @@ class SunbatheCounterViewController: UIViewController, CLLocationManagerDelegate
     @IBOutlet weak var finishSunbatheButton: UIButton!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var goalLabel: UILabel!
+    @IBOutlet weak var circularProgressBarView: CircularProgressBarView!
+    @IBOutlet weak var viewCurrentUV: UIView!
     
     var currentWeather: CurrentWeather?
     var currentLocation: CLLocation?
@@ -25,21 +27,20 @@ class SunbatheCounterViewController: UIViewController, CLLocationManagerDelegate
     var finishTime: Date?
     var location: String = ""
     var startTime: Date?
-    var temp: Int = 0 //MARK: To int
+    var temp: Int = 0
     var uvi: Int = 0
-    var weather: Int = 0 //MARK: To int (by weather id)
+    var weather: Int = 0
     var savedStartTime = Date()
     var savedFinishedTime = Date()
     
     var timerIsCounting: Bool = false
     var scheduledTimer: Timer!
-    var goalDuration: TimeInterval = 60 //seconds of target MARK: Example 60 seconds target
+    var goalDuration: TimeInterval = 0
     
     let userDefaults = UserDefaults.standard
     let START_TIME_KEY = "startTime"
     let FINISH_TIME_KEY = "stopTime"
     let COUNTING_KEY = "countingKey"
-    let circularProgress = CircularProgressBarView(frame: .zero)
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var user: User?
@@ -49,24 +50,30 @@ class SunbatheCounterViewController: UIViewController, CLLocationManagerDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //MARK: duration and finishTime should still empty / nil
         setupCircularProgressBarView()
         getUserInfo()
-        goalDuration = TimeInterval((user?.sunbath_goal ?? -1) * 60)
-        goalLabel.text = "Goal : \(user?.sunbath_goal ?? -1) min"
+        viewCurrentUV.layer.cornerRadius = 10
+        
+        let duration = todayDailySunbathe != nil ?
+                        ((todayDailySunbathe?.target_time ?? 0) / 60) - ((todayDailySunbathe?.achieve_time ?? 0) / 60)
+                            :
+                        (user?.sunbath_goal ?? 0)
+        goalDuration = TimeInterval(duration * 60)
+        print("goal duration: ", goalDuration)
         
         startTime = userDefaults.object(forKey: START_TIME_KEY) as? Date
         finishTime = userDefaults.object(forKey: FINISH_TIME_KEY) as? Date
         timerIsCounting = userDefaults.bool(forKey: COUNTING_KEY)
         
-        
-        let sunbatheGoalDaily = String(user?.sunbath_goal ?? 0)
-        goalLabel.text = "Goal: \(sunbatheGoalDaily) Min"
-        
-        //MARK: START TIMER HERE
+        let sunbatheAchieveTimeToday = (todayDailySunbathe?.achieve_time ?? 0) / 60
+        let sunbatheGoalToday = todayDailySunbathe != nil ? (todayDailySunbathe?.target_time ?? 0) / 60 : user?.sunbath_goal ?? 0
+        if(goalDuration <= 0.0) {
+            goalLabel.text = "Your Have Achieved You \(user?.sunbath_goal ?? -1) min(s) Goal ✅"
+        }
+
         setStartTime(date: Date())
         startTimer()
-        savedStartTime = getlocalDate()
+        savedStartTime = Date()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -96,16 +103,16 @@ class SunbatheCounterViewController: UIViewController, CLLocationManagerDelegate
         let alertConfirmation = UIAlertController(title: "Finish Sunbathe?", message: "Are you sure you want to finish your sunbath session?", preferredStyle: .alert)
         
         alertConfirmation.addAction(UIAlertAction(title: "Finish", style: .default, handler: { action in
-            self.savedFinishedTime = self.getlocalDate()
+            self.savedFinishedTime = Date()
             let durationInSeconds = self.savedFinishedTime.timeIntervalSinceReferenceDate - self.savedStartTime.timeIntervalSinceReferenceDate
-            //MARK: CORE DATA IS CREATED IN HERE ONLY AFTER FINISH BUTTON IS PRESSED
+          
             print("\n===== SESSION CREATED WITH DATA =====")
             print("location : \(self.location)")
-            print("weatherID : \(self.weather)") //MARK: to Int (by wheather id, not name)
-            print("temp : \(self.temp)") //MARK: to Int
+            print("weatherID : \(self.weather)")
+            print("temp : \(self.temp)")
             print("uvi : \(self.uvi)")
-            print("start time: \(self.savedStartTime)")
-            print("finish time: \(self.savedFinishedTime)")
+            print("start time: \(self.savedStartTime)") //MARK: Ignore the local time here (only in terminal, in actual device and simulator working fine)
+            print("finish time: \(self.savedFinishedTime)") //MARK: Ignore the local time here (only in terminal, in actual device and simulator working fine)
             print("target time: \(self.goalDuration)")
             print("duration in seconds: \(durationInSeconds)\n===============\n")
             
@@ -161,7 +168,7 @@ class SunbatheCounterViewController: UIViewController, CLLocationManagerDelegate
             self.setFinishTime(date: nil)
             self.setStartTime(date: nil)
             self.timerLabel.text = self.makeTimeString(hour: 0, min: 0, sec: 0)
-            self.circularProgress.progressAnimation(duration: 1, value: 0)
+            self.circularProgressBarView.progressAnimation(duration: 1, value: 0)
             self.finishTimer()
             self.dismiss(animated: true)
         }))
@@ -252,7 +259,7 @@ class SunbatheCounterViewController: UIViewController, CLLocationManagerDelegate
     }
     
     
-    //MARK: CORE LOCATION
+    //MARK: - CORE LOCATION
     func setupLocation(){
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
@@ -392,9 +399,9 @@ class SunbatheCounterViewController: UIViewController, CLLocationManagerDelegate
     }
     
     func setupCircularProgressBarView() {
-        circularProgress.createCircularPath()
-        circularProgress.center = view.center
-        view.addSubview(circularProgress)
+        circularProgressBarView.createCircularPath()
+        circularProgressBarView.center = view.center
+        view.addSubview(circularProgressBarView)
     }
     
     func startTimer(){
@@ -446,8 +453,17 @@ class SunbatheCounterViewController: UIViewController, CLLocationManagerDelegate
         let time = secondsToHoursMinutesSeconds(val)
         let timeString = makeTimeString(hour: time.0, min: time.1, sec: time.2)
         timerLabel.text = timeString
+        let durationPerMinute = Int32(val/60)
+        let sunbatheAchieveTimeToday = (todayDailySunbathe?.achieve_time ?? 0) / 60
+        let durationAchieveTimeTotal = sunbatheAchieveTimeToday+durationPerMinute
+        
+        let sunbatheGoalToday = todayDailySunbathe != nil ? (todayDailySunbathe?.target_time ?? 0) / 60 : user?.sunbath_goal ?? 0
+        
         if Int(goalDuration) == val {
             self.goalLabel.text = "Your Have Achieved You \(user?.sunbath_goal ?? -1) min(s) Goal ✅"
+        } else if (val % 60 == 0 && ((sunbatheGoalToday - durationAchieveTimeTotal) > 0)) {
+            
+            goalLabel.text = "Progress : \(durationAchieveTimeTotal) / \(sunbatheGoalToday) Min"
         }
     }
     
@@ -470,25 +486,26 @@ class SunbatheCounterViewController: UIViewController, CLLocationManagerDelegate
     
     //MARK: - Ring Animation
     func setUpCircularProgressBarView(){
-        circularProgress.createCircularPath()
-        circularProgress.center = view.center
-        view.addSubview(circularProgress)
+        circularProgressBarView.createCircularPath()
+        circularProgressBarView.center = view.center
+        view.addSubview(circularProgressBarView)
     }
     
     func setRingAnimation(_ val: Int) {
         let time = secondsToHoursMinutesSeconds(val)
         let totalseconds = (time.0 * 3600) + (time.1 * 60) + time.2
-        let progressValue = Float(TimeInterval(totalseconds) / goalDuration)
-        circularProgress.progressAnimation(duration: 0.1, value: progressValue)
+        let progressValue = Float(TimeInterval(totalseconds) / (goalDuration > 0.0 ? goalDuration : 1))
+        circularProgressBarView.progressAnimation(duration: 0.1, value: progressValue)
     }
     
-    func getlocalDate()-> Date {
-        let nowUTC = Date()
-        let timeZoneOffSet = Double(TimeZone.current.secondsFromGMT(for: nowUTC))
-        guard let localDate = Calendar.current.date(byAdding: .second, value: Int(timeZoneOffSet), to: nowUTC) else {
-            return Date()
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        if #available(iOS 13.0, *) {
+            if self.traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
+               setupCircularProgressBarView()
+            }
         }
-        return localDate
     }
     
 }

@@ -19,11 +19,14 @@ class GoalSettingViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     
     var user: User?
+    var todayDailySunbathe: DailySunbathe?
+    var dailySunbathes = [DailySunbathe]()
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        getUserInfo()
         initElements()
     }
     
@@ -115,12 +118,28 @@ class GoalSettingViewController: UIViewController {
     func updateGoal(user: User)
     {
         user.sunbath_goal = Int32(Int(GoalLabel.text ?? "0") ?? 0)
+
+        updateTargetTimeDailySunbathe(dailySunbathe: todayDailySunbathe, updateTargetTime: user.sunbath_goal * 60)
  
         do{
             
             try context.save()
             
             self.dismiss(animated: true, completion: nil)
+        }
+        catch
+        {
+            
+        }
+    }
+    
+    func updateTargetTimeDailySunbathe(dailySunbathe: DailySunbathe?, updateTargetTime: Int32)
+    {
+        dailySunbathe?.target_time = updateTargetTime
+        
+        do{
+            
+            try context.save()
         }
         catch
         {
@@ -145,6 +164,49 @@ class GoalSettingViewController: UIViewController {
             default:
                 return "10"
         }
+    }
+    
+    
+    func getUserInfo(){
+        do {
+            let users = try context.fetch(User.fetchRequest())
+            if(!users.isEmpty) {
+                user = users[0]
+            }
+            
+            //MARK: Fetch all daily sunbathe data from existing user
+            self.fetchUserDailySunbathe()
+            
+            //MARK: get today daily sunbathe
+            self.getDailySunbatheByDate(selectedDate: Date())
+            
+        }
+        catch {
+            print("error : \(error)")
+        }
+    }
+    
+    func fetchUserDailySunbathe()
+    {
+        if let datas = user?.dailySunbatheArray {
+            dailySunbathes = datas
+        }
+    }
+    
+    func getDailySunbatheByDate(selectedDate: Date) {
+        let dateFormat = DateFormatter()
+        dateFormat.dateStyle = .medium
+        
+        let dateCalendar = dateFormat.string(from: selectedDate)
+        
+        for dailySunbathe in dailySunbathes {
+            let dailySunbatheDate = dateFormat.string(from: dailySunbathe.date!)
+            if(dateCalendar == dailySunbatheDate){
+                todayDailySunbathe = dailySunbathe
+                break
+            }
+        }
+        
     }
     
 }

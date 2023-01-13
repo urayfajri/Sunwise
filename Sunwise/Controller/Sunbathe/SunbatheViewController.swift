@@ -17,7 +17,16 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCal
     @IBOutlet weak var progressLabel: UILabel!
     @IBOutlet weak var startSunbathe: UIButton!
     @IBOutlet weak var calendar: FSCalendar!
+    @IBOutlet weak var circularProgressBarView: CircularProgressBarView!
+    @IBOutlet weak var progressStatementLabel: UILabel!
     
+    @IBOutlet weak var viewCurrentUV: UIView!
+    @IBOutlet weak var viewSunProtection: UIView!
+    @IBOutlet weak var viewProgress: UIView!
+    @IBOutlet weak var viewCalendar: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    let refreshControl = UIRefreshControl()
     var currentWeather: CurrentWeather?
     var currentLocation: CLLocation?
     let locationManager = CLLocationManager()
@@ -27,14 +36,20 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCal
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var user: User?
+    var todayDailySunbathe: DailySunbathe?
     var dailySunbathes = [DailySunbathe]()
     var sessions = [Session]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupRoundCornerWeather()
         getUserInfo()
+        initElements()
         calendar.dataSource = self
         calendar.delegate = self
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        scrollView.refreshControl = refreshControl
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -45,9 +60,33 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCal
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
+        tabBarController?.tabBar.isHidden = false
         getUserInfo()
-        calendar.dataSource = self
-        calendar.delegate = self
+        initElements()
+        setupCircularProgressBarHistoryView()
+        calendar.reloadData()
+    }
+    
+    @objc func refresh(_ sender: AnyObject) {
+        requestUviConditionBasedOnLocation()
+        setupCircularProgressBarHistoryView()
+        refreshControl.endRefreshing()
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        if #available(iOS 13.0, *) {
+            if self.traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
+               setupCircularProgressBarHistoryView()
+            }
+        }
+    }
+    
+    func initElements() {
+        let sunbathGoal = user?.sunbath_goal ?? 0
+        let sunbathCurrentProgressInMinute = (todayDailySunbathe?.achieve_time ?? 0) / 60
+        progressLabel.text = "\(sunbathCurrentProgressInMinute) / \(sunbathGoal) Min"
     }
     
     @IBAction func seeMoreButtonPressed(_ sender: Any) {
@@ -56,8 +95,8 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCal
     }
     
     @IBAction func startSunbathePressed(_ sender: Any) {
-        let controller = SunbatheCounterViewController()
-        present(controller, animated: true, completion: nil)
+//        let controller = SunbatheCounterViewController()
+//        present(controller, animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -66,9 +105,22 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCal
             vc.uvi = uVI
         }
         else if segue.identifier == "sunbatheCounterVC" {
-            let vc = segue.destination as! SunbatheCounterViewController
-            vc.modalPresentationStyle = .fullScreen
-            //MARK: CORE DATA SESSION NEED TO BE CREATED WHEN FINISH BUTTON IN SUNBATH COUNTER IS PRESSED ONLY
+            
+            let alertConfirmation = UIAlertController(title: "Start Sunbathe", message: "Are you sure you want to do sunbathing? this action cannot be cancelled", preferredStyle: .alert)
+            
+            alertConfirmation.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self]_ in
+                
+                let vc = segue.destination as! SunbatheCounterViewController
+                vc.modalPresentationStyle = .fullScreen
+                
+                self.present(vc, animated: true, completion: nil)
+                //MARK: CORE DATA SESSION NEED TO BE CREATED WHEN FINISH BUTTON IN SUNBATH COUNTER IS PRESSED ONLY
+            }))
+            
+            alertConfirmation.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+            
+            self.present(alertConfirmation, animated: true, completion: nil)
+            
         }
     }
     
@@ -76,6 +128,22 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCal
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+    }
+    
+    func setupCircularProgressBarHistoryView() {
+        circularProgressBarView.createCircularPath()
+        let achieveTime = (todayDailySunbathe?.achieve_time ?? 0) / 60
+        let targetTime = (todayDailySunbathe?.target_time ?? 0) / 60
+        let valueProgress = Float(achieveTime) / Float(targetTime)
+        circularProgressBarView.progressAnimation(duration: 0.1, value: valueProgress)
+        progressStatementLabel.text = getStatementLabel(achiveTime: Int(achieveTime), targetTime: Int(targetTime))
+    }
+    
+    func setupRoundCornerWeather() {
+        viewCurrentUV.layer.cornerRadius = 10
+        viewSunProtection.layer.cornerRadius = 10
+        viewProgress.layer.cornerRadius = 10
+        viewCalendar.layer.cornerRadius = 10
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -118,6 +186,7 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCal
                 self.uvCurrentView.categoryText.text = "(\(self.getUVCategory(uvi: Int(result.current.uvi))))"
                 self.uvCurrentView.recommendationText.text = "\(self.getUVRecommendation(uvi: Int(result.current.uvi)))"
                 self.protectionView.configureView(uvi: Int(result.current.uvi))
+                self.uVI = Int(result.current.uvi)
             }
         }).resume()
         
@@ -181,6 +250,24 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCal
         }
     }
     
+    func getStatementLabel(achiveTime: Int, targetTime: Int) -> String {
+        let value = Float(achiveTime)/Float(targetTime)
+        switch value {
+        case 0..<0.3:
+            return "Good start 😄"
+        case 0.3..<0.5:
+            return "Keep Going ☺️"
+        case 0.5..<0.8:
+            return "Better Than Ever 🤩"
+        case 0.8..<1.0:
+            return "Almost there 😍"
+        case 1.0...:
+            return "Goal Achieved ✅"
+        default:
+            return ""
+        }
+    }
+    
     func convertUnixToDate(unix: Int, format: String) -> String {
         let date = Date(timeIntervalSince1970: TimeInterval(unix))
         let dateFormatter = DateFormatter()
@@ -197,7 +284,27 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCal
         let formatter = DateFormatter()
         formatter.dateFormat = "dd-MM-YYYY"
         let selectedDate = formatter.string(from: date)
-        print("\(selectedDate)")
+        
+        for dailySunbathe in dailySunbathes {
+            let dailySunbatheDate = formatter.string(from: dailySunbathe.date!)
+            if selectedDate == dailySunbatheDate {
+                if let vc = storyboard?.instantiateViewController(identifier: "HistoryDetailSB") as? HistoryDetailViewController {
+                    vc.selectedDate = date
+                    vc.targetTime = Int(dailySunbathe.target_time)
+                    vc.achieveTime = Int(dailySunbathe.achieve_time)
+                    
+                    let theArraySession = dailySunbathe.sessionArray ?? []
+                    vc.sessions = theArraySession.sorted { $0.start_time! < $1.start_time! }
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    return
+                }
+            }
+        }
+        
+        if let emptyVC = storyboard?.instantiateViewController(withIdentifier: "HistoryEmptySB") as? HistoryEmptyViewController {
+            emptyVC.selectedDate = date
+            self.navigationController?.pushViewController(emptyVC, animated: true)
+        }
     }
     
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
@@ -209,7 +316,6 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCal
     
         for dailySunbathe in dailySunbathes {
             let dailySunbatheDate = formatter.string(from: dailySunbathe.date!)
-            print(dateCalendar)
             if(dateCalendar == dailySunbatheDate){
                 count += 1
             }
@@ -227,6 +333,9 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCal
             //MARK: Fetch all daily sunbathe data from existing user
             self.fetchUserDailySunbathe()
             
+            //MARK: get today daily sunbathe
+            self.getDailySunbatheByDate(selectedDate: Date())
+            
         }
         catch {
             print("error : \(error)")
@@ -238,5 +347,21 @@ class SunbatheViewController: UIViewController, CLLocationManagerDelegate, FSCal
         if let datas = user?.dailySunbatheArray {
             dailySunbathes = datas
         }
+    }
+    
+    func getDailySunbatheByDate(selectedDate: Date) {
+        let dateFormat = DateFormatter()
+        dateFormat.dateStyle = .medium
+        
+        let dateCalendar = dateFormat.string(from: selectedDate)
+        
+        for dailySunbathe in dailySunbathes {
+            let dailySunbatheDate = dateFormat.string(from: dailySunbathe.date!)
+            if(dateCalendar == dailySunbatheDate){
+                todayDailySunbathe = dailySunbathe
+                break
+            }
+        }
+        
     }
 }

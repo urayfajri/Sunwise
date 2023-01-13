@@ -4,8 +4,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -29,7 +29,7 @@
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cH6-a7-RVp">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="25"/>
-                                    <color key="tintColor" systemColor="labelColor"/>
+                                    <color key="tintColor" name="LB-mainText"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="25" id="i7a-j5-KcO"/>
                                     </constraints>
@@ -40,7 +40,7 @@
                                         <constraint firstAttribute="width" constant="50" id="xy6-fZ-6qj"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                    <nil key="textColor"/>
+                                    <color key="textColor" name="LB-mainText"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
@@ -48,14 +48,13 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="3fY-if-Lxd">
                             <rect key="frame" x="60" y="0.0" width="70" height="47.333333333333336"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                            <nil key="textColor"/>
+                            <color key="textColor" name="LB-mainText"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="x1F-VO-8tg" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="4Vr-V2-E2g"/>
                 <constraint firstItem="x1F-VO-8tg" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ai8-vT-jX8"/>
@@ -65,11 +64,8 @@
         </view>
     </objects>
     <resources>
-        <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="LB-mainText">
+            <color red="0.54100000858306885" green="0.13300000131130219" blue="0.33300000429153442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

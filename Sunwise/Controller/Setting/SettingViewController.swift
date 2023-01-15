@@ -19,7 +19,7 @@ class SettingViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var dailySunbatheGoalLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var skinTypeLabel: UILabel!
-    @IBOutlet weak var skinTypeImage: UIImageView!
+    @IBOutlet weak var skinTypeView: UIView!
     @IBOutlet weak var skinTypeRecommendedSunExposureGoalLabel: UILabel!
     @IBOutlet weak var skinTypeBurnLabel: UILabel!
     @IBOutlet weak var skinTypeTanLabel: UILabel!
@@ -62,6 +62,7 @@ class SettingViewController: UIViewController, CLLocationManagerDelegate {
         locationView.layer.cornerRadius = 10
         notificationView.layer.cornerRadius = 10
         skinProfileView.layer.cornerRadius = 10
+        skinTypeView.layer.cornerRadius = 10
         
         dailySunbatheGoalLabel.text = "\(user?.sunbath_goal ?? 0) Min / Day"
         skinTypeLabel.text = user?.skin_type ?? "-"
@@ -131,43 +132,43 @@ class SettingViewController: UIViewController, CLLocationManagerDelegate {
     func initSkinTypeRespone() {
         switch skinTypeLabel.text {
             case "Skin Type I":
-                skinTypeImage.image = UIImage(named:"SkinType1")
+                skinTypeView.backgroundColor = UIColor(named:"SkinType1")
                 skinTypeRecommendedSunExposureGoalLabel.text = "10 Min / Day"
                 skinTypeBurnLabel.text = "Easily, Severely (Painful Burn)"
                 skinTypeTanLabel.text = "Little or none"
                 skinTypePeelLabel.text = "Yes"
             case "Skin Type II":
-                skinTypeImage.image = UIImage(named:"SkinType2")
+                skinTypeView.backgroundColor = UIColor(named:"SkinType2")
                 skinTypeRecommendedSunExposureGoalLabel.text = "20 Min / Day"
                 skinTypeBurnLabel.text = "Easily, Severely (Painful Burn)"
                 skinTypeTanLabel.text = "Minimally or lightly"
                 skinTypePeelLabel.text = "Yes"
             case "Skin Type III":
-                skinTypeImage.image = UIImage(named:"SkinType3")
+                skinTypeView.backgroundColor = UIColor(named:"SkinType3")
                 skinTypeRecommendedSunExposureGoalLabel.text = "30 Min / Day"
                 skinTypeBurnLabel.text = "Burns Moderately"
                 skinTypeTanLabel.text = "Easily"
                 skinTypePeelLabel.text = "No"
             case "Skin Type IV":
-                skinTypeImage.image = UIImage(named:"SkinType4")
+                skinTypeView.backgroundColor = UIColor(named:"SkinType4")
                 skinTypeRecommendedSunExposureGoalLabel.text = "40 Min / Day"
                 skinTypeBurnLabel.text = "Burns Minimally"
                 skinTypeTanLabel.text = "Easily"
                 skinTypePeelLabel.text = "No"
             case "Skin Type V":
-                skinTypeImage.image = UIImage(named:"SkinType5")
+                skinTypeView.backgroundColor = UIColor(named:"SkinType5")
                 skinTypeRecommendedSunExposureGoalLabel.text = "60 Min / Day"
                 skinTypeBurnLabel.text = "Rarely Burns"
                 skinTypeTanLabel.text = "Easily and substantially"
                 skinTypePeelLabel.text = "No"
             case "Skin Type VI":
-                skinTypeImage.image = UIImage(named:"SkinType6")
+                skinTypeView.backgroundColor = UIColor(named:"SkinType6")
                 skinTypeRecommendedSunExposureGoalLabel.text = "60 Min / Day"
                 skinTypeBurnLabel.text = "Never Burns"
                 skinTypeTanLabel.text = "Profusely"
                 skinTypePeelLabel.text = "No"
             default:
-                skinTypeImage.image = UIImage(named:"SkinType1")
+                skinTypeView.backgroundColor = UIColor(named:"SkinType1")
                 skinTypeRecommendedSunExposureGoalLabel.text = "10 Min / Day"
                 skinTypeBurnLabel.text = "Easily, Severely (Painful Burn)"
                 skinTypeTanLabel.text = "Little or none"
@@ -522,7 +523,7 @@ class SettingViewController: UIViewController, CLLocationManagerDelegate {
     
     func cancelProtectionNotification() {
         let center = UNUserNotificationCenter.current()
-        let identifier = "protection-notification"
+        let identifier = "sun-protection-notification"
         
         center.removePendingNotificationRequests(withIdentifiers: [identifier])
         center.removeDeliveredNotifications(withIdentifiers: [identifier])

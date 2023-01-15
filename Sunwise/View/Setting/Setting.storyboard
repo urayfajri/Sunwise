@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -216,12 +217,13 @@
                                                                 <color key="textColor" name="LB-mainText"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u30-0I-eGx">
-                                                                <rect key="frame" x="169" y="13" width="184" height="38"/>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BXf-YY-5Be">
+                                                                <rect key="frame" x="170" y="15" width="181" height="40"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="38" id="J8C-7n-HF5"/>
+                                                                    <constraint firstAttribute="height" constant="40" id="MTt-vk-Lzc"/>
                                                                 </constraints>
-                                                            </imageView>
+                                                            </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recommended Sun Exposure Goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zjZ-5l-Gs6">
                                                                 <rect key="frame" x="8" y="72.000000000000057" width="237" height="18"/>
                                                                 <constraints>
@@ -322,9 +324,11 @@
                                                         </subviews>
                                                         <color key="backgroundColor" name="BG-lightYellow"/>
                                                         <constraints>
-                                                            <constraint firstItem="u30-0I-eGx" firstAttribute="top" secondItem="4qP-zx-uZt" secondAttribute="top" constant="13" id="0fD-JV-xDp"/>
                                                             <constraint firstAttribute="bottom" secondItem="9qP-v2-X8w" secondAttribute="bottom" constant="22" id="0kV-qu-wtU"/>
                                                             <constraint firstItem="hsV-k1-hH5" firstAttribute="top" secondItem="ss4-zW-NWE" secondAttribute="bottom" constant="3.6699999999999999" id="1kU-cs-dJ5"/>
+                                                            <constraint firstItem="BXf-YY-5Be" firstAttribute="top" secondItem="4qP-zx-uZt" secondAttribute="top" constant="15" id="4Xb-Kd-oxe"/>
+                                                            <constraint firstAttribute="trailing" secondItem="BXf-YY-5Be" secondAttribute="trailing" constant="10" id="7TV-m5-tRN"/>
+                                                            <constraint firstItem="BXf-YY-5Be" firstAttribute="leading" secondItem="4qP-zx-uZt" secondAttribute="leading" constant="170" id="8H3-sM-Kgu"/>
                                                             <constraint firstAttribute="trailing" secondItem="sNR-rE-c4g" secondAttribute="trailing" id="8Jf-wG-hYT"/>
                                                             <constraint firstItem="sNR-rE-c4g" firstAttribute="leading" secondItem="4qP-zx-uZt" secondAttribute="leading" constant="8" id="8NJ-wE-BLj"/>
                                                             <constraint firstItem="LbT-0B-6jb" firstAttribute="top" secondItem="gfG-Cs-U89" secondAttribute="bottom" constant="13" id="A7u-E1-QLP"/>
@@ -342,10 +346,8 @@
                                                             <constraint firstItem="9qP-v2-X8w" firstAttribute="centerX" secondItem="4qP-zx-uZt" secondAttribute="centerX" id="QF3-M2-b3x"/>
                                                             <constraint firstItem="gfG-Cs-U89" firstAttribute="leading" secondItem="4qP-zx-uZt" secondAttribute="leading" constant="8" id="QIR-Jf-enZ"/>
                                                             <constraint firstItem="ss4-zW-NWE" firstAttribute="top" secondItem="4qP-zx-uZt" secondAttribute="top" constant="8" id="Qmw-6a-3bQ"/>
-                                                            <constraint firstAttribute="trailing" secondItem="u30-0I-eGx" secondAttribute="trailing" constant="8" id="VaR-GU-BDY"/>
                                                             <constraint firstItem="H1X-Y4-dhM" firstAttribute="top" secondItem="sNR-rE-c4g" secondAttribute="bottom" constant="13" id="WTp-0Y-vai"/>
                                                             <constraint firstItem="xYb-bF-O3H" firstAttribute="leading" secondItem="4qP-zx-uZt" secondAttribute="leading" constant="8" id="XMz-9o-eUu"/>
-                                                            <constraint firstItem="u30-0I-eGx" firstAttribute="leading" secondItem="hsV-k1-hH5" secondAttribute="trailing" id="ZFo-pE-JSo"/>
                                                             <constraint firstItem="7L9-eN-m5P" firstAttribute="top" secondItem="zjZ-5l-Gs6" secondAttribute="bottom" constant="3" id="aU8-4J-tep"/>
                                                             <constraint firstItem="LbT-0B-6jb" firstAttribute="leading" secondItem="4qP-zx-uZt" secondAttribute="leading" constant="8" id="cvR-jy-aYe"/>
                                                             <constraint firstItem="7L9-eN-m5P" firstAttribute="leading" secondItem="4qP-zx-uZt" secondAttribute="leading" constant="9" id="fe8-O6-BxA"/>
@@ -410,11 +412,11 @@
                         <outlet property="setSkinProfileButton" destination="9qP-v2-X8w" id="Lol-hB-DRn"/>
                         <outlet property="skinProfileView" destination="4qP-zx-uZt" id="zAc-79-MJS"/>
                         <outlet property="skinTypeBurnLabel" destination="gfG-Cs-U89" id="x9t-HD-fso"/>
-                        <outlet property="skinTypeImage" destination="u30-0I-eGx" id="LPG-8c-1CV"/>
                         <outlet property="skinTypeLabel" destination="hsV-k1-hH5" id="6LW-zc-M0e"/>
                         <outlet property="skinTypePeelLabel" destination="hBx-fd-zMw" id="cdZ-bs-PFu"/>
                         <outlet property="skinTypeRecommendedSunExposureGoalLabel" destination="7L9-eN-m5P" id="ura-KT-g9w"/>
                         <outlet property="skinTypeTanLabel" destination="sNR-rE-c4g" id="Tfd-0d-YOC"/>
+                        <outlet property="skinTypeView" destination="BXf-YY-5Be" id="weA-Ui-Z0m"/>
                         <outlet property="sunProtectionSwitch" destination="nvE-j9-rN9" id="Mrr-FS-liH"/>
                     </connections>
                 </viewController>
@@ -617,5 +619,8 @@
         <namedColor name="LB-mainText">
             <color red="0.54100000858306885" green="0.13300000131130219" blue="0.33300000429153442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

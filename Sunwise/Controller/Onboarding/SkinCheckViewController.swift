@@ -122,7 +122,9 @@ class SkinCheckViewController: UIViewController, AVCaptureVideoDataOutputSampleB
             
         }
     
-    
+    @IBAction func buttonCancelTapped(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
     @IBAction func prevSkinButtonTapped(_ sender: Any) {
         skinTypePrevChanged()
     }

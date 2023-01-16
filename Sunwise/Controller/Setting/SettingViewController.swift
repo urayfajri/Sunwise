@@ -251,26 +251,6 @@ class SettingViewController: UIViewController, CLLocationManagerDelegate {
             let enteries = result.daily
             self.modelDaily.append(contentsOf: enteries)
             self.modelHourly = result.hourly
-            
-            // DispatchQueue.main.async {
-                //self.dayLabel.text = self.convertUnixToDate(unix: result.current.dt, format: "EEEE, d MMMM yyyy")
-                //self.sunriseHour.text = self.convertUnixToDate(unix: result.current.sunrise, format: "HH.mm")
-                // self.sunsetHour.text = self.convertUnixToDate(unix: result.current.sunset, format: "HH.mm")
-                
-                // self.uVI = Int(result.current.uvi)
-                
-                // self.uvSelectedView.uviSelectedText.text = "\(Int(result.current.uvi))"
-                // self.uvSelectedView.categoryUviSelectedText.text = "(\(self.getUVCategory(uvi: Int(result.current.uvi))))"
-                // self.uvSelectedView.recommendationText.text = self.getUVRecommendation(uvi: Int(result.current.uvi))
-                
-                // self.locationSelected.weatherIcon.image = UIImage(systemName: "\(self.getConditionWeatherId(id: Int(result.current.weather[0].id)))")
-                // self.locationSelected.temp.text = "\(Int(result.current.temp))°C"
-                
-                // self.protectionSelected.configureView(uvi: Int(result.current.uvi))
-                
-                // self.hourlyForecastView.reloadData()
-                // self.dailyForecastTable.reloadData()
-            // }
         }).resume()
         
         //MARK: User Exact City Precise Location By Coordinates
@@ -360,6 +340,7 @@ class SettingViewController: UIViewController, CLLocationManagerDelegate {
         content.sound = .default
         
         notificationCenter.removePendingNotificationRequests(withIdentifiers: [identifier])
+        notificationCenter.removeDeliveredNotifications(withIdentifiers: [identifier])
         
         for (index, model) in modelHourly.enumerated() {
             if (index < modelHourly.count / 2) {
@@ -381,6 +362,8 @@ class SettingViewController: UIViewController, CLLocationManagerDelegate {
                     var dateComponents = DateComponents(calendar: calendar, timeZone: TimeZone.current)
                     dateComponents.hour = hour
                     dateComponents.minute = minute
+                    
+                    print("safe uvi hour: ", hour)
 
                     let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: isDaily)
                     let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
@@ -400,6 +383,7 @@ class SettingViewController: UIViewController, CLLocationManagerDelegate {
         let notificationCenter = UNUserNotificationCenter.current()
         
         notificationCenter.removePendingNotificationRequests(withIdentifiers: [identifier])
+        notificationCenter.removeDeliveredNotifications(withIdentifiers: [identifier])
         
         // for check hour range based on changed message body
         var currentBody: String = ""
@@ -502,6 +486,8 @@ class SettingViewController: UIViewController, CLLocationManagerDelegate {
                     var dateComponents = DateComponents(calendar: calendar, timeZone: TimeZone.current)
                     dateComponents.hour = hour
                     dateComponents.minute = minute
+                    
+                    print("sun protection uvi hour: ", hour)
 
                     let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: isDaily)
                     let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)

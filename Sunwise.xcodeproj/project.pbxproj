@@ -30,7 +30,6 @@
 		2023BF9E294FFE3D00972E36 /* SunbatheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2023BF9D294FFE3D00972E36 /* SunbatheViewController.swift */; };
 		2023BFA0294FFE4E00972E36 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2023BF9F294FFE4E00972E36 /* WeatherViewController.swift */; };
 		2023BFA2294FFE5C00972E36 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2023BFA1294FFE5C00972E36 /* SettingViewController.swift */; };
-		207B95612958985F00F5CC03 /* SkinTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207B95602958985F00F5CC03 /* SkinTypeModel.swift */; };
 		208309B52958C1D200BEA9D2 /* SunwiseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208309B42958C1D200BEA9D2 /* SunwiseTabBarController.swift */; };
 		208483FF29517CF70044F23A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208483FE29517CF70044F23A /* OnboardingViewController.swift */; };
 		2084840229517FE90044F23A /* UserDefaultExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2084840129517FE90044F23A /* UserDefaultExtension.swift */; };
@@ -110,7 +109,6 @@
 		2023BF9D294FFE3D00972E36 /* SunbatheViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunbatheViewController.swift; sourceTree = "<group>"; };
 		2023BF9F294FFE4E00972E36 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		2023BFA1294FFE5C00972E36 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
-		207B95602958985F00F5CC03 /* SkinTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinTypeModel.swift; sourceTree = "<group>"; };
 		208309B42958C1D200BEA9D2 /* SunwiseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunwiseTabBarController.swift; sourceTree = "<group>"; };
 		208483FE29517CF70044F23A /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		2084840129517FE90044F23A /* UserDefaultExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultExtension.swift; sourceTree = "<group>"; };
@@ -471,7 +469,6 @@
 			isa = PBXGroup;
 			children = (
 				A9FCBD81295284B500D89546 /* WeatherModel.swift */,
-				207B95602958985F00F5CC03 /* SkinTypeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -782,7 +779,6 @@
 				A9F7C094296D6A91009901B5 /* HistoryDetailViewController.swift in Sources */,
 				A9D9A6B1295EE66000717E8D /* LocationCurrent.swift in Sources */,
 				A9D26E922952BB8E0015E79D /* WeatherTableViewCell.swift in Sources */,
-				207B95612958985F00F5CC03 /* SkinTypeModel.swift in Sources */,
 				A9D9A6A6295EB39B00717E8D /* UVCurrent.swift in Sources */,
 				A9FCBD882952B48600D89546 /* ProtectionSelected.swift in Sources */,
 				A9D26E972952BBD50015E79D /* HourlyCollectionViewCell.swift in Sources */,
@@ -990,7 +986,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P7PL5J4AMN;
+				DEVELOPMENT_TEAM = 874S576UUN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Sunwise/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1023,7 +1019,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P7PL5J4AMN;
+				DEVELOPMENT_TEAM = 874S576UUN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Sunwise/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

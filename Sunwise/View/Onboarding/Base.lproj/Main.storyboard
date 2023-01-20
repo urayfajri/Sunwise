@@ -128,13 +128,6 @@
                                                     <action selector="prevSkinButtonTapped:" destination="Gb2-Ua-9Dr" eventType="touchUpInside" id="JAq-Ou-wts"/>
                                                 </connections>
                                             </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ART-ze-H5d">
-                                                <rect key="frame" x="110" y="0.0" width="173" height="60"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="173" id="ZWM-aC-obS"/>
-                                                    <constraint firstAttribute="height" constant="60" id="mvx-LQ-hy6"/>
-                                                </constraints>
-                                            </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skin Type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8jh-zF-jvQ">
                                                 <rect key="frame" x="143.66666666666666" y="80.666666666666629" width="105.66666666666666" height="28.666666666666671"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
@@ -157,14 +150,12 @@
                                         </subviews>
                                         <color key="backgroundColor" name="SkinType1"/>
                                         <constraints>
-                                            <constraint firstItem="ART-ze-H5d" firstAttribute="top" secondItem="wjR-dm-ru7" secondAttribute="top" id="50G-yC-g5V"/>
                                             <constraint firstItem="8jh-zF-jvQ" firstAttribute="centerX" secondItem="wjR-dm-ru7" secondAttribute="centerX" id="GYX-HP-anx"/>
                                             <constraint firstAttribute="trailing" secondItem="8hO-jx-7L6" secondAttribute="trailing" constant="10" id="Oo7-Hp-gce"/>
                                             <constraint firstItem="ePK-RE-47h" firstAttribute="leading" secondItem="wjR-dm-ru7" secondAttribute="leading" constant="10" id="XTC-gJ-dAL"/>
                                             <constraint firstItem="ePK-RE-47h" firstAttribute="centerY" secondItem="wjR-dm-ru7" secondAttribute="centerY" constant="-30" id="Z7v-BV-Pzp"/>
                                             <constraint firstItem="8hO-jx-7L6" firstAttribute="centerY" secondItem="wjR-dm-ru7" secondAttribute="centerY" constant="-30" id="gpP-9T-fgR"/>
                                             <constraint firstItem="8jh-zF-jvQ" firstAttribute="centerY" secondItem="wjR-dm-ru7" secondAttribute="centerY" constant="-30" id="w0y-Ae-8cm"/>
-                                            <constraint firstItem="ART-ze-H5d" firstAttribute="centerX" secondItem="wjR-dm-ru7" secondAttribute="centerX" id="zRr-oJ-o5S"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UJx-zw-5o3">
@@ -239,6 +230,9 @@
                                 <color key="tintColor" name="CL-mainRed"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Cancel"/>
+                                <connections>
+                                    <action selector="buttonCancelTapped:" destination="Gb2-Ua-9Dr" eventType="touchUpInside" id="7Ro-5I-uxV"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
@@ -248,7 +242,6 @@
                         <outlet property="nextSkinButton" destination="8hO-jx-7L6" id="T82-YQ-ENa"/>
                         <outlet property="prevSkinButton" destination="ePK-RE-47h" id="cHt-qs-w8o"/>
                         <outlet property="skinInfoView" destination="wjR-dm-ru7" id="ZLM-7G-xbS"/>
-                        <outlet property="skinTypeImage" destination="ART-ze-H5d" id="qE2-QF-Vf6"/>
                         <outlet property="skinTypeLabel" destination="8jh-zF-jvQ" id="ytr-Mf-RmI"/>
                         <outlet property="topView" destination="GKa-69-wbm" id="CfN-HP-RA0"/>
                     </connections>
@@ -403,7 +396,7 @@
             <color red="0.54100000858306885" green="0.13300000131130219" blue="0.33300000429153442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="SkinType1">
-            <color red="0.95686274509803915" green="0.81568627450980391" blue="0.69019607843137254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.9570000171661377" green="0.81599998474121094" blue="0.68999999761581421" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="TN-BG-mainYellow">
             <color red="1" green="1" blue="0.81599998474121094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

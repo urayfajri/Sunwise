@@ -24,7 +24,7 @@ class SkinCheckViewController: UIViewController, AVCaptureVideoDataOutputSampleB
     @IBOutlet weak var skinTypeLabel: UILabel!
     @IBOutlet weak var topView: UIView!
     
-    var skinTypes = [SkinType]()
+    var skinTypes = [String]()
     var fromViewController: String?
     
     var user: User?
@@ -164,26 +164,24 @@ class SkinCheckViewController: UIViewController, AVCaptureVideoDataOutputSampleB
         
     func initSkinType() {
         for (index) in 1...6 {
-            let id = index
-            let skinType = SkinType()
-            skinType?.id = id
-            switch id {
+            var skin = ""
+            switch index {
                 case 1:
-                skinType?.name = "Skin Type I"
+                skin = "Skin Type I"
                 case 2:
-                skinType?.name = "Skin Type II"
+                skin = "Skin Type II"
                 case 3:
-                skinType?.name = "Skin Type III"
+                skin = "Skin Type III"
                 case 4:
-                skinType?.name = "Skin Type IV"
+                skin = "Skin Type IV"
                 case 5:
-                skinType?.name = "Skin Type V"
+                skin = "Skin Type V"
                 case 6:
-                skinType?.name = "Skin Type VI"
+                skin = "Skin Type VI"
                 default:
-                skinType?.name = "Skin Type"
+                skin = "Skin Type"
             }
-            skinTypes.append(skinType!)
+            skinTypes.append(skin)
         }
     }
     
@@ -194,7 +192,7 @@ class SkinCheckViewController: UIViewController, AVCaptureVideoDataOutputSampleB
     
     func initElementForSkinInfo() {
         if(!skinTypes.isEmpty && user == nil) {
-            skinTypeLabel.text = skinTypes[0].name
+            skinTypeLabel.text = skinTypes[0]
             skinInfoView.backgroundColor = UIColor(named: "SkinType1")
         }
         

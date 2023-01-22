@@ -150,19 +150,19 @@ class GoalSettingViewController: UIViewController {
     func timeRecommendationBySkinType(skinType: String) -> String{
         switch skinType {
             case "Skin Type I":
-                return "10"
+                return "5"
             case "Skin Type II":
-                return "20"
-            case "Skin Type III":
-                return "30"
-            case "Skin Type IV":
-                return "50"
-            case "Skin Type V":
-                return "60"
-            case "Skin Type VI":
-                return "60"
-            default:
                 return "10"
+            case "Skin Type III":
+                return "15"
+            case "Skin Type IV":
+                return "20"
+            case "Skin Type V":
+                return "25"
+            case "Skin Type VI":
+                return "30"
+            default:
+                return "5"
         }
     }
     

@@ -169,7 +169,7 @@ class SettingViewController: UIViewController, CLLocationManagerDelegate {
                 skinTypePeelLabel.text = "No"
             default:
                 skinTypeView.backgroundColor = UIColor(named:"SkinType1")
-                skinTypeRecommendedSunExposureGoalLabel.text = "5 Min / Day"
+                skinTypeRecommendedSunExposureGoalLabel.text = "-5 Min / Day"
                 skinTypeBurnLabel.text = "Easily, Severely (Painful Burn)"
                 skinTypeTanLabel.text = "Little or none"
                 skinTypePeelLabel.text = "Yes"

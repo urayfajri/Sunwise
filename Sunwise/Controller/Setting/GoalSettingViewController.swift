@@ -162,7 +162,7 @@ class GoalSettingViewController: UIViewController {
             case "Skin Type VI":
                 return "30"
             default:
-                return "5"
+                return "-5"
         }
     }
     

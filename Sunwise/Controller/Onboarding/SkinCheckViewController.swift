@@ -288,19 +288,19 @@ class SkinCheckViewController: UIViewController, AVCaptureVideoDataOutputSampleB
         // default sunbath goal
         switch skintype {
             case "Skin Type I":
-                user.sunbath_goal = 10
+                user.sunbath_goal = 5
             case "Skin Type II":
-                user.sunbath_goal = 20
-            case "Skin Type III":
-                user.sunbath_goal = 30
-            case "Skin Type IV":
-                user.sunbath_goal = 40
-            case "Skin Type V":
-                user.sunbath_goal = 60
-            case "Skin Type VI":
-                user.sunbath_goal = 60
-            default:
                 user.sunbath_goal = 10
+            case "Skin Type III":
+                user.sunbath_goal = 15
+            case "Skin Type IV":
+                user.sunbath_goal = 20
+            case "Skin Type V":
+                user.sunbath_goal = 25
+            case "Skin Type VI":
+                user.sunbath_goal = 30
+            default:
+                user.sunbath_goal = 5
         }
         
         do{

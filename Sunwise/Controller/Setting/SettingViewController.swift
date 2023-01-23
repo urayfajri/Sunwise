@@ -133,43 +133,43 @@ class SettingViewController: UIViewController, CLLocationManagerDelegate {
         switch skinTypeLabel.text {
             case "Skin Type I":
                 skinTypeView.backgroundColor = UIColor(named:"SkinType1")
-                skinTypeRecommendedSunExposureGoalLabel.text = "10 Min / Day"
+                skinTypeRecommendedSunExposureGoalLabel.text = "5 Min / Day"
                 skinTypeBurnLabel.text = "Easily, Severely (Painful Burn)"
                 skinTypeTanLabel.text = "Little or none"
                 skinTypePeelLabel.text = "Yes"
             case "Skin Type II":
                 skinTypeView.backgroundColor = UIColor(named:"SkinType2")
-                skinTypeRecommendedSunExposureGoalLabel.text = "20 Min / Day"
+                skinTypeRecommendedSunExposureGoalLabel.text = "10 Min / Day"
                 skinTypeBurnLabel.text = "Easily, Severely (Painful Burn)"
                 skinTypeTanLabel.text = "Minimally or lightly"
                 skinTypePeelLabel.text = "Yes"
             case "Skin Type III":
                 skinTypeView.backgroundColor = UIColor(named:"SkinType3")
-                skinTypeRecommendedSunExposureGoalLabel.text = "30 Min / Day"
+                skinTypeRecommendedSunExposureGoalLabel.text = "15 Min / Day"
                 skinTypeBurnLabel.text = "Burns Moderately"
                 skinTypeTanLabel.text = "Easily"
                 skinTypePeelLabel.text = "No"
             case "Skin Type IV":
                 skinTypeView.backgroundColor = UIColor(named:"SkinType4")
-                skinTypeRecommendedSunExposureGoalLabel.text = "40 Min / Day"
+                skinTypeRecommendedSunExposureGoalLabel.text = "20 Min / Day"
                 skinTypeBurnLabel.text = "Burns Minimally"
                 skinTypeTanLabel.text = "Easily"
                 skinTypePeelLabel.text = "No"
             case "Skin Type V":
                 skinTypeView.backgroundColor = UIColor(named:"SkinType5")
-                skinTypeRecommendedSunExposureGoalLabel.text = "60 Min / Day"
+                skinTypeRecommendedSunExposureGoalLabel.text = "25 Min / Day"
                 skinTypeBurnLabel.text = "Rarely Burns"
                 skinTypeTanLabel.text = "Easily and substantially"
                 skinTypePeelLabel.text = "No"
             case "Skin Type VI":
                 skinTypeView.backgroundColor = UIColor(named:"SkinType6")
-                skinTypeRecommendedSunExposureGoalLabel.text = "60 Min / Day"
+                skinTypeRecommendedSunExposureGoalLabel.text = "30 Min / Day"
                 skinTypeBurnLabel.text = "Never Burns"
                 skinTypeTanLabel.text = "Profusely"
                 skinTypePeelLabel.text = "No"
             default:
                 skinTypeView.backgroundColor = UIColor(named:"SkinType1")
-                skinTypeRecommendedSunExposureGoalLabel.text = "10 Min / Day"
+                skinTypeRecommendedSunExposureGoalLabel.text = "-5 Min / Day"
                 skinTypeBurnLabel.text = "Easily, Severely (Painful Burn)"
                 skinTypeTanLabel.text = "Little or none"
                 skinTypePeelLabel.text = "Yes"
